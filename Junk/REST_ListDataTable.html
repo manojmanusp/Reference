@@ -1,0 +1,124 @@
+ 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js " ></script>
+<script type='text/javascript'>   
+    
+
+$(document).ready(function () {
+    $("#DeltaPlaceHolderMain").append("<div id='dataListDiv'><table width='100' class='display' id='example'></table></div>");
+    getItems(siteUrl);
+    });
+    
+    var siteUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/Web/Lists/GetByTitle('DataList')/Items?$select=*,Field_Person/Title,Field_MultiplePersons/Title,Field_MultipleLookUp/Language,Field_LookUp/State&$expand=Field_LookUp,Field_Person,Field_MultiplePersons,Field_MultipleLookUp";
+    
+
+    function getItems(siteUrl)
+    {
+       
+    $.ajax({
+            
+            url: siteUrl,
+            type: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (data) {
+                console.log("Added");
+                bindDataTable(data.d.results);
+            },
+            error: function (error) {
+                alert(JSON.stringify(error));
+            }
+        });
+
+    }
+
+   
+
+
+    function bindDataTable(results)
+     {
+        
+        var newArray = [];
+        for (var i = 0; i < results.length; i++)
+        {   
+            //For Single Line Field Value      
+            var title = results[i].Title;   
+            var singleLineField = results[i].Field_SingleLine;
+            //For Multi Line field Value       
+            var multiLineField = $(results[i].Field_MultiLine).text();
+            
+            //For Number field Value
+            var numberField = results[i].Field_Number;
+            //For Boolean field Value
+            var booleanField = results[i].Field_Yes_x002f_No;
+            //For Person field Value
+            var personName = results[i].Field_Person.Title;
+            //For Date field Value
+            var dateField = results[i].Field_Date;
+            //For Choice field Value
+            var choiceField = results[i].Field_Choice;
+            //For Hyperlink field Value
+            var hyperlink = "<a href='"+results[i].Field_HyperLink.Url+"' >"+results[i].Field_HyperLink.Url+"</a>";             
+            //For Picture field Value     
+            var pictureField = "<img src='"+results[i].Field_Picture.Url + "' />";       
+            //For Currency field Value 
+            var currencyField = results[i].Field_Currency;
+            //For Calculated field Value
+            var calculatedField = results[i].Field_Calculated;
+            //For TaskOuCome field Value
+            var taskOutComeField =  results[i].Field_TaskOutCome;
+            //For LookUp field Value
+            var lookUpField = results[i].Field_LookUp.State;
+            //For MultiChoices field Value
+            var multiChoices = [];
+            var multiPersons = [];
+            var multipleLookUpValues = [];
+            for(var j=0;j<results[i].Field_MultipleChoices.results.length;j++)
+            {
+                multiChoices.push(results[i].Field_MultipleChoices.results[j]);
+            }
+            
+            for(var j=0;j<results[i].Field_MultiplePersons.results.length;j++)
+            {
+                multiPersons.push(results[i].Field_MultiplePersons.results[j].Title);
+            }
+            for(var j=0;j<results[i].Field_MultipleLookUp.results.length;j++)
+            {
+                multipleLookUpValues.push(results[i].Field_MultipleLookUp.results[j].Language);
+            }
+            var currentItem = new Array(title,singleLineField,multiLineField,numberField,booleanField,personName,dateField,choiceField,hyperlink,pictureField,currencyField,calculatedField,taskOutComeField,lookUpField,multiChoices,multiPersons,multipleLookUpValues);
+     
+            newArray.push(currentItem);
+        }
+              
+    
+        
+            $('#example').DataTable({
+                data: newArray,
+                columns: [
+                    { title: "Title" },
+                    { title: "Field_SingleLine" },                    
+                    { title: "Field_MultiLine" },
+                    { title: "Field_Number" },
+                    { title: "Field_Yes_x002f_No" },
+                    { title: "Field_Person" },
+                    { title: "Field_Date" },
+                    { title: "Field_Choice" },
+                    { title: "Field_HyperLink" },
+                    { title: "Field_Picture"  },       
+                    { title: "Field_Currency" },
+                    { title: "Field_Calculated" },
+                    { title: "Field_TaskOutCome" },
+                    { title: "Field_LookUp" },
+                    { title: "Field_MultipleChoices" },
+                    { title: "Field_MultiplePersons" },
+                    { title: "Field_MultipleLookUp" }
+                ]
+            });
+        }
+  
+</script>
+
+

@@ -1,6 +1,0 @@
-A where clause built up of multiple fields, does not seem to work with REST.
-
-Below thing's will not work with REST :
-If you only want to query the files in this folder and its sub folders.In that case you have to set the scope to Recursive
-
-If you want to query all files and folders in this folder and its sub folders. In that case you have to set the scope to RecursiveAll

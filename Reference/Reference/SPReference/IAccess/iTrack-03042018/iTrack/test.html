@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<title>iTrack</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+	<!-- Angular Material style sheet -->
+  	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+	<style type="text/css">
+		body { color: #FFF; }
+	</style>
+</head>
+<body ng-app="BlankApp" ng-cloak>
+<div layout="row" layout-xs="column" layout-sm="column">
+  <div layout-padding flex="10" flex-sm="100" flex-xs="100"><a href="index.html" class="logo"><img src="images/logo.jpg" height="40" alt=""></a> </div>
+  <div layout-padding layout-align="center center" flex="70" layout-fill flex-sm="100" flex-xs="100">I'm below on mobile, and to the right on larger devices.</div>
+  <div flex="20" flex-sm="100" flex-xs="100">
+  	<md-list layout="row" class="rightmenu" layout-fill>
+		<md-list-item> 
+	        <a href="#"><md-icon>notifications</md-icon></a>
+	    </md-list-item>
+	    <md-list-item> 
+	        <a href="#"><md-icon>mail</md-icon></a>
+	    </md-list-item>
+	    <md-list-item> 
+		    <md-menu md-position-mode="target-right target">
+		        <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu();">
+		            <div layout="row" layout-align="start start">
+			            <div layout="column">Joseph</div>
+			            <div layout="column"><i class="material-icons">arrow_drop_down</i></div>
+		            </div>
+		        </md-button>
+		        <md-menu-content width="4" >
+		            <md-menu-item ng-repeat="item in [1, 2, test]">
+		                <md-button ng-click="ctrl.announceClick($index)">
+		                    <div layout="row" flex>
+		                        <p flex>Option {{item}}</p>
+		                    </div>
+		                </md-button>
+		            </md-menu-item>
+		        </md-menu-content>
+		    </md-menu>
+		</md-list-item>
+	</md-list>
+  </div>
+</div>
+<script type="text/javascript">    
+	angular.module('BlankApp',  ['ngMaterial']);
+</script>	
+</body> 

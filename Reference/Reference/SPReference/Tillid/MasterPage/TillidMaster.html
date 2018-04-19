@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?><!--SPG:
+
+This HTML file has been associated with a SharePoint Master Page (.master file) carrying the same name.  While the files remain associated, you will not be allowed to edit the .master file, and any rename, move, or deletion operations will be reciprocated.
+
+To build the master page directly from this HTML file, simply edit the page as you normally would.  Use the Snippet Generator at https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/_layouts/15/ComponentHome.aspx?Url=https%3A%2F%2Fchennaitillidsoft%2Esharepoint%2Ecom%2Fsites%2Foct9%5FQA1%2F%5Fcatalogs%2Fmasterpage%2FCustom%20MasterPages%2FSites%2FTillid%2FTillidMaster%2Emaster to create and customize useful SharePoint entities, then copy and paste them as HTML snippets into your HTML code.   All updates to this file will automatically sync to the associated Master Page.
+
+-->
+<!-- _lcid="1033" _version="16.0.7507" _dal="1" -->
+<!-- _LocalBinding -->
+<!--SPM:<%@Master language="C#"%>-->
+<!--SPM:<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Import Namespace="Microsoft.SharePoint" %>-->
+<!--SPM:<%@ Assembly Name="Microsoft.Web.CommandUI, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Import Namespace="Microsoft.SharePoint.ApplicationPages" %>-->
+<!--SPM:<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Register TagPrefix="wssuc" TagName="Welcome" src="~/_controltemplates/15/Welcome.ascx" %>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+    <!--SID:00 -->
+    <head runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <meta name="GENERATOR" content="Microsoft SharePoint" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <!--SPM:<SharePoint:IECompatibleMetaTag runat="server"/>-->
+        <meta http-equiv="Expires" content="0" />
+        <!--SPM:<SharePoint:SPPinnedSiteTile runat="server" TileUrl="/_layouts/15/images/SharePointMetroAppTile.png" TileColor="#0072C6"/>-->
+        <!--SPM:<SharePoint:RobotsMetaTag runat="server"/>-->
+        <!--SPM:<SharePoint:PageTitle runat="server">-->
+        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server"/>-->
+        <!--SPM:</SharePoint:PageTitle>-->
+        <!--SPM:<SharePoint:StartScript runat="server"/>-->
+        <!--SPM:<SharePoint:CssLink runat="server" Version="15"/>-->
+        <!--PS: Start of READ-ONLY PREVIEW (do not modify) --><link href="https://chennaitillidsoft.sharepoint.com/_layouts/15/1033/styles/corev15.css" type="text/css" rel="stylesheet" /><link href="https://chennaitillidsoft.sharepoint.com/_layouts/15/1033/styles/searchv15.css" type="text/css" rel="stylesheet" /><!--PE: End of READ-ONLY PREVIEW -->
+        <!--SPM:<SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" runat="server" Localizable="false"/>-->
+        <!--SPM:<SharePoint:ScriptLink language="javascript" name="menu.js" OnDemand="true" runat="server" Localizable="false"/>-->
+        <!--SPM:<SharePoint:ScriptLink language="javascript" name="callout.js" OnDemand="true" runat="server" Localizable="false"/>-->
+        <!--SPM:<SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" runat="server" Localizable="false"/>-->
+        <!--SPM:<SharePoint:ScriptLink language="javascript" name="suitelinks.js" OnDemand="true" runat="server" Localizable="false"/>-->
+        <!--SPM:<SharePoint:CustomJSUrl runat="server"/>-->
+        <!--SPM:<SharePoint:SoapDiscoveryLink runat="server"/>-->
+        <!--SPM:<SharePoint:AjaxDelta id="DeltaPlaceHolderAdditionalPageHead" Container="false" runat="server">-->
+        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server"/>-->
+        <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true"/>-->
+        <!--SPM:</SharePoint:AjaxDelta>-->
+        <!--SPM:<SharePoint:SPShortcutIcon runat="server" IconUrl="/_layouts/15/images/favicon.ico?rev=44"/>-->
+        <link rel="shortcut icon" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/favicon.png" type="image/png" />
+        <link rel="stylesheet" type="text/css" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/css/owl.carousel.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/css/bootstrap-select.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="../../../../../Style Library/BrandingFiles/Sites/Tillid/css/responsive.css" />
+<![CDATA[ [if IE 9] ]]>        <style type="text/css">//<![CDATA[
+    .ms-core-animation-transparent
+    {
+        opacity:0;
+    }
+    .ms-isBot .ms-core-animation-transparent
+    {
+        opacity:1;
+    }
+    
+        
+        
+        //]]>
+        </style>
+<![CDATA[ [endif] ]]>        <!--[if lte IE 8]>
+    <style type="text/css">//<![CDATA[
+    .ms-core-animation-transparent,
+    .ms-core-animation-transparent img
+    {
+       -ms-filter:"alpha(opacity=0)";
+    }
+    .ms-isBot .ms-core-animation-transparent,
+    .ms-isBot .ms-core-animation-transparent img
+    {
+       -ms-filter:"";
+    }
+    //]]></style>
+    <![endif]-->
+        <script type="text/javascript">//<![CDATA[
+        var g_pageLoadAnimationParams = { elementSlideIn : "sideNavBox", elementSlideInPhase2 : "contentBox" };
+    
+        
+        
+        //]]>
+        </script>
+        <!--SPM:<SharePoint:CssRegistration Name="Themable/corev15.css" runat="server"/>-->
+        <!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:ContentType msdt:dt="string">Html Master Page</mso:ContentType>
+
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignFromMaster msdt:dt="string">https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/_catalogs/masterpage/Custom MasterPages/Sites/Tillid/TillidMaster.html, https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/_catalogs/masterpage/Custom MasterPages/Sites/Tillid/TillidMaster.html</mso:HtmlDesignFromMaster>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/_catalogs/masterpage/Custom MasterPages/Sites/Tillid/TillidMaster.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+
+
+
+
+<mso:DefaultCssFile msdt:dt="string"></mso:DefaultCssFile>
+<mso:PublishingPreviewImage msdt:dt="string"></mso:PublishingPreviewImage>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+<mso:MasterPageDescription msdt:dt="string"></mso:MasterPageDescription>
+<mso:UIVersion msdt:dt="string">;#15;#</mso:UIVersion>
+<mso:PublishingHidden msdt:dt="string">0</mso:PublishingHidden>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+        <!--DC:Tillid Master-->
+    </head>
+    <body lang="en">
+        <!--SPM:<SharePoint:ImageLink runat="server"/>-->
+        <!--SPM:<SharePoint:SPNoScript runat="server"/>-->
+        <!--SPM:<SharePoint:SPClientIDGenerator runat="server" ServerControlID="DeltaPlaceHolderMain;DeltaPlaceHolderPageTitleInTitleArea;DeltaPlaceHolderUtilityContent"/>-->
+        <script type="text/javascript">//<![CDATA[ var submitHook = function () { return false; }; theForm._spOldSubmit = theForm.submit; theForm.submit = function () { if (!submitHook()) { this._spOldSubmit(); } }; 
+        
+        
+        //]]>
+        </script>
+        <!--SPM:<WebPartPages:SPWebPartManager runat="Server"/>-->
+        <!--SPM:<asp:ScriptManager id="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true"/>-->
+        <!--SPM:<SharePoint:AjaxDelta id="DeltaDelegateControls" runat="server">-->
+        <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="GlobalNavigation"/>-->
+        <!--SPM:<SharePoint:DelegateControl ControlId="GlobalSiteLink3" Scope="Farm" runat="server" Visible="false"/>-->
+        <!--SPM:</SharePoint:AjaxDelta>-->
+        <div id="TurnOnAccessibility" style="display:none" class="s4-notdlg noindex">
+            <a id="linkTurnOnAcc" data-accessibility-nocheck="true" href="#" class="ms-TurnOnAcc" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                <!--SPM:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_turnonaccessibility%&#62;" EncodeMethod="HtmlEncode"/>-->
+            </a>
+        </div>
+        <div id="TurnOffAccessibility" style="display:none" class="s4-notdlg noindex">
+            <a id="linkTurnOffAcc" data-accessibility-nocheck="true" href="#" class="ms-TurnOffAcc" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                <!--SPM:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_turnoffaccessibility%&#62;" EncodeMethod="HtmlEncode"/>-->
+            </a>
+        </div>
+        <div class="s4-notdlg s4-skipribbonshortcut noindex">
+            <a href="javascript:;" data-accessibility-nocheck="true" onclick="document.getElementById('startNavigation').focus();" class="ms-SkiptoNavigation" accesskey="&lt;%$Resources:wss,skipribbon_accesskey%&gt;" runat="server">
+                <!--SPM:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,skipRibbonCommandsLink%&#62;" EncodeMethod="HtmlEncode"/>-->
+            </a>
+        </div>
+        <div class="s4-notdlg noindex">
+            <a href="javascript:;" data-accessibility-nocheck="true" onclick="document.getElementById('mainContent').focus();" class="ms-SkiptoMainContent" accesskey="&lt;%$Resources:wss,maincontent_accesskey%&gt;" runat="server">
+                <!--SPM:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,mainContentLink%&#62;" EncodeMethod="HtmlEncode"/>-->
+            </a>
+        </div>
+        <div id="TurnOffAnimation" style="display:none;" class="s4-notdlg noindex">
+            <a id="linkTurnOffAnimation" data-accessibility-nocheck="true" href="#" class="ms-accessible ms-acc-button" onclick="ToggleAnimationStatus();return false;">
+                <!--SPM:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_disableanimation%&#62;" EncodeMethod="HtmlEncode"/>-->
+            </a>
+        </div>
+        <div id="TurnOnAnimation" style="display:none;" class="s4-notdlg noindex">
+            <a id="linkTurnOnAnimation" data-accessibility-nocheck="true" href="#" class="ms-accessible ms-acc-button" onclick="ToggleAnimationStatus();return false;">
+                <!--SPM:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_enableanimation%&#62;" EncodeMethod="HtmlEncode"/>-->
+            </a>
+        </div>
+        <a id="HiddenAnchor" href="javascript:;" style="display:none;">
+        </a>
+        <div id="ms-hcTest">
+        </div>
+        <div id="ms-designer-ribbon">
+            <!--SID:02 {Ribbon}-->
+            <!--PS: Start of READ-ONLY PREVIEW (do not modify) --><div class="DefaultContentBlock" style="background:rgb(0, 114, 198); color:white; width:100%; padding:8px; height:64px; overflow:hidden;">In true previews of your site, the SharePoint ribbon will be here.</div><!--PE: End of READ-ONLY PREVIEW -->
+        </div>
+        <!--MS:<SharePoint:SPSecurityTrimmedControl runat="server" AuthenticationRestrictions="AnonymousUsersOnly">-->
+            <!--SPM:<wssucw:Welcome runat="server" EnableViewState="false"/>-->
+        <!--ME:</SharePoint:SPSecurityTrimmedControl>-->
+        <div id="s4-workspace" class="ms-core-overlay">
+            <div id="s4-bodyContainer">
+                <div id="contentRow">
+                    <div id="contentBox" aria-live="polite" aria-relevant="all" role="main" style="margin-left:0px;margin-right:0px">
+                        <a id="mainContent" name="mainContent" tabindex="-1">
+                        </a>
+                        <div id="notificationArea" class="ms-notif-box">
+                        </div>
+                        <!--SPM:<SharePoint:AjaxDelta id="DeltaPageStatusBar" BlockElement="true" runat="server">-->
+                        <div id="pageStatusBar">
+                        </div>
+                        <div id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+                            <!--Header Starts Here-->
+                            <header>
+                                <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                                    <div class="container">
+                                        <a class="logo" href="#Home">
+                                        </a>
+                                        <div class="menu">
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                                <span class="sr-only">Toggle navigation
+                                                
+                                                </span>
+                                                <span class="icon-bar">
+                                                </span>
+                                                <span class="icon-bar">
+                                                </span>
+                                                <span class="icon-bar">
+                                                </span>
+                                            </button>
+                                            <!--Menu Starts Here-->
+                                            <div id="navbar" class="navbar-collapse collapse">
+                                                <ul class="nav navbar-nav navbar-right">
+                                                    <li>
+                                                        <a href="#Home" class="active">Home
+                                                        
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#Services">Why Tillid?
+                                                        
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#Products" id="menu1" class="dropdown-toggle">Services
+                                                        
+                                                        </a>
+                                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                            <span class="uparrow">
+                                                                <img src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/up-arrow.png" />
+                                                            </span>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" href="cloud.html">Cloud
+                                                                
+                                                                </a>
+                                                            </li>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" href="sharepoint.html">Sharepoint
+                                                                
+                                                                </a>
+                                                            </li>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" href="microsoft-dynamics.html">Microsoft Dynamics
+                                                                
+                                                                </a>
+                                                            </li>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" href="product-development.html">Product Development
+                                                                
+                                                                </a>
+                                                            </li>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" href="business-intelligence.html">BI &amp; Analytics
+                                                                
+                                                                </a>
+                                                            </li>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" href="user-experience.html">User Experience
+                                                                
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#Happay">Products
+                                                        
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#Clients">Clients
+                                                        
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#Contact">Contact
+                                                        
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!--Menu Ends Here-->
+                                        </div>
+                                    </div>
+                                </nav>
+                            </header>
+                            <!--Header Ends Here-->
+                            <!--Wrapper Ends Here-->
+                            <!--SPM:<SharePoint:AjaxDelta id="DeltaPlaceHolderMain" BlockElement="true" IsMainContent="true" runat="server">-->
+                            <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderMain" runat="server">-->
+                            <div class="DefaultContentBlock" style="border:medium black solid; background:yellow; color:black;">
+            This area will be filled in by content you create in your page layouts.
+		
+                        
+                        
+                            
+                            </div>
+                            <!--SPM:</asp:ContentPlaceHolder>-->
+                            <!--SPM:</SharePoint:AjaxDelta>-->
+                            <section id="Clients" class="six">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 clients">
+                                            <h1 class="text-center">
+                                                <span>Clients
+                                                    
+                                                    <span class="border">
+                                                    </span>
+                                                </span>
+                                            </h1>
+                                            <div class="clientablelist">
+                                                <div class="client-table client_microsoft">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_happay">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_allfuttaim">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_macys">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_nbo">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                                <div class="client-table client_northern border-top mobil-border">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_qualcom border-top">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_seha border-top">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_nba border-top">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                                <div class="client-table client_fluckers border-top">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-responsive" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/dot.png" alt="Tillid" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--Footer Ends Here-->
+                            <footer id="Contact">
+                                <div class="footer">
+                                    <div class="container">
+                                        <div class="row ">
+                                            <div class="col-md-4 col-sm-6 mtop-30">
+                                                <div class="footercolumn">
+                                                    <h4>United States
+                                                        
+                                                        <span class="foot_border">
+                                                        </span>
+                                                    </h4>
+                                                    <p class="comp_name">Tillid LLC
+                                                    
+                                                    </p>
+                                                    <p>22722, 29th Drive SE Suite 100
+                                                    
+                                                    </p>
+                                                    <p>Bothell, WA 98021
+                                                    
+                                                    </p>
+                                                    <p class="contact">
+                                                        <span>Phone
+                                                        
+                                                        </span>
+
+ : +1.425.698.2011                                                                                                        </p>
+                                                    <p class="email">
+                                                        <span>Email
+                                                        
+                                                        </span>
+
+ :                                                                                                                 <a href="mailto:info@tillidsoft.com">info@tillidsoft.com
+                                                        
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mtop-30">
+                                                <div class="footercolumn">
+                                                    <h4>India
+                                                        
+                                                        <span class="foot_border">
+                                                        </span>
+                                                    </h4>
+                                                    <p class="comp_name">ODC
+                                                    
+                                                    </p>
+                                                    <p>Arutjothi Towers
+                                                    
+                                                    </p>
+                                                    <p>No: 2 &amp; 9, Sakthi Nagar
+                                                    
+                                                    </p>
+                                                    <p>Mt. Poonamallee Rd, Porur, Chennai
+                                                    
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 mtop-30 pull-right">
+                                                <div class="footercolumn">
+                                                    <h4>Contact Us
+                                                        
+                                                        <span class="foot_border">
+                                                        </span>
+                                                    </h4>
+                                                    <div class="contactform" role="form" method="post" action="../Home/Contact" novalidate="novalidate" data-ajax="true" data-ajax-method="POST" data-ajax-success="Index.ContactUs">
+                                                        <fieldset class="form-group">
+                                                            <input class="form-control" data-val="true" data-val-email="Email is invalid" data-val-required="* Email" id="Email" maxlength="50" name="Email" placeholder="Email" type="text" value="" />
+                                                            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true">
+                                                            </span>
+                                                        </fieldset>
+                                                        <fieldset class="form-group">
+                                                            <div class="col-md-5 col-xs-5 pleft-0 pright-0">
+                                                                <select class="selectpicker" data-val="true" data-val-required="* Country" id="Country" name="Country">
+                                                                    <option value="">Select Country
+                                                                    
+                                                                    </option>
+                                                                </select>
+                                                                <span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true">
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-md-7 col-xs-7 pright-0">
+                                                                <input class="form-control" data-val="true" data-val-length="Phone# is invalid" data-val-length-max="14" data-val-length-min="3" data-val-required="* Phone#" id="Phone" maxlength="14" name="Phone" placeholder="Phone#" type="text" value="" />
+                                                                <span class="field-validation-valid" data-valmsg-for="Phone" data-valmsg-replace="true">
+                                                                </span>
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset class="form-group">
+                                                            <textarea class="form-control" cols="20" data-val="true" data-val-required="* Message" id="Message" maxlength="200" name="Message" placeholder="Message" rows="3">
+                                                            </textarea>
+                                                            <span class="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true">
+                                                            </span>
+                                                        </fieldset>
+                                                        <fieldset class="form-group pull-right">
+                                                            <input type="submit" value="Submit" />
+                                                        </fieldset>
+                                                        <a href="https://www.linkedin.com/company/2436873/" class="social-ico" target="_blank">
+                                                            <img width="45" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/linkedin.png" />
+                                                        </a>
+                                                        <a href="https://twitter.com/tillid_softsol" class="social-ico icon-space" target="_blank">
+                                                            <img width="45" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/twitter.png" />
+                                                        </a>
+                                                        <a href="https://www.facebook.com/tillidsoft/" class="social-ico" target="_blank">
+                                                            <img width="45" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/images/facebook.png" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="copyright">
+                                    <div class="row">
+                                        <span>© 2018 | Tillid
+                                        
+                                        </span>
+                                    </div>
+                                </div>
+                            </footer>
+                            <!--Footer Ends Here-->
+                        </div>
+                        <!--SPM:</SharePoint:AjaxDelta>-->
+                    </div>
+                    <!--SPM:<SharePoint:AjaxDelta id="DeltaFormDigest" BlockElement="true" runat="server">-->
+                    <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server">-->
+                    <!--SPM:<SharePoint:FormDigest runat="server"/>-->
+                    <!--SPM:</asp:ContentPlaceHolder>-->
+                    <!--SPM:</SharePoint:AjaxDelta>-->
+                    <div class="ms-hide">
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderSiteName" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderHorizontalNav" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderPageImage" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderTitleLeftBorder" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderMiniConsole" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderTitleRightMargin" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderTitleAreaSeparator" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderNavSpacer" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarBorder" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderBodyLeftBorder" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderBodyRightMargin" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat="server" Visible="true"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderTitleAreaClass" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderGlobalNavigation" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderGlobalNavigationSiteMap" runat="server" Visible="false"/>-->
+                        <!--SPM:<asp:ContentPlaceHolder id="WSSDesignConsole" runat="server" Visible="false"/>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--SPM:<SharePoint:ScriptBlock runat="server">-->
+        <!--SPM:var g_Workspace = "s4-workspace";-->
+        <!--SPM:</SharePoint:ScriptBlock>-->
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/jquery-1.12.4.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/jquery.easing.min.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/jQuery.scrollSpeed.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/bootstrap.min.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/owl.carousel.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/bootstrap-select.min.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/jquery.validate.min.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/jquery.validate.unobtrusive.min.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/jquery.unobtrusive-ajax.min.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/main.js">//<![CDATA[
+        //]]>
+        </script>
+        <script type="text/javascript" src="../../../../../Style Library/BrandingFiles/Sites/Tillid/js/CustomJS/TillidGlobalNavigation.js">//<![CDATA[
+        //]]>
+        </script>
+
+        
+    </body>
+</html>

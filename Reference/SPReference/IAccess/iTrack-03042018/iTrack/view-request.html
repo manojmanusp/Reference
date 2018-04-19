@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<title>iAccess - View Request</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+	<!-- Angular Material style sheet -->
+  	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+  	
+  	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+</head>
+<body ng-app="BlankApp" ng-cloak>
+<md-content ng-controller="PositionDemoCtrl as ctrl">
+	<header>
+		<div layout="row">
+			<div layout="column" flex="15" layout-padding-lg>
+				<a href="index.html" class="logo"><img src="images/iacess.jpg" height="40" alt="" /></a>
+			</div>
+			<div layout="column" flex="65" layout-align="center center" class="pright-25">
+				<md-button ng-click="main.toggleLeft()" hide-gt-md aria-label="Open Menu">
+					<ng-md-icon icon="menu"></ng-md-icon>
+				</md-button>
+				<form class="search-box">
+					<input class="search-box-input" type="text" required="required">
+					<button type="reset" class="delete"></button>
+				</form>
+			</div>
+			<div layout="column" flex="20" layout-align="center stretch">
+				<md-list layout="row" class="rightmenu" layout-fill>
+					<md-list-item> 
+				        <a href="#"><md-icon>notifications</md-icon></a>
+				    </md-list-item>
+				    <md-list-item> 
+				        <a href="#"><md-icon>mail</md-icon></a>
+				    </md-list-item>
+				    <md-list-item> 
+					    <md-menu md-position-mode="target-right target">
+					        <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu();">
+					            <div layout="row" layout-align="start start">
+						            <div layout="column">Joseph</div>
+						            <div layout="column"><i class="material-icons">arrow_drop_down</i></div>
+					            </div>
+					        </md-button>
+					        <md-menu-content width="4" >
+					            <md-menu-item ng-repeat="item in [1, 2, test]">
+					                <md-button ng-click="ctrl.announceClick($index)">
+					                    <div layout="row" flex>
+					                        <p flex>Option {{item}}</p>
+					                    </div>
+					                </md-button>
+					            </md-menu-item>
+					        </md-menu-content>
+					    </md-menu>
+					</md-list-item>
+				</md-list>    
+			</div>
+		</div>
+		 <div layout="row" class="topmenu">
+			<md-list layout="row" class="hmenu">
+				<md-list-item layout-align="center center">
+					<a class="active" href="dashboard.html">Dashboard</a>
+				</md-list-item>
+				<md-list-item layout-align="center center">
+					<a class="" href="#">Search</a>
+				</md-list-item>
+				<md-list-item layout-align="center center">
+					<a class="" href="#">Reports</a>
+				</md-list-item>
+				<md-list-item layout-align="center center">
+					<a class="" href="#">Admin</a>
+				</md-list-item>
+				<md-list-item layout-align="center center">
+					<a class="" href="#">Help</a>
+				</md-list-item>
+			</md-list>	
+    	</div>
+	</header>
+	<section class="right_container">	
+	    <div layout="row">
+	    	<div layout-margin-lg layout="column" flex="100">
+	    		<div class="inner_container">
+		    		<div class="crumbs_container">
+		    			<div layout="row" layout-align="start center" class="breadcrumbs">
+							<a class="crumb_title">iAccess</a>
+							<i class="material-icons">play_arrow</i>
+							<a class="crumb_link"href="#">New Request</a>
+							<i class="material-icons">play_arrow</i>
+							<a class="crumb_link"href="#">View Request</a>
+						</div>	
+		    		</div>
+		    		<div class="form_container">
+		    			<h2 class="md-title client">View Request</h2>
+		    			<form name="userForm">
+			    			<div layout="row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Name</label>
+										<input name="firstname" ng-model="firstname" required md-maxlength="10" minlength="4">
+										<div ng-messages="firstname.$error" ng-show="firstname.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Billing Address</label>
+										<input name="BillingAddress" ng-model="BillingAddress" required md-maxlength="10" minlength="4">
+										<div ng-messages="BillingAddress.$error" ng-show="BillingAddress.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div layout="row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Account Manager</label>
+										<input name="AccountManager" ng-model="AccountManager" required md-maxlength="10" minlength="4">
+										<div ng-messages="AccountManager.$error" ng-show="AccountManager.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Contact Details</label>
+										<input name="ContactDetails" ng-model="ContactDetails" required md-maxlength="10" minlength="4">
+										<div ng-messages="ContactDetails.$error" ng-show="ContactDetails.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div layout="row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Location</label>
+										<input name="Location" ng-model="Location" required md-maxlength="10" minlength="4">
+										<div ng-messages="Location.$error" ng-show="Location.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+								<md-button class="md-raised md-primary md-button md-ink-ripple">Save</md-button>
+								<md-button class="md-raised md-primary md-button black-color">Cancel</md-button>
+							</div>
+						</form>
+					</div>
+					<div layout="row">
+	     	<div layout-margin-lg layout="column" flex="100">
+				<table id="table_id" width="100%" class="display">
+					<thead>
+						<tr>
+							<th>Column 1</th>
+							<th>Column 2</th>
+							<th>Column 3</th>
+							<th>Column 4</th>
+							<th>Column 5</th>
+							<th>Column 6</th>
+							<th>Column 7</th>
+							<th>Column 8</th>
+							<th>Column 9</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>68</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+						<tr>
+							<td>Angelica Ramos</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12	</td>
+							<td>$86,000</td>
+							<td>88%</td>
+							<td>Angelica Ramos</td>
+							<td>London</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+				</div>
+	    	</div>
+	    </div>
+	     
+	    </div>
+	</section>    
+</md-content>
+<script type="text/javascript">    
+	angular.module('BlankApp',  ['ngMaterial', 'ngMdIcons'])
+	.controller('PositionDemoCtrl', function DemoCtrl($mdDialog) {
+	 var vm = this;
+	    vm.announceClick = function(index) {
+		  $mdDialog.show(
+	        $mdDialog.alert()
+	          .title('You clicked!')
+	          .textContent('You clicked the menu item at index ' + index)
+	          .ok('Nice')
+	          .targetEvent(originatorEv)
+	      );
+	      originatorEv = null;
+	    };
+	  vm.toggleLeft = function() {
+	    $mdSidenav('left-nav').toggle();
+	  };
+	  vm.close = function() {
+	    $mdSidenav('left-nav').close();
+	  }
+  });
+
+var header = document.querySelector(".header");
+var input = document.querySelector(".search-box-input");
+var close = document.querySelector(".delete");
+
+function hideHeader() {
+  header.classList.remove('show');
+  header.classList.add('hide');
+};
+
+function showHeader() {
+  if (input.value === '') {
+    header.classList.remove('hide');
+    header.classList.add('show');
+  }
+};
+
+function showHeaderOnClose() {
+  header.classList.remove('hide');
+  header.classList.add('show');
+};
+
+input.addEventListener("focus", hideHeader);
+input.addEventListener("blur", showHeader);
+close.addEventListener("click", showHeaderOnClose);
+
+
+$(document).ready(function(){
+    $('#table_id').DataTable();
+});
+</script>	
+
+</body> 

@@ -1,0 +1,79 @@
+<div class="form_container">
+		    			<h2 class="md-title client">New Request</h2>
+		    			<div name="userForm" class="ng-pristine ng-invalid ng-invalid-required ng-valid-minlength">
+			    			<div layout="row" class="layout-row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100" class="layout-align-center-center layout-column flex-xs-100 flex-50">
+									<md-input-container class="width-90">
+										<div class="label flex" flex="" style="max-width:200px;">CEO, Found</div>
+										<md-radio-group layout="row" name="firstname" ng-model="firstname" required="" md-maxlength="10" minlength="4" class="ng-pristine ng-untouched _md layout-row ng-empty ng-invalid ng-invalid-required ng-valid-minlength" role="radiogroup" tabindex="0" aria-required="true" aria-invalid="true" ng-trim="false">
+											<md-radio-button value="Apple" id="radio_2" role="radio" aria-checked="false" aria-label="Apple" class=""><div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox=""><div class="md-off"></div><div class="md-on"></div></div><div ng-transclude="" class="md-label"><span class="ng-scope">Apple</span></div></md-radio-button>
+											<md-radio-button value="Banana" id="radio_3" role="radio" aria-checked="false" aria-label="Banana" class=""><div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox=""><div class="md-off"></div><div class="md-on"></div></div><div ng-transclude="" class="md-label"><span class="ng-scope"> Banana </span></div></md-radio-button>
+											<md-radio-button value="Mango" id="radio_4" role="radio" aria-checked="false" aria-label="Mango" class=""><div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox=""><div class="md-off"></div><div class="md-on"></div></div><div ng-transclude="" class="md-label"><span class="ng-scope">Mango</span></div></md-radio-button>
+										</md-radio-group>	
+										<div ng-messages="firstname.$error" ng-show="firstname.$dirty" class="md-input-messages-animation ng-hide" aria-live="assertive" aria-hidden="true">
+											<div ng-message="required" class="md-input-message-animation">This is required!</div>
+											<div ng-message="md-maxlength" class="md-input-message-animation">That's too long!</div>
+											<div ng-message="minlength" class="md-input-message-animation">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100" class="layout-align-center-center layout-column flex-xs-100 flex-50">
+									<md-input-container class="width-90">
+										<label class="md-required md-placeholder" for="select_9">Request Type</label>
+										<md-select name="RequestType" ng-model="RequestType" required="" md-maxlength="10" minlength="4" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-minlength" tabindex="0" aria-disabled="false" role="listbox" aria-expanded="false" aria-multiselectable="false" id="select_9" aria-owns="select_container_10" aria-required="true" aria-invalid="true" aria-label="Request Type" ng-trim="false"><md-select-value class="md-select-value md-select-placeholder" id="select_value_label_0"><span>Request Type</span><span class="md-select-icon" aria-hidden="true"></span></md-select-value><div class="md-select-menu-container" aria-hidden="true" id="select_container_10"><md-select-menu class="_md"><md-content class="_md">
+											<md-option value="cloth" tabindex="0" class="md-ink-ripple" role="option" aria-selected="false" id="select_option_5"><div class="md-text">Cloth</div></md-option>
+											<md-option value="leather" tabindex="0" class="md-ink-ripple" role="option" aria-selected="false" id="select_option_6"><div class="md-text">Leather</div></md-option>
+											<md-option value="chain" tabindex="0" class="md-ink-ripple" role="option" aria-selected="false" id="select_option_7"><div class="md-text">Chainmail</div></md-option>
+											<md-option value="plate" tabindex="0" class="md-ink-ripple" role="option" aria-selected="false" id="select_option_8"><div class="md-text">Plate</div></md-option>
+										</md-content></md-select-menu></div></md-select>
+										<div ng-messages="RequestType.$error" ng-show="RequestType.$dirty" class="md-input-messages-animation ng-hide" aria-live="assertive" aria-hidden="true">
+											<div ng-message="required" class="md-input-message-animation">This is required!</div>
+											<div ng-message="md-maxlength" class="md-input-message-animation">That's too long!</div>
+											<div ng-message="minlength" class="md-input-message-animation">That's too short!</div>
+										</div>
+									<select class="md-visually-hidden" name="RequestType" aria-hidden="true" tabindex="-1"><option value="cloth">Cloth</option><option value="leather">Leather</option><option value="chain">Chainmail</option><option value="plate">Plate</option><option ng-value="RequestType" selected="" aria-checked="false"></option></select></md-input-container>	
+								</div>
+							</div>	
+							<div layout="row" class="layout-row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100" class="layout-align-center-center layout-column flex-xs-100 flex-50">
+									<md-input-container class="width-90">
+										<label class="md-required" for="input_11">Account Manager</label>
+										<input name="AccountManager" ng-model="AccountManager" required="" md-maxlength="10" minlength="4" class="ng-pristine ng-untouched md-input ng-empty ng-invalid ng-invalid-required ng-valid-minlength" id="input_11" aria-invalid="true" ng-trim="false"><div class="md-errors-spacer"><div class="md-char-counter">0 / 10</div></div>
+										<div ng-messages="AccountManager.$error" ng-show="AccountManager.$dirty" class="md-input-messages-animation ng-hide" aria-live="assertive" aria-hidden="true">
+											<div ng-message="required" class="md-input-message-animation">This is required!</div>
+											<div ng-message="md-maxlength" class="md-input-message-animation">That's too long!</div>
+											<div ng-message="minlength" class="md-input-message-animation">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100" class="layout-align-center-center layout-column flex-xs-100 flex-50">
+									<md-input-container class="width-90">
+										<label class="md-required" for="input_12">Contact Details</label>
+										<input name="ContactDetails" ng-model="ContactDetails" required="" md-maxlength="10" minlength="4" class="ng-pristine ng-untouched md-input ng-empty ng-invalid ng-invalid-required ng-valid-minlength" id="input_12" aria-invalid="true" ng-trim="false"><div class="md-errors-spacer"><div class="md-char-counter">0 / 10</div></div>
+										<div ng-messages="ContactDetails.$error" ng-show="ContactDetails.$dirty" class="md-input-messages-animation ng-hide" aria-live="assertive" aria-hidden="true">
+											<div ng-message="required" class="md-input-message-animation">This is required!</div>
+											<div ng-message="md-maxlength" class="md-input-message-animation">That's too long!</div>
+											<div ng-message="minlength" class="md-input-message-animation">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div layout="row" class="layout-row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100" class="layout-align-center-center layout-column flex-xs-100 flex-50">
+									<md-input-container class="width-90">
+										<label class="md-required" for="input_13">Location</label>
+										<input name="Location" ng-model="Location" required="" md-maxlength="10" minlength="4" class="ng-pristine ng-untouched md-input ng-empty ng-invalid ng-invalid-required ng-valid-minlength" id="input_13" aria-invalid="true" ng-trim="false"><div class="md-errors-spacer"><div class="md-char-counter">0 / 10</div></div>
+										<div ng-messages="Location.$error" ng-show="Location.$dirty" class="md-input-messages-animation ng-hide" aria-live="assertive" aria-hidden="true">
+											<div ng-message="required" class="md-input-message-animation">This is required!</div>
+											<div ng-message="md-maxlength" class="md-input-message-animation">That's too long!</div>
+											<div ng-message="minlength" class="md-input-message-animation">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div flex="" layout-margin-lg="" layout="row" layout-align="end end" class="formbtnbg layout-margin-lg layout-align-end-end layout-row flex">
+								<button class="md-raised md-primary md-button md-ink-ripple md-button" type="button" ng-transclude=""><span class="ng-scope">Save</span></button>
+								<button class="md-raised md-primary md-button black-color md-button md-ink-ripple" type="button" ng-transclude=""><span class="ng-scope">Cancel</span></button>
+							</div>
+						</div>
+					</div>

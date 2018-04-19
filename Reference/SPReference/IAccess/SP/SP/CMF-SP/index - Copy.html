@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html ng-app="CoastalMarineFund" ng-cloak>
+<head>
+    <title>Coastal Marine Fund</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" /> 
+    <link rel="stylesheet" href="css/angular-material.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!--Owl Carousel Script-->
+</head>
+<body ng-controller="MyCtrl">
+<!--Header Starts Here-->    
+<header id="Index">
+   <div id="Home" layout="row" ng-controller="loginController">
+       <div flex class="loginbar">
+            <ul class="horizontal_icon" layout="row">
+                <!-- <li layout="column">
+                    <a href="payment.html">Make Payment</a>
+                </li> -->
+                <li class="md-list-item-text" layout="column"><a href="#Index" du-smooth-scroll du-scrollspy>Home</a></li>
+                <li class="md-list-item-text" layout="column"><a href="#About" du-smooth-scroll du-scrollspy>About</a></li>
+                <li class="md-list-item-text" layout="column"><a href="join.html" du-smooth-scroll du-scrollspy>Join CMF</a></li>
+                <li class="md-list-item-text" layout="column"><a href="#Contact" du-smooth-scroll du-scrollspy>Contact</a></li>
+                <li class="md-list-item-text" layout="column">
+                    <a href="javascript:void(0);" class="username"><span>Member Login</span><span><i class="material-icons">account_circle</i><img class="downarrow" src="images/down-arrow.png" /></span></a>
+                </li>
+            </ul>
+            <div class="loginform">
+                <h4>Login</h4>
+                <form>
+                    <md-input-container class="md-block md-input-invalid">
+                        <label>User Name</label>
+                        <input required name="UserName" ng-model="project.UserName">
+                        <div ng-messages="projectForm.UserName.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block md-input-invalid nomargin">
+                        <label>Password</label>
+                        <input type="password" required name="Password" ng-model="project.Password">
+                        <div ng-messages="projectForm.Password.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-click="LoginUser()">Sign In</md-button>
+                </form>    
+            </div>
+       </div>
+   </div>
+   <div layout="row" layout-align="center center">
+        <span class="mobile-menu-icon"><i class="material-icons">view_list</i></span>
+        <h1><a href="#Index"><span><img src="images/logo.jpg" /></span><span>Coastal Marine Fund</span></a></h1>
+    </div>
+</header>
+<!--Header Ends Here-->
+
+<!--Wrapper Starts Here-->  
+<div id="Slider" layout="row">
+    <div flex class="home-slider">
+        <div id="owl-demo1" class="owl-carousel">
+            <div class="item" style="background-image: url(images/slider-1.jpg);"><img src="images/dot.png" alt="Coastal Marine Fund" /></div>
+            <div class="item" style="background-image: url(images/slider-2.jpg);"><img src="images/dot.png" alt="Coastal Marine Fund" /></div>
+            <div class="item" style="background-image: url(images/slider-3.jpg);"><img src="images/dot.png" alt="Coastal Marine Fund" /></div>
+            <div class="item" style="background-image: url(images/slider-4.jpg);"><img src="images/dot.png" alt="Coastal Marine Fund" /></div>
+        </div>
+    </div>
+</div>
+<section>
+    <div id="About" layout="row">    
+        <div class="about-content content">
+            <h1>Coastal Marine Fund</h1>
+            <p>The Coastal Marine Fund (CMF) is a sekf-insurance program for commercial fishing vesseles. Formed in 1993 CMF is comitted to the responsible operation of commercial fishing vessels - working for the elimination of careless and reckless operations.</p>
+            <p>CMF member-owners create and maintain funds for loss reimbursement and share the risk of loss and damage to their vessels. Members also assist fellow member's vessels in distress.</p>
+        </div>
+    </div>
+    <div layout="row" class="offer-bg">    
+        <div class="content">
+            <h1>What We Offer</h1>
+            <div layout="row" layout-xs="column" layout-sm="column" class="contentrow">
+                <div layout-xs="column" flex-xs="100" flex class="offerbox hullmachinery">
+                    <p>
+                        <img src="images/transparentbg.png" class="offerboximage" alt="Coastal Marine Fund" />
+                        <!-- <img src="images/hull-machinery-hover.png" class="offerboximage-hover" alt="Coastal Marine Fund" /> -->
+                    </p>
+                    <h2>Hull and Machinery</h2>
+                </div>
+
+                <div layout-xs="column" flex-xs="100" flex class="offerbox indemnity">
+                    <p>
+                        <img src="images/protection-indemnity.png" class="offerboximage" alt="Coastal Marine Fund" />
+                        <img src="images/protection-indemnity-hover.png" class="offerboximage-hover" alt="Coastal Marine Fund" />
+                    </p>
+                    <h2>Protection and Indemnity</h2>
+                    
+                </div>
+                <div layout-xs="column" flex-xs="100" flex class="offerbox">
+                    <p>
+                        <img src="images/breach-of-warranty.png" class="offerboximage" alt="Coastal Marine Fund" />
+                        <img src="images/breach-of-warranty-hover.png" class="offerboximage-hover" alt="Coastal Marine Fund" />
+                    </p>
+                    <h2>Breach of Warranty</h2>
+                </div>
+            </div>
+            <div layout="row" layout-xs="column" layout-sm="column" class="contentrow">
+                <div layout-xs="column" flex-xs="100" flex class="offerbox">
+                    <p>
+                        <img src="images/pollution.png" class="offerboximage" alt="Coastal Marine Fund" />
+                        <img src="images/pollution-hover.png" class="offerboximage-hover" alt="Coastal Marine Fund" />
+                    </p>
+                    <h2>Pollution</h2>
+                </div>
+                <div layout-xs="column" flex-xs="100" flex class="offerbox">
+                    <p>
+                        <img src="images/skiff.png" class="offerboximage" alt="Coastal Marine Fund" />
+                        <img src="images/skiff-hover.png" class="offerboximage-hover" alt="Coastal Marine Fund" />
+                    </p>
+                    <h2>Skiff</h2>
+                </div>
+                <div layout-xs="column" flex-xs="100" flex class="offerbox">
+                    <p>
+                        <img src="images/nets-gear.png" class="offerboximage" alt="Coastal Marine Fund" />
+                        <img src="images/nets-gear-hover.png" class="offerboximage-hover" alt="Coastal Marine Fund" />
+                    </p>
+                    <h2>Nets and Gear</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Wrapper Ends Here-->  
+
+<!--Footer Starts Here-->  
+<footer>
+    <div id="Contact" layout="row" class="contact-us">
+        <div class="content">
+            <div layout="row" layout-xs="column">
+                <div flex-xs="100" flex-sm="50" flex="70">
+                   <h2>Contact Us</h2>
+                    <div layout="row" layout-sm="column" layout-xs="column">
+                        <div flex>
+                            <ul class="address">
+                                <li>Coastal Marine Fund</li>
+                                <li>PO BOX 305</li>
+                                <li>Edmonds, WA 98020</li>
+                                <li><span><i class="material-icons">phone</i></span><span> (206) 428-9800</span></li>
+                                <li><span><i class="material-icons">print</i></span><span>(206) 547-0520</span></li>
+                                <li><span><i class="material-icons">mail</i></span><span><a href="mailto:info@coastalmarinefund.com">info@coastalmarinefund.com</a></span></li>
+                            </ul>
+                        </div>
+                        <div flex>
+                            <ul class="address">
+                                <li>Seattle Office Location</li>
+                                <li>4055 21st Ave W, Suite 202</li>
+                                <li>Seattle, WA 98199</li>
+                                <li class="socialicons"><span><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" /></a></span><span><a href="twitter.com" target="_blank"><img src="images/twitter.png" /></a></span><span><a href="https://plus.google.com/" target="_blank"><img src="images/google-plus.png" /></a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+                <div flex-xs="100" flex-sm="50" flex="30">
+                    <div flex>
+                        <h2>Locate Us</h2>
+                        <div id="map" style="width: 100%; height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div layout="row" layout-align="center center">
+        <p class="copyright-text">&copy; 2017 Coastal Marine Fund</p>
+    </div>
+</footer>
+<div class="scrolltotop" ng-click="toTheTop()" style="display: block !important;">
+    <a href="#Index"><img src="images/icon-scroll-to-top.png" /></a>
+</div>
+<!--Footer Ends Here-->  
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/angular-animate.js"></script>
+<script type="text/javascript" src="js/angular-aria.js"></script>
+<script type="text/javascript" src="js/angular-messages.js"></script>
+<script type="text/javascript" src="js/angular-material.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/owl.carousel.js"></script>
+<script type="text/javascript" src="js/angular-scroll.js"></script>
+<script type="text/javascript" src="js/angular-script.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script>
+    $(document).ready(function(){
+        function initMap() {
+        var uluru = {lat: 47.6337400, lng: -122.3412202};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+        }
+        initMap();
+    });
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPOQbru4g_run07b8E2ndH-j98h3Fi5CE&callback=initMap"></script>
+</body>
+</html>

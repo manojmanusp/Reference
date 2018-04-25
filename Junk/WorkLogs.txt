@@ -1,0 +1,26 @@
+SiteColumns   Created site columns with different data types using sharepoint site and also programmatically.
+
+ContentTypes  Created contenttypes with set of columns and associated to lists/libraries in both ways,using sharepoint site and in declarative approach
+
+WebParts      Created visual webparts with some UI and functionality using SSOM. 
+              Oftenly used content editor WP to inject html with some references and used javascript and jquery to handle the data.
+
+PageLayouts   Created pagelayouts with webpart zones and some configurations.
+
+OOTB Site     Familiar with overall UI and functionality of sharepoint site.
+
+Features      Created at different scopes like sitecollection,web levels and packaged the respective elements as package and activated at time of deployment
+
+MasterPage    Using SP Designer edited the masterpage with required content place holders and referenced some JS and CSS files and hiding some predefined controls
+
+Lists         Using Object models done CRUD operations with lists and bind to containers
+
+
+
+
+              
+
+
+
+
+

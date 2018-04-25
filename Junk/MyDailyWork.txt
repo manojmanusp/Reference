@@ -1,0 +1,77 @@
+14th March 2018
+  
+  worked on activating publishing feature using REST api
+
+15th March
+
+  CRUD operations using JSOM 
+
+16th March
+
+  GanttChart POC - created bulk subtasks dynamically under a group and populated to Gantt Chart.
+
+19th March
+  
+  GanttChart POC - created Multiple groups with set of subtasks and created links between subtasks under a group.
+
+20TH March
+ 
+  Listed the tasks what I have done in my previous experience and working on CRUD operations using REST API
+
+21st & 22nd March 
+
+  Created a master page using design manager with html file and referenced css,js and other files to it and working on CRUD operations using REST API
+
+23rd March
+ working on CRUD operations using REST API with new form fields
+
+28th March
+Worked on CRUD operations using REST and JSOM with new,view and edit form fields
+
+29th March
+created a list with lookup field and populated that value to email field
+
+2nd April
+Created a MessageList and data is accessing from other two lists, In new & edit forms added new custom controls to add and cancel and finally the message list will be updated 
+with added and updated items and also need to send a mail to the particular user of current item with respective to user's email id.
+
+Created a pie chart(google chart) to populate percent based on count of Status values.
+
+3rd April
+Created KendoGrid to populate list of users and groups in a particular site
+Created KendoGrid to populate the items of MessageList
+
+4th April
+Some validations in MessageList New and Edit forms for both JSOM & REST CRUD Operations
+Created Kendo Grid using JSOM.
+
+5th April & 9th April
+Created new form to show the each item in PostList as div containers with editpost and deletepost buttons.  
+New Post Button works as modal dialog and also edit post also works as modal dialog.
+
+10th April to 13th April
+Master pages and pagelayouts for cmf,tillid and iaccess.
+
+16th April
+Worked on global navigation of tillid consists of managed terms with sub terms and packaged wsp's for cmf,tillid and iaccess.
+
+17th April
+Kendo grid with custom view and customization with datetime picker
+
+18th April
+Tried to create custom filter but in the latest version of kendo, no need of custom filter as per our requirement.
+
+19th April
+Tested the New Reminder form with few test cases and working on the content of iaccess new request form.
+
+20th April
+Working on Iaccess pagelayout content and form validations
+
+23rd April
+Working on fixes on Iaccess masterpage and pagelayout 
+
+24th April
+Worked on Iaccess kendo grid and started reading angular js
+
+25th April
+Started Practicing on Angular JS

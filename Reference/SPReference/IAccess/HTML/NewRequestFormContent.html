@@ -1,0 +1,80 @@
+﻿		    		<div class="form_container">
+		    			<h2 class="md-title client">New Request</h2>
+		    			<div name="userForm">
+			    			<div layout="row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<div class="label" flex="" style="max-width:200px;" class="ng-binding flex">CEO, Found</div>
+										<md-radio-group layout="row" name="firstname" ng-model="firstname" required md-maxlength="10" minlength="4">
+											<md-radio-button value="Apple">Apple</md-radio-button>
+											<md-radio-button value="Banana"> Banana </md-radio-button>
+											<md-radio-button value="Mango">Mango</md-radio-button>
+										</md-radio-group>	
+										<div ng-messages="firstname.$error" ng-show="firstname.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Request Type</label>
+										<md-select name="RequestType" ng-model="RequestType" required md-maxlength="10" minlength="4">
+											<md-option value="cloth">Cloth</md-option>
+											<md-option value="leather">Leather</md-option>
+											<md-option value="chain">Chainmail</md-option>
+											<md-option value="plate">Plate</md-option>
+										</md-select>
+										<div ng-messages="RequestType.$error" ng-show="RequestType.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div layout="row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Account Manager</label>
+										<input name="AccountManager" ng-model="AccountManager" required md-maxlength="10" minlength="4">
+										<div ng-messages="AccountManager.$error" ng-show="AccountManager.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Contact Details</label>
+										<input name="ContactDetails" ng-model="ContactDetails" required md-maxlength="10" minlength="4">
+										<div ng-messages="ContactDetails.$error" ng-show="ContactDetails.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div layout="row">
+								<div layout="column" layout-align="center center" flex="50" flex-xs="100">
+									<md-input-container class="width-90">
+										<label>Location</label>
+										<input name="Location" ng-model="Location" required md-maxlength="10" minlength="4">
+										<div ng-messages="Location.$error" ng-show="Location.$dirty">
+											<div ng-message="required">This is required!</div>
+											<div ng-message="md-maxlength">That's too long!</div>
+											<div ng-message="minlength">That's too short!</div>
+										</div>
+									</md-input-container>	
+								</div>
+							</div>	
+							<div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+								<md-button class="md-raised md-primary md-button md-ink-ripple">Save</md-button>
+								<md-button class="md-raised md-primary md-button black-color">Cancel</md-button>
+							</div>
+						</div>
+
+</div>

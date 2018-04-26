@@ -1,0 +1,4 @@
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\APPS\SP_App\SP_App\bin\Debug\SP_App.pdb
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\APPS\SP_App\SP_App\obj\Debug\SP_App.csproj.CoreCompileInputs.cache
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\APPS\SP_App\SP_App\obj\Debug\SP_App.dll
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\APPS\SP_App\SP_App\obj\Debug\SP_App.pdb

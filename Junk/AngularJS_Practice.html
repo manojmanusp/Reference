@@ -1,0 +1,146 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+//Practice 1 - Displaying the input control value to html <p>
+    tag
+
+    <div ng-app="">
+<p><input type="text" ng-model="name" /></p>
+<p>{{name}}</p>
+</div>
+
+
+
+
+//Practice 2 -Intialize the value with ng-init
+// Don't give value to ng-app and don't append ng-controller when we are not creating any module with ng-app and ng-controller directives
+<div ng-app="">
+    <div>
+        <p> <input type="text" ng-model="name" ng-init="name='Ram';lastName='Prabhu'" /></p>
+        <p>{{name}} {{lastName}}</p>
+    </div>
+
+</div>
+
+
+
+//Practice 3 - Instead of expressions we can use ng-bind to html tags
+
+<div ng-app="">
+    <div>
+        <p> <input type="text" ng-model="name" ng-init="name='Ram';lastName='Prabhu'" /></p>
+        <p><span ng-bind="name+' '+lastName"></span></p>
+    </div>
+
+</div>
+
+
+
+//Practice 4 - Create a module for ng-app
+<div ng-app="MyApp">
+
+</div>
+<script type="text/javascript">
+    var angularApp = angular.module("MyApp", []);
+</script>
+
+
+
+
+//Practice 5 - Create a controller for ng-controller directive with $scope model to bind data to html
+
+<div ng-app="MyApp">
+    <div ng-controller="MyController">
+        <p><input ng-model="name" /></p>
+        <p>{{name}}</p>
+        <p>{{array[0]}}</p>
+        <p>{{array[1]}}</p>
+        <p>{{array[2]}}</p>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    var angularApp = angular.module("MyApp", []);
+    angularApp.controller("MyController", function ($scope) {
+        $scope.name = "";
+        $scope.array = [1, 2, 3, 4, 5, 6];
+    });
+</script>
+
+
+
+//Practice 6 - Create a list of items using ng-repeat directive
+<div ng-app="MyApp">
+    <div ng-controller="MyController">
+        <div ng-repeat="value in array">
+            <p>{{value}}</p>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    var angularApp = angular.module("MyApp", []);
+    angularApp.controller("MyController", function ($scope) {
+        $scope.name = "";
+        $scope.array = [1, 2, 3, 4, 5, 6];
+    });
+</script>
+
+
+//Practice 7 - create the div with ng-show and ng-hide directives
+
+<div ng-app="MyApp">
+    <div ng-controller="MyController">
+        <p><input type="button" ng-click="ShowOrHide('show')" value="Show"></p>
+        <p><input type="button" ng-click="ShowOrHide('hide')" value="Hide"></p>
+        <p>{{showValue}}</p>
+        <p>{{hideValue}}</p>
+        <div ng-show="showValue">
+            <p>Show Block</p>
+        </div>
+        <div ng-hide="hideValue">
+            <p>Hide Block</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var angularApp = angular.module("MyApp", []);
+    angularApp.controller("MyController", function ($scope) {
+        $scope.showValue = true;
+        $scope.hideValue = false;
+        $scope.ShowOrHide = function (value) {
+            if (value == "show") {
+                return $scope.showValue = true, $scope.hideValue = true;
+            }
+            if (value == "hide") {
+                return $scope.showValue = false, $scope.hideValue = false;
+            }
+            else { return $scope.showValue = true, $scope.hideValue = false; }
+        }
+
+    });
+</script>
+
+
+
+//Practice 8 - Create a select control with ng-options and works with ng-switch
+
+<div ng-app="MyApp">
+    <div ng-controller="MyController">
+         Select Item : <select ng-model="selectValue" ng-options="itemValue for item in items "></select>
+                       
+    </div>
+</div>
+<script type="text/javascript">
+    var angularApp = angular.module("MyApp", []);
+    angularApp.controller("MyController", function ($scope) {
+        $scope.items = [1,2,3,4];
+    }
+</script>
+
+<div ng-switch="selectValue">
+    <p ng-switch-when="">Value is one</p>
+    <p ng-switch-when="">Value is two</p>
+    <p ng-switch-when="">Value is three</p>
+    <p ng-switch-when="">Value is four</p>
+</div>

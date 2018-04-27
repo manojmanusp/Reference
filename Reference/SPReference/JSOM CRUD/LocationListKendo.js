@@ -1,7 +1,8 @@
 var arrayCollection = new Array();
 var arraySearchCity = new Array();
 var markers = [];
-
+var infowindows = [];
+var lastOpenedInfoWindow;
 
 $(document).ready(function () {
 
@@ -50,7 +51,7 @@ function BindLocationKendoGrid() {
             var landmark = currentItem.get_item("Landmark");
             var latitude = currentItem.get_item("Latitude");
             var longitude = currentItem.get_item("Longitude");
-            var url = _spPageContextInfo.webAbsoluteUrl + "/Lists/Location/DispForm.aspx?ID=" + id + "&Lat=" + latitude + "&Long=" + longitude;
+            var url = _spPageContextInfo.webAbsoluteUrl + "/Lists/Location/DispForm.aspx?ID=" + id + "&Lat=" + latitude + "&Long=" + longitude + "&City=" + city + "&Pincode=" + pinCode + "&Landmark=" + landmark;
             var array = {
                 'URL': url,
                 'City': city,
@@ -152,14 +153,14 @@ function onSearch() {
         if (item.City == searchValue) { return item; }
     });
 
-    
+    infowindows = [];
     intialize(arrayMultipleLocation);
 }
 
 
 
 function intialize(arrayName) {
-    
+
     myOptions =
         {
             zoom: 5,
@@ -167,21 +168,54 @@ function intialize(arrayName) {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     map = new google.maps.Map(document.getElementById("gmap"), myOptions);
-    for (var i = 0; i < arrayCollection.length; i++) {
+    for (var i = 0; i < arrayName.length; i++) {
         myLatlng = new google.maps.LatLng(arrayName[i].Latitude, arrayName[i].Longitude);
         marker = new google.maps.Marker({
             position: myLatlng,
             map: map
         });
-        
+
         markers.push(marker);
-       
+        var getDirectionsButton = '<span><input type="button" value="Get Directions"/></span';
+        var contentString = '<div id="content">' +
+            '<h1 id="firstHeading" class="firstHeading">' + arrayName[i].Landmark + '</h1>' +
+            '<div id="bodyContent">' +
+            '<p>' + arrayName[i].City + '</p>' +
+            '<p>' + arrayName[i].PinCode + '</p>' +
+            '<p>' + getDirectionsButton + '</p>' +
+            '</div>' +
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        infowindows.push(infowindow);
     }
+
 
     for (var j = 0; j < markers.length; j++) {
-        markers[j].setMap(map);
+        var currentMarker = markers[j];
+        var currentInfoWindow = infowindows[j];
+        currentMarker.setMap(map);
+        google.maps.event.addListener(currentMarker, 'click', (function (currentMarker, currentInfoWindow) {
+            
+            return function () {
+                closeLastOpenedInfoWindow();
+                currentInfoWindow.open(map, currentMarker);
+                lastOpenedInfoWindow = currentInfoWindow;
+            }
+        })(currentMarker,currentInfoWindow));
+
+        
     }
 
+}
+
+
+function closeLastOpenedInfoWindow() {
+    if (lastOpenedInfoWindow) {
+        lastOpenedInfoWindow.close();
+    }
 }
 
 function DeleteMapMarkers() {

@@ -74,4 +74,15 @@ Working on fixes on Iaccess masterpage and pagelayout
 Worked on Iaccess kendo grid and started reading angular js
 
 25th April
-Started Practicing on Angular JS
+Started Practicing on Angular JS and created a kendo grid with dropdown search control,for each item with view link to navigate to displayform which consists  a google map based 
+on the item's latitide and longitude values.
+
+26th & 27th April
+Worked on creating a google map in each item display form and as well in kendo list aspx page.  In kendo list aspx page,need to display all markers of kendo list and should show data 
+related to list even in search functionality.
+
+30th April
+Working on other enhancements in google map 
+
+useful link
+http://jsfiddle.net/gHK7s/2/

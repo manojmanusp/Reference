@@ -3,11 +3,17 @@ var arraySearchCity = new Array();
 var markers = [];
 var infowindows = [];
 var lastOpenedInfoWindow;
+var lastOpenedInfoWindowGetDir;
+var directionsDisplay = new google.maps.DirectionsRenderer;
+var directionsService = new google.maps.DirectionsService;
+var latitudeValue;
+var longitudeValue;
+
 
 $(document).ready(function () {
 
     $(".article").after("<div id='locationKendoGrid'></div>");
-    $("#locationKendoGrid").after('<div id="gmap" style="width:800px;height:400px"></div>');
+    $("#locationKendoGrid").after('<div id="gmap" style="width:1000px;height:500px"></div>');
     //This makes sure all necessary Js files are loaded before you call taxonomy store
     SP.SOD.executeFunc('sp.runtime.js', false, function () {
         SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function () {
@@ -185,37 +191,86 @@ function intialize(arrayName) {
             '<p>' + getDirectionsButton + '</p>' +
             '</div>' +
             '</div>';
-
+        var latitude = parseFloat(arrayName[i].Latitude);
+        var longitude = parseFloat(arrayName[i].Longitude);
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
         infowindows.push(infowindow);
+
     }
 
 
     for (var j = 0; j < markers.length; j++) {
         var currentMarker = markers[j];
         var currentInfoWindow = infowindows[j];
+
+
         currentMarker.setMap(map);
         google.maps.event.addListener(currentMarker, 'click', (function (currentMarker, currentInfoWindow) {
-            
-            return function () {
-                closeLastOpenedInfoWindow();
-                currentInfoWindow.open(map, currentMarker);
-                lastOpenedInfoWindow = currentInfoWindow;
-            }
-        })(currentMarker,currentInfoWindow));
+           
 
-        
+            return function () {
+                if (directionsDisplay != null) {
+                    directionsDisplay.setDirections({ routes: [] });
+                    // directionsDisplay.setMap(null);
+                    //directionsDisplay = null;
+                }
+                closeLastOpenedInfoWindows();
+                currentInfoWindow.open(map, currentMarker);
+                $("[value='Get Directions']").click(function () {
+                    currentInfoWindow.close();
+
+                    contentGetDir = "<div><p>Get Directions</p><div><span>Destination</span><input type='text' id='destinationText' placeholder='Enter destination' />" +
+                        "<input type='button' id='submitGetDir' value='Submit'/>" +
+                        "</div ></div > ";
+                    currentInfowindowGetDir = new google.maps.InfoWindow({
+                        content: contentGetDir
+                    });
+                    lastOpenedInfoWindowGetDir = currentInfowindowGetDir;
+                    latitudeValue = currentMarker.getPosition().lat();
+                    longitudeValue = currentMarker.getPosition().lng();
+                    currentInfowindowGetDir.open(map, currentMarker);
+                    google.maps.event.addListener(currentInfowindowGetDir, 'closeclick', function () {
+
+                        //  initialize(arrayName);
+                    });
+
+                    $("[value='Submit']").click(function () {
+
+                        GetDirections();
+                    });
+                    var destinationInput = document.getElementById('destinationText');
+                    new AutoCompleteControls(destinationInput);
+                });
+
+
+                lastOpenedInfoWindow = currentInfoWindow;
+
+            }
+        })(currentMarker, currentInfoWindow));
+
+
     }
 
 }
 
 
-function closeLastOpenedInfoWindow() {
+function AutoCompleteControls(destinationInput) {
+
+    var destinationAutocomplete = new google.maps.places.Autocomplete(
+        destinationInput, { placeIdOnly: true });
+}
+
+
+function closeLastOpenedInfoWindows() {
     if (lastOpenedInfoWindow) {
         lastOpenedInfoWindow.close();
     }
+    if (lastOpenedInfoWindowGetDir) {
+        lastOpenedInfoWindowGetDir.close();
+    }
+
 }
 
 function DeleteMapMarkers() {
@@ -224,6 +279,62 @@ function DeleteMapMarkers() {
         markers[y].setMap(null);
     }
     markers = [];
+}
+
+
+function GetDirections() {
+    var deferred = $.Deferred();
+    if (directionsDisplay != null) {
+        directionsDisplay.setDirections({ routes: [] });
+        // directionsDisplay.setMap(null);
+        //directionsDisplay = null;
+    }
+    var coordinates = $("#destinationText").val();
+    //var places = new google.maps.places.Autocomplete(document.getElementById('destinationText'));
+    //var place = places.getPlace();
+    //var address = place.formatted_address;
+    //var destinationLatitude = place.geometry.location.lat();
+    //var destinationLongitude = place.geometry.location.lng();
+
+    var geocoder = new google.maps.Geocoder();
+    $.get(geocoder.geocode({ 'address': coordinates }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            destinationLatitude = results[0].geometry.location.lat();
+            destinationLongitude = results[0].geometry.location.lng();
+            console.log("location : " + destinationLatitude + " " + destinationLongitude);
+            console.log(status);
+            deferred.resolve();
+        } else {
+            alert("enter a valid place name");
+            destinationLatitude = null;
+            destinationLongitude = null;
+        }
+    })).then(function () {
+        if (destinationLatitude != null && destinationLongitude!=null){
+        var destinationValue = { lat: destinationLatitude, lng: destinationLongitude };
+        var originValue = { lat: latitudeValue, lng: longitudeValue };
+        directionsDisplay.setMap(map);
+        //var directionsDisplay = new google.maps.DirectionsRenderer({
+        //    map: map
+        //});
+
+        var request = {
+            destination: destinationValue,
+            origin: originValue,
+            travelMode: 'DRIVING'
+        };
+        //var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request, function (response, status) {
+            if (status == 'OK') {
+                // Display the route on the map.
+                directionsDisplay.setDirections(response);
+            }
+        });
+            }
+    }
+        );
+
+    return deferred.promise();
 }
 
 

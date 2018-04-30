@@ -1,0 +1,38 @@
+
+
+
+
+
+//Jquery and Kendo ref
+
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.uniform.min.css" />
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common.mobile.min.css" />
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.uniform.mobile.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+
+
+//For Google Maps
+    <script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false">
+</script>
+
+
+//For Google Pie Chart
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+//For Moment.js
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
+
+
+// select 2 ref
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+
+

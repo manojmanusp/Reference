@@ -1,0 +1,247 @@
+Field_MultiLine
+Field_Number
+Field_Yes_x002f_No
+Field_Person
+Field_Date
+Field_Choice
+Field_HyperLink
+Field_Picture
+Field_Currency
+Field_Calculated
+Field_TaskOutCome
+Field_LookUp
+
+https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/_api/Web/Lists/GetByTitle('DataList')/Items?$select=Title,Field_SingleLine,Field_MultiLine,Field_Number,Field_Yes_x002f_No,Field_Date,Field_Choice,Field_HyperLink,Field_Picture,Field_Currency,Field_Calculated,Field_TaskOutCome,Field_Person/Title,Field_LookUp/State&$expand=Field_Lookup/State,Field_Person
+
+https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/_api/Web/Lists/GetByTitle('DataList')/Items?$select=*,Field_Person/Title,Field_LookUp/State&$expand=Field_LookUp,Field_Person
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// To add new button instead of newSaveButton
+
+
+window.location.href.toLowerCase().indexOf('newform.aspx')
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+<script type='text/javascript'>
+
+
+$(document).ready(function(){
+//$("input[id$='diidIOSaveItem']").hide();
+$("[name$='diidIOSaveItem']").parent().append('<input type="button" value="newFormSave" id="newFormSave"/>');
+
+
+$('#newFormSave').click(function(){
+if (!PreSaveItem())
+	return false;
+
+if (SPClientForms.ClientFormManager.SubmitClientForm('WPQ2')) 
+	return false;
+
+WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('newFormSave', '', true, '', '', false, true));
+}); 
+
+});
+
+</script>
+
+
+
+
+
+
+
+New Form
+
+$("[id*='Title'][id$='TextField']").text()
+$("[id*='Field_SingleLine'][id$='TextField']").text()
+$("[id*='Field_MultiLine'][id$='TextField_topDiv']").text()
+$("[id*='Field_Number'][id$='NumberField']").text()
+$("[id*='Field_Yes_x002f_No'][id$='BooleanField']").text()
+$("[id*='Field_Person'][id$='ClientPeoplePicker']").text()
+$("[id*='Field_Date'][id$='DateTimeFieldDate']")[0].value
+$("[id*='Field_Choice'][id$='DropDownChoice']").text()
+$("[id*='Field_HyperLink'][id$='UrlFieldUrl']").text()
+$("[id*='Field_HyperLink'][id$='UrlFieldDescription']").text()
+$("[id*='Field_Picture'][id$='UrlFieldUrl']").text()
+$("[id*='Field_Picture'][id$='UrlFieldDescription']").text()
+$("[id*='Field_Currency'][id$='CurrencyField']").text()
+$("[id*='Field_TaskOutCome'][id$='DropDownChoice']").text()
+$("[id*='Field_LookUp'][id$='LookupField']").text()
+$("[id*='Field_MultiplePersons'][id$='ClientPeoplePicker']").text()
+$("[id*='Field_MultipleChoices'][id$='MultiChoiceTable']").text()
+$("[id*='Field_MultipleLookUp'][id$='SelectResult']").text()
+$("[id*='Field_SingleLine'][id$='TextField']").text()
+
+
+Edit Form
+
+$("[id*='Title'][id$='TextField']")[0].value
+$("[id*='Field_SingleLine'][id$='TextField']")[0].value
+$("[id*='Field_MultiLine'][id$='TextField_topDiv']").find('p').text()
+$("[id*='Field_Number'][id$='NumberField']")[0].value
+$("[id*='Field_Yes_x002f_No'][id$='BooleanField']").is(':checked')
+$("[id*='Field_Person'][id$='ClientPeoplePicker']").find('span.ms-entity-resolved').text()
+$("[id*='Field_Date'][id$='DateTimeFieldDate']")[0].value
+$("[id*='Field_Choice'][id$='DropDownChoice']").find('option:selected').val()
+$("[id*='Field_HyperLink'][id$='UrlFieldUrl']")[0].value
+$("[id*='Field_HyperLink'][id$='UrlFieldDescription']")[0].value
+$("[id*='Field_Picture'][id$='UrlFieldUrl']")[0].value
+$("[id*='Field_Picture'][id$='UrlFieldDescription']")[0].value
+$("[id*='Field_Currency'][id$='CurrencyField']")[0].value
+$("[id*='Field_TaskOutCome'][id$='DropDownChoice']").find('option:selected').val()
+$("[id*='Field_LookUp'][id$='LookupField']").find('option:selected').text()
+$("[id*='Field_MultiplePersons'][id$='ClientPeoplePicker']").find('span.ms-entity-resolved').text()
+$("[id*='Field_MultipleChoices'][id$='MultiChoiceTable']").find('input:checked').next("label").text()
+$("[id*='Field_MultipleLookUp'][id$='SelectResult']").find('option').text()
+
+
+
+$.each($("[id*='Field_MultipleLookUp'][id$='SelectResult']").find('option'),function () {
+      debugger;
+  }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createListItem() { debugger; 
+    //Fetch the values from the input elements  
+    var titleField = $("[id*='Title'][id$='TextField']")[0].value;  
+    var singleField= $("[id*='Field_SingleLine'][id$='TextField']")[0].value 
+    
+    $.ajax({  
+        async: true, // Async by default is set to “true” load the script asynchronously  
+        // URL to post data into sharepoint list  
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('DataList')/items",  
+        method: "POST", //Specifies the operation to create the list item  
+        data: JSON.stringify({  
+            '__metadata': {  
+                'type': 'SP.Data.DataListListItem' // it defines the ListEnitityTypeName  
+            },  
+//Pass the parameters
+            'Title': titleField,  
+            'Field_SingleLine': singleField
+        }),  
+        headers: {  
+            "accept": "application/json;odata=verbose", //It defines the Data format   
+            "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
+            "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
+        },  
+        success: function(data) {  
+            swal("Item created successfully", "success"); // Used sweet alert for success message  
+        },  
+        error: function(error) {  
+            console.log(JSON.stringify(error));  
+  
+        }  
+  
+    })  
+  
+} 
+
+$('#newFormSave').click(function(){
+createListItem()
+});
+

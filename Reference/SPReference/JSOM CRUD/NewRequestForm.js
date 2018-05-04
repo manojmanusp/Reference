@@ -7,23 +7,23 @@ $(document).ready(function () {
             SP.SOD.executeFunc('sp.taxonomy.js', false, ScriptLoaded);
             function ScriptLoaded() {
                 console.log("sp.js is loaded");
-        //         $("#btnSearch").kendoButton({
-						  //  click:onSearch
-						  //});
+                 $("#btnSearch").kendoButton({
+						    click:onSearch
+						  });
                 DrawKendoGrid();
             }
         });
     });
 
   //  $("#gridKendo").before('<div id="searchControlsDiv"><input class=k-textbox type=text id="txtSearchString" placeholder="enter search text..." /><button id="btnSearch">Search</button></div>');
-    //$("#searchControlsDiv").css({"float":"right","width":"20%","padding-left":"82%"});
+    $("#searchControlsDiv").css({"float":"right","width":"20%","padding-left":"82%"});
     if($("[name='userForm']").find(".ng-empty").length>0){
     $("[name='userForm']").find("button").eq(0).attr('disabled','disabled');
 
     }
     
     //For New Request Form and kendo grid
-    
+    //$("[name='AccountManager']").val(_spPageContextInfo.userDisplayName);
     
             $("[name='userForm']").find("button").eq(0).click(function () {
 	                   AddItemsToNewRequestList();
@@ -186,7 +186,7 @@ function DrawKendoGrid() {
             ]
         });
 
-		
+		//$("[data-role='droptarget']").css('display','none');
 		$("#gridKendo").find("thead").css('background-color','#c1c1c1');
 		$("#gridKendo").css({"margin-left":"0px","margin-right":"0px"});
     }

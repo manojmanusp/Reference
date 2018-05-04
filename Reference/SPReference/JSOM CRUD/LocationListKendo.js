@@ -211,19 +211,19 @@ function intialize(arrayName) {
            
 
             return function () {
-                if (directionsDisplay != null) {
-                    directionsDisplay.setDirections({ routes: [] });
-                    // directionsDisplay.setMap(null);
-                    //directionsDisplay = null;
-                }
+                ClearRoutes();
                 closeLastOpenedInfoWindows();
                 currentInfoWindow.open(map, currentMarker);
                 $("[value='Get Directions']").click(function () {
                     currentInfoWindow.close();
 
-                    contentGetDir = "<div><p>Get Directions</p><div><span>Destination</span><input type='text' id='destinationText' placeholder='Enter destination' />" +
+                    contentGetDir = "<div class='getDirections'><p>Get Directions</p><span><a id='currentLocation' href=''>current location</a></span><div><span>Destination</span><input type='text' id='destinationText' placeholder='Enter destination' />" +
                         "<input type='button' id='submitGetDir' value='Submit'/>" +
-                        "</div ></div > ";
+                        "<div id='transportMode'><input type='radio' value='DRIVING' name='transportMode'><span id='drivingMode'>Driving</span>" +
+                        "<input type='radio' value='WALKING' name='transportMode'><span id='walkingMode'>Walking</span>" +
+                        "<input type='radio' value='TRANSIT' name='transportMode'><span id='transitMode'>Transit</span>" +
+                        "</div>" +
+                        "</div ></div ><div id='directionsSuggestions' style='width:343px'></div>";
                     currentInfowindowGetDir = new google.maps.InfoWindow({
                         content: contentGetDir
                     });
@@ -232,13 +232,19 @@ function intialize(arrayName) {
                     longitudeValue = currentMarker.getPosition().lng();
                     currentInfowindowGetDir.open(map, currentMarker);
                     google.maps.event.addListener(currentInfowindowGetDir, 'closeclick', function () {
-
+                        ClearRoutes();
+                        //closeLastOpenedInfoWindows();
                         //  initialize(arrayName);
                     });
 
                     $("[value='Submit']").click(function () {
 
                         GetDirections();
+                    });
+                    $("#currentLocation").click(function (e) {
+                        e.preventDefault();
+                        console.log("current location click called");
+                        GetCurrentLocation();
                     });
                     var destinationInput = document.getElementById('destinationText');
                     new AutoCompleteControls(destinationInput);
@@ -286,15 +292,10 @@ function GetDirections() {
     var deferred = $.Deferred();
     if (directionsDisplay != null) {
         directionsDisplay.setDirections({ routes: [] });
-        // directionsDisplay.setMap(null);
-        //directionsDisplay = null;
+        
     }
     var coordinates = $("#destinationText").val();
-    //var places = new google.maps.places.Autocomplete(document.getElementById('destinationText'));
-    //var place = places.getPlace();
-    //var address = place.formatted_address;
-    //var destinationLatitude = place.geometry.location.lat();
-    //var destinationLongitude = place.geometry.location.lng();
+  
 
     var geocoder = new google.maps.Geocoder();
     $.get(geocoder.geocode({ 'address': coordinates }, function (results, status) {
@@ -310,20 +311,22 @@ function GetDirections() {
             destinationLongitude = null;
         }
     })).then(function () {
-        if (destinationLatitude != null && destinationLongitude!=null){
+        if ($("input[name='transportMode']:checked").val() == undefined) {
+            alert("Please select Transport Mode");
+        }
+        if (destinationLatitude != null && destinationLongitude != null && $("input[name='transportMode']:checked").val()!= undefined ) {
         var destinationValue = { lat: destinationLatitude, lng: destinationLongitude };
         var originValue = { lat: latitudeValue, lng: longitudeValue };
         directionsDisplay.setMap(map);
-        //var directionsDisplay = new google.maps.DirectionsRenderer({
-        //    map: map
-        //});
+        directionsDisplay.setPanel(document.getElementById("directionsSuggestions"));       
+        $("#directionsSuggestions").css("height", "100px");
 
         var request = {
             destination: destinationValue,
             origin: originValue,
-            travelMode: 'DRIVING'
+            travelMode: google.maps.TravelMode[$("input[name='transportMode']:checked").val()]
         };
-        //var directionsService = new google.maps.DirectionsService();
+        
         directionsService.route(request, function (response, status) {
             if (status == 'OK') {
                 // Display the route on the map.
@@ -337,5 +340,69 @@ function GetDirections() {
     return deferred.promise();
 }
 
+
+function ClearRoutes()
+{
+    if (directionsDisplay != null) {
+        directionsDisplay.setDirections({ routes: [] });        
+    }
+}
+
+
+function GetCurrentLocation() {
+    console.log("getcurrent location called");
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+    //console.log(pos);
+    //return pos;
+}
+
+function showPosition(position) {
+    var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    };
+    destinationValue = pos;
+    codeLatLng(pos.lat, pos.lng);
+}
+
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+
+function codeLatLng(lat, lng) {
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            console.log(results)
+            if (results[1]) {
+                //formatted address
+                var address = results[0].formatted_address;
+                console.log("address = " + address);
+                $("#destinationText").val(address);
+            } else {
+                console.log("No results found");
+            }
+        } else {
+            alert("Geocoder failed due to: " + status);
+        }
+    });
+}
 
 

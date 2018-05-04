@@ -13,7 +13,7 @@ $(document).ready(function () {
         $("#kendoGridJSOM").hide();
 
         CustomViewKendoGrid();
-        // $(".k-icon.k-i-filter").click(function () { alert("filter event fired"); });
+        
     });
 
 
@@ -40,12 +40,8 @@ function CustomViewKendoGrid() {
                         var currentItem = itemsEnumerator.get_current();
                         var title = currentItem.get_item("Title");
                         var contactPerson = currentItem.get_item("ContactPerson").get_lookupValue();
-                        var messageDetails = $.parseHTML(currentItem.get_item("MessageDetails"))[0].innerHTML;
-                        //var momentDate = moment(new Date(currentItem.get_item("MessageDate")));
-                        //var dateMessage = momentDate.format("M/D/YYYY");
-                        var dateMessage = currentItem.get_item("MessageDate");
-                        //var momentCreatedDate = moment(new Date(currentItem.get_item("Created")));
-                        //var createdDate = momentCreatedDate.format("M/D/YYYY");
+                        var messageDetails = $.parseHTML(currentItem.get_item("MessageDetails"))[0].innerHTML;                       
+                        var dateMessage = currentItem.get_item("MessageDate");                        
                         var formatteddate = new Date(Date.parse(dateMessage)).format("MM/dd/yyyy");
                         var createdDate = currentItem.get_item("Created");
                         var formattedCreatedDate = new Date(Date.parse(createdDate)).format("MM/dd/yyyy");
@@ -53,9 +49,7 @@ function CustomViewKendoGrid() {
                         var managers = currentItem.get_item("Managers")[0].get_lookupValue();
                         var status = currentItem.get_item("Status");
                         var createdBy = currentItem.get_item("Author").get_lookupValue();
-                        var id = parseInt(currentItem.get_item("ID"));
-                        //var momentModifiedDate = moment(new Date(currentItem.get_item("Modified")));
-                        //var modifiedDate = momentModifiedDate.format("M/D/YYYY");
+                        var id = parseInt(currentItem.get_item("ID"));                        
                         var modifiedDate = currentItem.get_item("Modified");
                         var formattedModifiedDate = new Date(Date.parse(modifiedDate)).format("MM/dd/yyyy");
                         var modifiedBy = currentItem.get_item("Editor").get_lookupValue();
@@ -159,10 +153,9 @@ function CustomViewKendoGrid() {
                         ]
                     });
                     console.log("Custom View grid is Added");
-                    $("#customViewGird").html().replace(/[\u200B]/g, '');
-                    //setTimeout(CustomFilter, 3000);
+                    $("#customViewGird").html().replace(/[\u200B]/g, '');                    
                     // deferred.resolve();
-                    //return listEnumerator; // Return List Item array
+                   
                 },
                 function (sender, args) { console.log("error in inner request: " + args.get_message()); }
             );
@@ -224,46 +217,4 @@ function CustomFilter() {
 }
 
 
-                //filterMenuInit: function(e) {
-                //    if (e.field == "MessageDate") {
-                //        e.container.on("click", "[type='submit']", function () {
-                //            debugger;
-                //            //gets filter type
-                //            var filterType = $(this.form).find($("select[data-role=dropdownlist]")).eq(0).val();
-                //            //if filter is "Is equal to"
-                //            if (filterType == "eq") {
-                //                e.preventDefault();
-                //                //gets the datePicker input date
-                //                var selectedDate = $(this.form).find($("input[data-role=datetimepicker]")).eq(0).val();
-                //                //create a filter
-                //                $("#customViewGird").data("kendoGrid").dataSource.filter({
-                //                    field: "MessageDate",
-                //                    //create custom filter operator
-                //                    operator: function (fieldDate) {
-                //                        if (fieldDate != undefined && fieldDate != null) {
-                //                            if (!fieldDate.logic) {
-                //                                var parsedSelectedDate = kendo.parseDate(selectedDate);
-                //                                //parse the field date in order to ignore the time
-                //                                var parsedFieldDate = new Date(fieldDate.getFullYear(), fieldDate.getMonth(), fieldDate.getDate());
-                //                                var result = (parsedFieldDate.getTime() == parsedSelectedDate.getTime());
-
-                //                                return result;
-                //                            }
-                //                        }
-                //                    },
-                //                    value: selectedDate
-                //                });
-                //                //close filter window
-                //                $("th[data-title=MessageDate]").data("kendoFilterMenu").popup.close();
-                //            }
-                //            console.log("filter");
-                //        });
-                //    }
-                //},
-
-
-
-
-
-
-
+               

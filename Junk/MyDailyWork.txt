@@ -84,5 +84,8 @@ related to list even in search functionality.
 30th April
 Working on other enhancements in google map 
 
-useful link
-http://jsfiddle.net/gHK7s/2/
+May 2nd & 3rd
+Worked on console application to integrate a script editor webpart to a sharepoint page using CSOM and JSOM. Worked on current location in google maps and directions suggestions.
+
+
+

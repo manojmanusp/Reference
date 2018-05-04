@@ -1,49 +1,50 @@
 $(document).ready(function () {
-//This makes sure all necessary Js files are loaded before you call taxonomy store
+    //$("#DeltaPlaceHolderMain").html("");
+    $("#DeltaPlaceHolderMain").append("<div id= 'gridKendo'></div>");
+    //This makes sure all necessary Js files are loaded before you call taxonomy store
     SP.SOD.executeFunc('sp.runtime.js', false, function () {
         SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function () {
-        	console.log('intiated SP.ClientContext');
+            console.log('intiated SP.ClientContext');
             SP.SOD.registerSod('sp.taxonomy.js', SP.Utilities.Utility.getLayoutsPageUrl('sp.taxonomy.js'));//loads sp.taxonomy.js file
             SP.SOD.executeFunc('sp.taxonomy.js', false, ScriptLoaded);
             function ScriptLoaded() {
                 console.log("sp.js is loaded");
-        //         $("#btnSearch").kendoButton({
-						  //  click:onSearch
-						  //});
+                $("#btnSearch").kendoButton({
+                    click: onSearch
+                });
                 DrawKendoGrid();
             }
         });
     });
 
-  //  $("#gridKendo").before('<div id="searchControlsDiv"><input class=k-textbox type=text id="txtSearchString" placeholder="enter search text..." /><button id="btnSearch">Search</button></div>');
-    //$("#searchControlsDiv").css({"float":"right","width":"20%","padding-left":"82%"});
-    if($("[name='userForm']").find(".ng-empty").length>0){
-    $("[name='userForm']").find("button").eq(0).attr('disabled','disabled');
+    //  $("#gridKendo").before('<div id="searchControlsDiv"><input class=k-textbox type=text id="txtSearchString" placeholder="enter search text..." /><button id="btnSearch">Search</button></div>');
+    $("#searchControlsDiv").css({ "float": "right", "width": "20%", "padding-left": "82%" });
+    if ($("[name='userForm']").find(".ng-empty").length > 0) {
+        $("[name='userForm']").find("button").eq(0).attr('disabled', 'disabled');
 
     }
-    
+
     //For New Request Form and kendo grid
-    
-    
-            $("[name='userForm']").find("button").eq(0).click(function () {
-	                   AddItemsToNewRequestList();
-            });
-      
-		      $("[name='userForm']").find("input").blur(function(){
-		      
-				     if($("[name='userForm']").find(".md-input-invalid").length>0 || $("[name='userForm']").find(".ng-empty").length>0)
-		                {
-		
-		              		 $("[name='userForm']").find("button").eq(0).attr('disabled','disabled');
-		
-		                }
-					else{
-					     	 $("[name='userForm']").find("button").eq(0).removeAttr('disabled');
-						}
-				               
-				
-				});
-    
+    //$("[name='AccountManager']").val(_spPageContextInfo.userDisplayName);
+
+    $("[name='userForm']").find("button").eq(0).click(function () {
+        AddItemsToNewRequestList();
+    });
+
+    $("[name='userForm']").find("input").blur(function () {
+
+        if ($("[name='userForm']").find(".md-input-invalid").length > 0 || $("[name='userForm']").find(".ng-empty").length > 0) {
+
+            $("[name='userForm']").find("button").eq(0).attr('disabled', 'disabled');
+
+        }
+        else {
+            $("[name='userForm']").find("button").eq(0).removeAttr('disabled');
+        }
+
+
+    });
+
 });
 
 
@@ -90,24 +91,23 @@ function AddItemsToNewRequestList() {
 }
 
 
- function onSearch()
-{
-  	  var searchValue = $("#txtSearchString").val();
-      var grid = $("#gridKendo").data("kendoGrid");
-      grid.dataSource.query({
-        page:1,
-        pageSize:20,
-        filter:{
-          logic:"or",
-          filters:[
-            {field:"Location", operator:"contains",value:searchValue },
-            {field:"ContactDetails", operator:"contains",value:searchValue },
-            {field:"RequestType", operator:"contains",value:searchValue },
-			{field:"Product", operator:"contains",value:searchValue },
-			{field:"AccountManager", operator:"contains",value:searchValue }
+function onSearch() {
+    var searchValue = $("#txtSearchString").val();
+    var grid = $("#gridKendo").data("kendoGrid");
+    grid.dataSource.query({
+        page: 1,
+        pageSize: 20,
+        filter: {
+            logic: "or",
+            filters: [
+                { field: "Location", operator: "contains", value: searchValue },
+                { field: "ContactDetails", operator: "contains", value: searchValue },
+                { field: "RequestType", operator: "contains", value: searchValue },
+                { field: "Product", operator: "contains", value: searchValue },
+                { field: "AccountManager", operator: "contains", value: searchValue }
             ]
-         }
-      });
+        }
+    });
 }
 
 function DrawKendoGrid() {
@@ -186,9 +186,9 @@ function DrawKendoGrid() {
             ]
         });
 
-		
-		$("#gridKendo").find("thead").css('background-color','#c1c1c1');
-		$("#gridKendo").css({"margin-left":"0px","margin-right":"0px"});
+        //$("[data-role='droptarget']").css('display','none');
+        $("#gridKendo").find("thead").css('background-color', '#c1c1c1');
+        $("#gridKendo").css({ "margin-left": "0px", "margin-right": "0px" });
     }
 }
 

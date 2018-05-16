@@ -88,4 +88,11 @@ May 2nd & 3rd
 Worked on console application to integrate a script editor webpart to a sharepoint page using CSOM and JSOM. Worked on current location in google maps and directions suggestions.
 
 
+May 6th
+Assigned to follow up the bugs list of NBO application
 
+May 7th to 9th
+Created a windows application to add page with pagelayout and adding webparts programmatically using CSOM for sharepoint online and on-premises.
+
+May 10th & 11th
+Created a list based on list template and adding multiple values to choice field programmatically using CSOM.

@@ -16,7 +16,7 @@ namespace PageWithPageLayoutsAndWebparts
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PageWithPageLayout.CreateNewPage());
+            Application.Run(new PageWithPageLayoutsAndWebparts.CreateNewPage());
         }
     }
 }

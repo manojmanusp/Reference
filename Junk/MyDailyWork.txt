@@ -96,3 +96,9 @@ Created a windows application to add page with pagelayout and adding webparts pr
 
 May 10th & 11th
 Created a list based on list template and adding multiple values to choice field programmatically using CSOM.
+
+May 15th to 17th
+Learnig how to use swagger in microsoft flow
+
+May 18th
+Created windows application to create new page and add webpart as per choice to the page

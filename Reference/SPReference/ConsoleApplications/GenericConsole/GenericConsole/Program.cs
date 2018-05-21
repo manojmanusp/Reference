@@ -21,6 +21,7 @@ namespace GenericConsole
 
             using (var clientContext = new ClientContext(pageUrl))
             {
+
                 clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
                 AddUserToGroup(clientContext, userName);
                 //AddSPUserToList(clientContext);

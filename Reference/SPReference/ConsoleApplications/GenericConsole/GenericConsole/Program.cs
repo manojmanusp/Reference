@@ -17,22 +17,76 @@ namespace GenericConsole
             //var listTitle = "NewLocationList";
             //var listTemplateName = "CustomLocationList.stp";
             SecureString userPassword = PasswordBuilder(pass);
-            var pageUrl = "https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/";           
+            var pageUrl = "https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/";
 
             using (var clientContext = new ClientContext(pageUrl))
             {
                 clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
-              
+                AddUserToGroup(clientContext, userName);
+                //AddSPUserToList(clientContext);
+
                 //CreateListOverTemplate(clientContext, listTitle, listTemplateName);
 
-                AssignMultipleValuesToChoiceField(clientContext);
+                //AssignMultipleValuesToChoiceField(clientContext);
             }
 
-            
+
         }
+        #region Add user to existing group
+        public static void AddUserToGroup(ClientContext context, string userName)
+        {
+            try
+            {               
+                Web web = context.Web;                
+                string groupTitle = "Secretaries";
+                Group group = web.SiteGroups.GetByName(groupTitle);
+                context.Load(group);
+                context.ExecuteQuery();
+
+                if (group.Title == groupTitle)
+                {
+                    User member = web.EnsureUser(@userName);
+                    group.Users.AddUser(member);
+                    group.Update();
+                    context.ExecuteQuery();
+                    
+                }
+               
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        #endregion
+
+        #region Add user to a list
+        public static void AddSPUserToList(ClientContext context)
+        {
+            try
+            {                
+                var itemId = 1;
+                var listName = "SecretariesList";
+                var userId = 8;
+                var list = context.Web.Lists.GetByTitle(listName);
+                var item = list.GetItemById(itemId);
+                var userValue = new FieldUserValue() { LookupId = userId }; // for single user
+                var userValues = new[] { userValue, userValue, userValue }; // for multiple users
+                item["Secretary"] = userValue;
+                item["Secretaries"] = userValues;
+                item.Update();
+                context.ExecuteQuery();
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+        #endregion
 
         // Create a list from list template
-        private static void CreateListOverTemplate(ClientContext context,string listTitle,string listTemplateName)
+        private static void CreateListOverTemplate(ClientContext context, string listTitle, string listTemplateName)
         {
             Web webSite = context.Web;
             Console.WriteLine("Process Started....");
@@ -82,7 +136,7 @@ namespace GenericConsole
             var choiceFieldName = "CustomChoiceColumn";
             string[] choiceValues = new string[] { "one", "two", "three" };
             Web web = context.Web;
-            
+
             // Get the list by Title  
             List list = web.Lists.GetByTitle(listName);
 
@@ -101,14 +155,14 @@ namespace GenericConsole
             {
                 options.Add(choiceValues[i]);
             }
-            
+
             fieldChoice.Choices = options.ToArray();
 
             // Update the choice field  
             fieldChoice.Update();
 
             // Execute the query to the server  
-            context.ExecuteQuery();           
+            context.ExecuteQuery();
 
         }
 

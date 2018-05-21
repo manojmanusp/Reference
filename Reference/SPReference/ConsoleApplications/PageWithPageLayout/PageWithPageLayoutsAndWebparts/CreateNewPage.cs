@@ -10,6 +10,9 @@ using System.Security;
 using System.Net;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using System.Web;
+using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace PageWithPageLayoutsAndWebparts
 {
@@ -28,154 +31,193 @@ namespace PageWithPageLayoutsAndWebparts
 
         private void CreateNewPage_Load(object sender, EventArgs e)
         {
-            //public static string variableValue = TxtPageName.Text;
-            TableAddPage.Visible = true;
-            TableAddWebpart.Visible = false;
-            BtnSubmit.Visible = true;
-            BtnAddWebPart.Visible = false;
-            LblHeading.Visible = false;
-            LblStatus.Text = "";
-           
+            string siteUrl = "http://tss.from-in.com:56789/en";
+            ProgressBar progressBar = new ProgressBar() ;
+            GetWebPartZones(siteUrl,progressBar, DropdownZones);
+            //TableAddPage.Visible = true;
+            //TableAddWebpart.Visible = false;
+            //BtnSubmit.Visible = true;
+            //BtnAddWebPart.Visible = false;
+            //LblHeading.Visible = false;
+            //LblStatus.Text = "";
+            //LblProvisionStatus.Visible = false;
+
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             string pageName = TxtPageName.Text + ".aspx";
-            string pageUrl = TxtUrl.Text.TrimEnd('/');
+            string siteUrl = TxtUrl.Text.TrimEnd('/');
             string pageTitle = TxtPageName.Text;
             string pageLibrary = "Pages";
             string pageLayout = "";
             string folderName = TxtFolderName.Text;
 
-            LblStatus.AutoSize = true;
-            LblStatus.Text = "Process started...";
-            LblStatus.Refresh();
-            progressBar.Show();
-            //  progressBar.BackColor =System.Drawing.Color.Blue;
-            //  progressBar.Style = ProgressBarStyle.Blocks;
-            NewProgressBar newp = new NewProgressBar();
-            
-
-            //Progress Bar intialization
-            progressBar.Minimum = 1;
-            progressBar.Maximum = 100;
-
-
-            using (var clientContext = new ClientContext(pageUrl))
+            try
             {
-                string userName = "";
-                string pass = "";
-                progressBar.Value = 20;
-                if (pageUrl.Contains("sharepoint.com"))
+                if ((TxtPageName.Text != "" && TxtUrl.Text != "" && TxtFolderName.Text != ""))
                 {
+                    LblProvisionStatus.Visible = true;
+                    LblStatus.AutoSize = true;
+                    LblStatus.Text = "Process started...";
+                    LblStatus.Refresh();
+                    progressBar.Show();
+                    //  progressBar.BackColor =System.Drawing.Color.Blue;
+                    //  progressBar.Style = ProgressBarStyle.Blocks;
+                    NewProgressBar newp = new NewProgressBar();
 
-                    //To connect SharePoint online with Authentication
-                    userName = "murali@chennaitillidsoft.onmicrosoft.com";
-                    pass = "ThisIsRight1!";
-                    pageLayout = "TillidHomePageLayout";
-                    SecureString userPassword = PasswordBuilder(pass);
-                    clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
 
+                    //Progress Bar intialization
+                    progressBar.Minimum = 1;
+                    progressBar.Maximum = 100;
+
+
+                    using (var clientContext = new ClientContext(siteUrl))
+                    {
+                        string userName = "";
+                        string pass = "";
+                        progressBar.Value = 20;
+                        if (siteUrl.Contains("sharepoint.com"))
+                        {
+
+                            //To connect SharePoint online with Authentication
+                            userName = "murali@chennaitillidsoft.onmicrosoft.com";
+                            pass = "ThisIsRight1!";
+                            pageLayout = "TillidHomePageLayout";
+                            SecureString userPassword = PasswordBuilder(pass);
+                            clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
+
+                        }
+                        else
+                        {
+                            //To connect SharePoint On-premise with Authentication
+                            userName = "administrator";
+                            pass = "Adm!n@321";
+                            string domain = "win-o9gikgho82j";
+                            pageLayout = "NBOMobileAppPageLayout";
+                            SecureString userPassword = PasswordBuilder(pass);
+                            clientContext.Credentials = new NetworkCredential(userName, userPassword, domain);
+
+                        }
+                        progressBar.Value = 30;
+                        Web webSite = clientContext.Web;
+                        clientContext.Load(webSite);
+                        PublishingWeb web = PublishingWeb.GetPublishingWeb(clientContext, webSite);
+                        clientContext.Load(web);
+                        if (web != null)
+                        {
+                            // Get Pages Library
+
+                            LblStatus.Text = "Adding the folder '" + folderName + "'";
+                            LblStatus.Refresh();
+                            List pages = clientContext.Web.Lists.GetByTitle(pageLibrary);
+                            var folder = pages.RootFolder;
+                            clientContext.Load(folder);
+                            Microsoft.SharePoint.Client.ListItemCollection existingPages = pages.GetItems(CamlQuery.CreateAllItemsQuery());
+                            clientContext.Load(existingPages, items => items.Include(item => item.DisplayName).Where(obj => obj.DisplayName == pageTitle));
+
+                            progressBar.Value = 60;
+                            folder = folder.Folders.Add(folderName);
+                            clientContext.ExecuteQuery();
+
+                            LblStatus.Text = folderName + " folder is added successfully";
+                            LblStatus.Refresh();
+                            // Check if page already exists    
+                            if (existingPages != null && existingPages.Count > 0)
+                            {
+                                LblStatus.Text = pageTitle + " page already exists.";
+                                LblStatus.Refresh();
+                            }
+                            else
+                            {
+                                // Get Publishing Page Layouts   
+
+                                LblStatus.Text = "Creating '" + pageTitle + "' page.....";
+                                LblStatus.Refresh();
+                                List publishingLayouts = clientContext.Site.RootWeb.Lists.GetByTitle("Master Page Gallery");
+                                Microsoft.SharePoint.Client.ListItemCollection allItems = publishingLayouts.GetItems(CamlQuery.CreateAllItemsQuery());
+                                clientContext.Load(allItems, items => items.Include(item => item.DisplayName).Where(obj => obj.DisplayName == pageLayout));
+                                clientContext.ExecuteQuery();
+                                progressBar.Value = 80;
+                                Microsoft.SharePoint.Client.ListItem layout = allItems.Where(currentLayout => currentLayout.DisplayName == pageLayout).FirstOrDefault();
+                                clientContext.Load(layout);
+
+                                // Create a publishing page    
+                                PublishingPageInformation publishingPageInfo = new PublishingPageInformation();
+                                publishingPageInfo.Name = pageName;
+                                publishingPageInfo.PageLayoutListItem = layout;
+                                publishingPageInfo.Folder = folder;
+
+                                PublishingPage publishingPage = web.AddPublishingPage(publishingPageInfo);
+
+                                publishingPage.ListItem["Title"] = pageTitle;
+                                publishingPage.ListItem.File.CheckIn(string.Empty, CheckinType.MajorCheckIn);
+                                publishingPage.ListItem.File.Publish(string.Empty);
+                                clientContext.Load(publishingPage);
+                                clientContext.ExecuteQuery();
+
+                                TxtWebpartPage.Text = TxtPageName.Text;
+
+                                #region Populate the values in choose webpart dropdown
+                                PopulateWebpartDropDown(clientContext, webSite, pageLibrary, folderName, pageName, DrpdChooseWebpart, progressBar);
+                                #endregion
+
+                                #region Populate the values in choose zone dropdown
+                                PopulateZoneDropDown(DrpdChooseZone);
+                                #endregion
+
+                                progressBar.Value = 100;
+                                LblStatus.Text = pageTitle + " page is created successfully";
+                                LblStatus.Refresh();
+                                progressBar.Hide();
+                                LblStatus.Text = "";
+                                LblStatus.Refresh();
+                                TableAddPage.Visible = false;
+                                TableAddWebpart.Visible = true;
+                                TxtWebpartPage.ReadOnly = true;
+                                BtnSubmit.Visible = false;
+                                BtnAddWebPart.Visible = true;
+                                LblProvisionStatus.Visible = false;
+                                LblHeading.Visible = true;
+                                LblHeading.AutoSize = true;
+                                LblHeading.Text = "'" + TxtPageName.Text + "' page is created, Add Webparts to this page";
+                                LblHeading.Refresh();
+
+                            }
+                        }
+
+
+
+
+                    }
                 }
                 else
                 {
-                    //To connect SharePoint On-premise with Authentication
-                    userName = "administrator";
-                    pass = "Adm!n@321";
-                    string domain = "win-o9gikgho82j";
-                    pageLayout = "NBOMobileAppPageLayout";
-                    SecureString userPassword = PasswordBuilder(pass);
-                    clientContext.Credentials = new NetworkCredential(userName, userPassword, domain);
-
-                }
-                progressBar.Value = 30;
-                Web webSite = clientContext.Web;
-                clientContext.Load(webSite);
-                PublishingWeb web = PublishingWeb.GetPublishingWeb(clientContext, webSite);
-                clientContext.Load(web);
-                if (web != null)
-                {
-                    // Get Pages Library
-
-                    LblStatus.Text = "Adding the folder '" + folderName + "'";
-                    LblStatus.Refresh();
-                    List pages = clientContext.Web.Lists.GetByTitle(pageLibrary);
-                    var folder = pages.RootFolder;
-                    clientContext.Load(folder);
-                    Microsoft.SharePoint.Client.ListItemCollection existingPages = pages.GetItems(CamlQuery.CreateAllItemsQuery());
-                    clientContext.Load(existingPages, items => items.Include(item => item.DisplayName).Where(obj => obj.DisplayName == pageTitle));
-
-                    progressBar.Value = 60;
-                    folder = folder.Folders.Add(folderName);
-                    clientContext.ExecuteQuery();
-
-                    LblStatus.Text = folderName + " folder is added successfully";
-                    LblStatus.Refresh();
-                    // Check if page already exists    
-                    if (existingPages != null && existingPages.Count > 0)
+                    LblProvisionStatus.Visible = true;
+                    if (TxtFolderName.Text == "")
                     {
-                        LblStatus.Text = pageTitle + " page already exists.";
+                        LblStatus.Text = "Please enter a folder name";
                         LblStatus.Refresh();
                     }
-                    else
+                    if (TxtPageName.Text == "")
                     {
-                        // Get Publishing Page Layouts   
-
-                        LblStatus.Text = "Creating '" + pageTitle + "' page.....";
+                        LblStatus.Text = "Please enter a page name";
                         LblStatus.Refresh();
-                        List publishingLayouts = clientContext.Site.RootWeb.Lists.GetByTitle("Master Page Gallery");
-                        Microsoft.SharePoint.Client.ListItemCollection allItems = publishingLayouts.GetItems(CamlQuery.CreateAllItemsQuery());
-                        clientContext.Load(allItems, items => items.Include(item => item.DisplayName).Where(obj => obj.DisplayName == pageLayout));
-                        clientContext.ExecuteQuery();
-                        progressBar.Value = 80;
-                        Microsoft.SharePoint.Client.ListItem layout = allItems.Where(currentLayout => currentLayout.DisplayName == pageLayout).FirstOrDefault();
-                        clientContext.Load(layout);
-
-                        // Create a publishing page    
-                        PublishingPageInformation publishingPageInfo = new PublishingPageInformation();
-                        publishingPageInfo.Name = pageName;
-                        publishingPageInfo.PageLayoutListItem = layout;
-                        publishingPageInfo.Folder = folder;
-
-                        PublishingPage publishingPage = web.AddPublishingPage(publishingPageInfo);
-
-                        publishingPage.ListItem["Title"] = pageTitle;
-                        publishingPage.ListItem.File.CheckIn(string.Empty, CheckinType.MajorCheckIn);
-                        publishingPage.ListItem.File.Publish(string.Empty);
-                        clientContext.Load(publishingPage);
-                        clientContext.ExecuteQuery();
-
-                        TxtWebpartPage.Text = TxtPageName.Text;
-
-                        #region Populate the values in choose webpart dropdown
-                        PopulateWebpartDropDown(clientContext, webSite, pageLibrary, folderName, pageName, DrpdChooseWebpart, progressBar);
-                        #endregion
-
-                        #region Populate the values in choose zone dropdown
-                        PopulateZoneDropDown(DrpdChooseZone);
-                        #endregion
-
-                        progressBar.Value = 100;
-                        LblStatus.Text = pageTitle + " page is created successfully";
+                    }
+                    if (TxtUrl.Text == "")
+                    {
+                        LblStatus.Text = "Please enter a site url";
                         LblStatus.Refresh();
-                        progressBar.Hide();
-                        LblStatus.Text = "";
-                        LblStatus.Refresh();
-                        TableAddPage.Visible = false;
-                        TableAddWebpart.Visible = true;
-                        TxtWebpartPage.ReadOnly = true;
-                        BtnSubmit.Visible = false;
-                        BtnAddWebPart.Visible = true;
-                        LblHeading.Visible = true;
-                        LblHeading.AutoSize = true;
-                        LblHeading.Text = "'" + TxtPageName.Text + "' page is created, Add Webparts to this page";
-                        LblHeading.Refresh();
-
                     }
                 }
+            }
 
 
-
+            catch
+            {
+                progressBar.Hide();
+                LblStatus.Text = "Please enter a valid site url";
+                LblStatus.Refresh();
 
             }
         }
@@ -183,6 +225,7 @@ namespace PageWithPageLayoutsAndWebparts
 
         private void BtnAddWebPart_Click(object sender, EventArgs e)
         {
+            LblProvisionStatus.Visible = true;
             LblStatus.AutoSize = true;
             LblStatus.Text = "Process started...";
             LblStatus.Refresh();
@@ -192,7 +235,7 @@ namespace PageWithPageLayoutsAndWebparts
             progressBar.Maximum = 100;
             progressBar.Value = 1;
             string pageName = TxtPageName.Text + ".aspx";
-            string pageUrl = TxtUrl.Text;
+            string siteUrl = TxtUrl.Text;
             string pageTitle = TxtPageName.Text;
             string pageLibrary = "Pages";
             string pageLayout = "";
@@ -202,12 +245,12 @@ namespace PageWithPageLayoutsAndWebparts
             string choosenZoneTitle = DrpdChooseZone.Text;
             string choosenZoneID = DrpdChooseZone.SelectedValue.ToString();
             progressBar.Value = 10;
-            using (var clientContext = new ClientContext(pageUrl))
+            using (var clientContext = new ClientContext(siteUrl))
             {
                 string userName = "";
                 string pass = "";
 
-                if (pageUrl.Contains("sharepoint.com"))
+                if (siteUrl.Contains("sharepoint.com"))
                 {
 
                     //To connect SharePoint online with Authentication
@@ -382,7 +425,7 @@ namespace PageWithPageLayoutsAndWebparts
                                     LblStatus.Text = "'" + webPartTitle + "' Webpart added successfully";
                                     LblStatus.Refresh();
                                     progressBar.Value = 100;
-                                    progressBar.Hide();
+
                                 }
                             }
                         }
@@ -437,7 +480,9 @@ namespace PageWithPageLayoutsAndWebparts
         }
 
 
-        public SecureString PasswordBuilder(string pass)
+
+
+        public static SecureString PasswordBuilder(string pass)
         {
             SecureString password = new SecureString();
             for (var i = 0; i < pass.Length; i++)
@@ -447,30 +492,145 @@ namespace PageWithPageLayoutsAndWebparts
             return password;
         }
 
-        private void LblStatus_Click(object sender, EventArgs e)
+        public static void GetWebPartZones(string siteUrl, ProgressBar progressBar, ComboBox DropdownZones)
         {
+            using (var clientContext = new ClientContext(siteUrl))
+            {
+                string userName = "";
+                string pass = "";
+                //string pageName = TxtPageName.Text + ".aspx";
+                //string siteUrl = TxtUrl.Text.TrimEnd('/');
+                //string pageTitle = TxtPageName.Text;
+                //string pageLibrary = "Pages";
+                string pageLayout = "";
+                //string folderName = TxtFolderName.Text;
+                progressBar.Value = 20;
+                if (siteUrl.Contains("sharepoint.com"))
+                {
+
+                    //To connect SharePoint online with Authentication
+                    userName = "murali@chennaitillidsoft.onmicrosoft.com";
+                    pass = "ThisIsRight1!";
+                    pageLayout = "TillidHomePageLayout";
+                    SecureString userPassword = PasswordBuilder(pass);
+                    clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
+
+                }
+                else
+                {
+                    //To connect SharePoint On-premise with Authentication
+                    userName = "administrator";
+                    pass = "Adm!n@321";
+                    string domain = "win-o9gikgho82j";
+                    pageLayout = "NBOMobileAppPageLayout";
+                    SecureString userPassword = PasswordBuilder(pass);
+                    clientContext.Credentials = new NetworkCredential(userName, userPassword, domain);
+
+                }
+
+                Web webSite = clientContext.Web;
+                clientContext.Load(webSite);
+                clientContext.ExecuteQuery();
+
+                //// Adding webparts to page
+                //progressBar.Value = 30;
+                //string pagePath = webSite.ServerRelativeUrl + "/" + pageLibrary + "/" + folderName + "/" + pageName;
+
+                //Microsoft.SharePoint.Client.File page = webSite.GetFileByServerRelativeUrl(pagePath);
+
+                //clientContext.Load(page);
+                //clientContext.ExecuteQuery();
+                string pageLayoutPath = "/_catalogs/masterpage/" + pageLayout+".aspx";
+                GetWebPartPage(clientContext, pageLayoutPath, DropdownZones);
+
+            }
 
         }
 
-        private void progressBar_Click(object sender, EventArgs e)
+
+        public static void GetWebPartPage(ClientContext context, string pageLayoutPath,ComboBox DropdownZones)
+
         {
+
+            //File file = context.Sites.Web.GetFile("SitePages/test.aspx");
+            File file = context.Site.RootWeb.GetFileByServerRelativeUrl(pageLayoutPath);
+            context.Load(file);
+            context.ExecuteQuery();
+            //string sourceCode = System.Text.Encoding.UTF8.GetString(file.OpenBinary());
+            FileInformation fileInformation = Microsoft.SharePoint.Client.File.OpenBinaryDirect(context, (string)file.ServerRelativeUrl);
+            System.IO.StreamReader sr = new System.IO.StreamReader(fileInformation.Stream);            
+            string sourceCode = sr.ReadToEnd().ToString();
+
+            List<string> webPartZoneStr = new List<string>();
+            //List<HtmlElement> webPartZoneHtml = new List<HtmlElement>();
+
+            FindWebPartString(webPartZoneStr, sourceCode);
+             
+            BindingList<ZoneData> _comboZoneItems = new BindingList<ZoneData>();
+            foreach (string str in webPartZoneStr)
+
+            {
+
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(str);
+                XmlElement root = doc.DocumentElement;
+                string id = root.GetAttribute("id");
+                string text= root.GetAttribute("title");
+
+                _comboZoneItems.Add(new ZoneData { Text = text, Value = id });
+
+                
+            }
+            DropdownZones.DataSource = _comboZoneItems;
+            DropdownZones.DisplayMember = "Text";
+            DropdownZones.ValueMember = "Value";
 
         }
 
-        private void TxtWebpartPage_TextChanged(object sender, EventArgs e)
+
+
+        public static void FindWebPartString(List<string> strCol, string src)
+
         {
+
+            if (src.IndexOf("<WebPartPages:WebPartZone") > -1)
+
+            {
+                try
+                {
+                    src = src.Substring(src.IndexOf("<WebPartPages:WebPartZone"));
+                    string strValue = src.Substring(0, src.IndexOf("Zone>") + 5);
+                    strCol.Add(strValue);
+                    //XmlDocument doc = new XmlDocument();
+                    //doc.LoadXml(htmlValue);
+                    //XmlElement root = doc.DocumentElement;
+                    //string id = root.Attributes["id"].Value;
+                    //string title = root.Attributes["title"].Value;
+                    string newStr = src.Substring(src.IndexOf(">/") + 2);
+                    FindWebPartString(strCol, newStr);
+
+                }
+                catch(Exception e) {
+                    MessageBox.Show(e.Message);
+                }
+                
+
+            }
+
+            else
+
+            {
+
+                return;
+
+            }
 
         }
 
-        private void LblChooseWebpart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
     }
 
 
+    // Customizing Progress Bar
     public class NewProgressBar : ProgressBar
     {
         public NewProgressBar()
@@ -509,7 +669,7 @@ namespace PageWithPageLayoutsAndWebparts
             }
         }
 
-        protected  void OnPaintBackup(PaintEventArgs e)
+        protected void OnPaintBackup(PaintEventArgs e)
         {
             const int inset = 2; // A single inset value to control teh sizing of the inner rect.
 

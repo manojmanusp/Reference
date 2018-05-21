@@ -35,9 +35,9 @@
             this.LblFolderName = new System.Windows.Forms.Label();
             this.LblPageName = new System.Windows.Forms.Label();
             this.LblUrl = new System.Windows.Forms.Label();
+            this.TxtFolderName = new System.Windows.Forms.TextBox();
             this.TxtUrl = new System.Windows.Forms.TextBox();
             this.TxtPageName = new System.Windows.Forms.TextBox();
-            this.TxtFolderName = new System.Windows.Forms.TextBox();
             this.TableAddWebpart = new System.Windows.Forms.TableLayoutPanel();
             this.LblChooseZone = new System.Windows.Forms.Label();
             this.DrpdChooseWebpart = new System.Windows.Forms.ComboBox();
@@ -47,9 +47,10 @@
             this.TxtWebpartPage = new System.Windows.Forms.TextBox();
             this.BtnAddWebPart = new System.Windows.Forms.Button();
             this.LblHeading = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LblProvisionStatus = new System.Windows.Forms.Label();
             this.BtnSubmit = new System.Windows.Forms.Button();
             this.progressBar = new PageWithPageLayoutsAndWebparts.NewProgressBar();
+            this.DropdownZones = new System.Windows.Forms.ComboBox();
             this.TableAddPage.SuspendLayout();
             this.TableAddWebpart.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,6 @@
             this.LblStatus.Size = new System.Drawing.Size(74, 13);
             this.LblStatus.TabIndex = 8;
             this.LblStatus.Text = "StatusLabel";
-            this.LblStatus.Click += new System.EventHandler(this.LblStatus_Click);
             // 
             // LabelStatus
             // 
@@ -124,26 +124,26 @@
             this.LblUrl.TabIndex = 1;
             this.LblUrl.Text = "URL";
             // 
+            // TxtFolderName
+            // 
+            this.TxtFolderName.Location = new System.Drawing.Point(133, 93);
+            this.TxtFolderName.Name = "TxtFolderName";
+            this.TxtFolderName.Size = new System.Drawing.Size(371, 20);
+            this.TxtFolderName.TabIndex = 7;
+            // 
             // TxtUrl
             // 
-            this.TxtUrl.Location = new System.Drawing.Point(132, 3);
+            this.TxtUrl.Location = new System.Drawing.Point(133, 3);
             this.TxtUrl.Name = "TxtUrl";
             this.TxtUrl.Size = new System.Drawing.Size(371, 20);
             this.TxtUrl.TabIndex = 3;
             // 
             // TxtPageName
             // 
-            this.TxtPageName.Location = new System.Drawing.Point(132, 48);
+            this.TxtPageName.Location = new System.Drawing.Point(133, 48);
             this.TxtPageName.Name = "TxtPageName";
             this.TxtPageName.Size = new System.Drawing.Size(371, 20);
             this.TxtPageName.TabIndex = 5;
-            // 
-            // TxtFolderName
-            // 
-            this.TxtFolderName.Location = new System.Drawing.Point(132, 93);
-            this.TxtFolderName.Name = "TxtFolderName";
-            this.TxtFolderName.Size = new System.Drawing.Size(371, 20);
-            this.TxtFolderName.TabIndex = 7;
             // 
             // TableAddWebpart
             // 
@@ -210,7 +210,6 @@
             this.LblChooseWebpart.Size = new System.Drawing.Size(101, 13);
             this.LblChooseWebpart.TabIndex = 2;
             this.LblChooseWebpart.Text = "Choose Webpart";
-            this.LblChooseWebpart.Click += new System.EventHandler(this.LblChooseWebpart_Click);
             // 
             // TxtWebpartPage
             // 
@@ -218,7 +217,6 @@
             this.TxtWebpartPage.Name = "TxtWebpartPage";
             this.TxtWebpartPage.Size = new System.Drawing.Size(373, 20);
             this.TxtWebpartPage.TabIndex = 1;
-            this.TxtWebpartPage.TextChanged += new System.EventHandler(this.TxtWebpartPage_TextChanged);
             // 
             // BtnAddWebPart
             // 
@@ -238,22 +236,22 @@
             this.LblHeading.AutoSize = true;
             this.LblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblHeading.ForeColor = System.Drawing.Color.Blue;
-            this.LblHeading.Location = new System.Drawing.Point(91, 34);
+            this.LblHeading.Location = new System.Drawing.Point(100, 37);
             this.LblHeading.Name = "LblHeading";
             this.LblHeading.Size = new System.Drawing.Size(81, 13);
             this.LblHeading.TabIndex = 13;
             this.LblHeading.Text = "Add Webpart";
             // 
-            // label2
+            // LblProvisionStatus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(91, 365);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Provision Status :";
+            this.LblProvisionStatus.AutoSize = true;
+            this.LblProvisionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblProvisionStatus.ForeColor = System.Drawing.Color.Green;
+            this.LblProvisionStatus.Location = new System.Drawing.Point(91, 365);
+            this.LblProvisionStatus.Name = "LblProvisionStatus";
+            this.LblProvisionStatus.Size = new System.Drawing.Size(107, 13);
+            this.LblProvisionStatus.TabIndex = 14;
+            this.LblProvisionStatus.Text = "Provision Status :";
             // 
             // BtnSubmit
             // 
@@ -276,16 +274,24 @@
             this.progressBar.Size = new System.Drawing.Size(562, 23);
             this.progressBar.TabIndex = 7;
             this.progressBar.Visible = false;
-            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
+            // 
+            // DropdownZones
+            // 
+            this.DropdownZones.FormattingEnabled = true;
+            this.DropdownZones.Location = new System.Drawing.Point(1, 436);
+            this.DropdownZones.Name = "DropdownZones";
+            this.DropdownZones.Size = new System.Drawing.Size(741, 21);
+            this.DropdownZones.TabIndex = 16;
             // 
             // CreateNewPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(741, 403);
+            this.ClientSize = new System.Drawing.Size(741, 535);
+            this.Controls.Add(this.DropdownZones);
             this.Controls.Add(this.BtnSubmit);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblProvisionStatus);
             this.Controls.Add(this.LblHeading);
             this.Controls.Add(this.BtnAddWebPart);
             this.Controls.Add(this.TableAddWebpart);
@@ -327,8 +333,9 @@
         private System.Windows.Forms.ComboBox DrpdChooseZone;
         private System.Windows.Forms.Button BtnAddWebPart;
         private System.Windows.Forms.Label LblHeading;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblProvisionStatus;
         private NewProgressBar progressBar;
         private System.Windows.Forms.Button BtnSubmit;
+        private System.Windows.Forms.ComboBox DropdownZones;
     }
 }

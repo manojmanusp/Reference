@@ -102,3 +102,6 @@ Learnig how to use swagger in microsoft flow
 
 May 18th
 Created windows application to create new page and add webpart as per choice to the page
+
+May 21st
+Created console to add user to group and add user to sharepoint list item.

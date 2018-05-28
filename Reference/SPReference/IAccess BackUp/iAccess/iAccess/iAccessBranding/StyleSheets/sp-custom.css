@@ -1,0 +1,76 @@
+﻿/*** Top Navigaion Menu Items container DIV ***/
+.ms-core-listMenu-horizontalBox {
+    font-size: 1.2em;
+    font-weight: 600;
+} 
+  
+ /*** Top Navigaion Static Menu Items ***/
+.ms-core-listMenu-horizontalBox li.static {
+    border: 1px solid transparent;
+    list-style:none;
+    display:inline;
+}
+
+ /*** Top Navigaion Static Menu Item Links  ***/
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item {
+    color:#fff;
+} 
+  
+  /* Top Navigation static Menu Item Links Hover Style  */
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item:hover {
+    color: #ffd100;
+    text-decoration: none;
+}
+  
+ /*** Top Navigaion Static Menu Selected ***/
+.ms-core-listMenu-horizontalBox li.selected a.selected {
+     /* Glass Effect Shade Image */    
+/* Glass Effect Shade Image */
+    background-color: #0A85C4;
+    color: #fff;
+    text-decoration: none;
+    border: 1px #134072 solid;
+    padding: 10px 10px;
+    margin: 1px;
+} 
+ 
+ /*** Sub-Menu/Flyover/Dynamic Menu Container ***/
+ul.dynamic {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 1px;
+    margin-top: 5px;
+} 
+ 
+/***  Sub-Menu Items (HyperLinks) Style ***/
+ul.dynamic .ms-core-listMenu-item {
+    background-color: #f7f7f7;
+    padding: 10px 20px 10px 20px;
+    white-space: nowrap;
+} 
+ 
+ 
+/*** Sub-Menu Items (HyperLinks) Hover Style ***/
+ul.dynamic .ms-core-listMenu-item:hover {
+    background-color: #61CBFD;
+    color: #FFF;
+} 
+ 
+ /** Hide "Edit Links" ***/
+.ms-listMenu-editLink {
+    display: none !important;
+}
+
+
+.ms-displayInline {
+    display: inline;
+}
+
+
+
+.ms-core-listMenu-horizontalBox ul.static{
+    display: inline;
+    padding: 0;
+    }
+
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{margin:0 20px;}

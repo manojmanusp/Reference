@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Report</title>
+    <link href="../Site Assets/package/mld-icons/material-icons.css" rel="stylesheet" />
+    <link href="../Site Assets/package/mdl/material.css" rel="stylesheet" />
+    <link href="../Site Assets/fonts/font.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/table.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/style.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/helper.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/introjs.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/fixedHeader.dataTables.min.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/jquery.simplyscroll.css" rel="stylesheet" />
+    <link href="../Site Assets/CSS/Dashboard.css" rel="stylesheet" />
+    <link href="../Site Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="../Site Assets/package/mdl/material.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/dataTables.fixedHeader.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/buttons.bootstrap.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/dataTables.colReorder.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/jszip.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/buttons.print.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/spscript.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/sppeoplepicker.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/camljs.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/handlebars-v4.0.5.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/Global.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/intro.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/jquery.SPServices-0.7.2.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/jquery.simplyscroll.min.js" type="text/javascript"></script>
+    <script src="../Site Assets/Scripts/Search.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('td').find('p').addClass("ptag");
+            $('.cssload-container').show();
+            setTimeout(function () {
+                $('.cssload-container').hide();
+
+            }, 5000);
+        });
+    </script>
+</head>
+
+<body>
+    
+    <div class="mdl-layout mdl-js-layout mdl-demo" id="SLATable">
+        <main class="mdl-layout__content">
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar white-bg-100">
+                	<input type="hidden" id="hdnHolidaysList" />
+                    <a href="#search" class="mdl-tabs__tab is-active">Search</a>
+                </div>
+
+<div class="mdl-tabs__panel is-active" id="search">
+    <div class="panel-group" style="width:100%;margin-top:20px;" id="accordion" role="tablist" aria-multiselectable="true">
+	    <div class="panel panel-primary">
+			            <div class="panel-heading" role="tab" id="headingOne">
+			                <h4 class="panel-title">
+			                    <a role="button" id="serachCollapse" data-toggle="collapse" href="#collapseOne" style="color:white" class="collapsed" aria-expanded="true" aria-controls="collapseOne">
+			                        Filter
+			                    </a>
+			                </h4>
+			            </div>
+		    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+			    <div class="panel-body">
+			     <div class="mdl-grid mdl-color--white">
+                    <div class="mdl-cell--4-col">
+
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1">SKU SAP Code</label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield margin-top--20">
+                                <input class="mdl-textfield__input" type="text" id="NameId" placeholder="Please enter Name here" />
+                                <label class="mdl-textfield__label" for="sample1">&nbsp;</label>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1">Unique ID</label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield margin-top--20">
+                                <input class="mdl-textfield__input" type="text" id="UniqueIDId" placeholder="Please enter Unique ID here" />
+                                <label class="mdl-textfield__label" for="sample1">&nbsp;</label>
+                            </div>
+                        </div>
+
+                         <div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1">Country</label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield margin-top--20">
+                                <select class="mdl-textfield__input" id="CountryId">
+                                    <option>Select</option>
+                                </select>
+                                <label class="mdl-textfield__label" for="sample1">&nbsp;</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell--4-col">
+
+                    <div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1">WBSTemplate</label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield margin-top--20">
+                                <select class="mdl-textfield__input" id="WPSTemplateId">
+                                    <option>Select</option>
+                                </select>
+                                <label class="mdl-textfield__label" for="sample1">&nbsp;</label>
+                            </div>
+                        </div>
+
+                    	<div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1">SKU Description</label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield margin-top--20">
+                                <select class="mdl-textfield__input" id="SKUId">
+                                    <option>Select</option>
+                                </select>
+                                <label class="mdl-textfield__label" for="sample1">&nbsp;</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell--4-col">
+                    	<div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1" id="lblExecutor">Created By</label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield margin-top--20" id="CreatedById">
+                            </div>
+                        </div>
+
+                         <div class="mdl-cell mdl-cell--12-col">
+                            <label class="" for="sample1">Created On</label>
+						</div>
+                        <div class="mdl-cell mdl-cell--12-col">
+
+							<div class="mdl-textfield mdl-js-textfield margin-top--20">
+                            	<input class="mdl-textfield__input date-picker" type="text"  data-provide="datepicker" placeholder="Created Date"  data-date-format="mm/dd/yyyy" id="CreatedOnId" />
+                            	<label class="mdl-textfield__label" for="startDate"></label>
+                            </div>
+                        </div>
+					</div>
+			    </div>
+                        <div class="mdl-cell mdl-cell--12-col" align="right">
+                            <div class="margin-top-10">
+                                <label for="submit" class="mdl-button mdl-js-button green-bg-100">
+                                    <a id="btnSearchId"><i class="material-icons">search</i> Search</a>
+                                </label>
+			                                <label for="submit" class="mdl-button mdl-js-button orange-bg-100">
+			                                    <a id="btnResetId"><i class="material-icons">clear</i>  Reset &nbsp;</a>
+			                                </label>
+                            </div>
+                        </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+                    <!--<div class="mdl-grid horizontal-form mdl-color--white mdl-shadow--2dp margin-top-20">
+                    </div>-->
+                    <div  class="table-responsive-vertical margin-top-10 shadow-z-1" id="DashBoard">
+                        <!-- Table starts here -->
+						<div style="overflow:auto">
+                    <table class="table table-striped table-hover  dt-table3 dt-tableSearch table-bordered table-mc-light-blue mdl-shadow--2dp" cellpadding="0" cellspacing="0" id="TableShow" width="100%">
+                            <thead id="headers">
+                            <tr>
+                                <th>SlNo</th>
+                                <th>SlNo</th>
+                                <th>SKU SAP Code</th>
+                                <th>SKU Description</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appendSKUApplications">
+						</tbody>
+                        </table>
+						</div>
+                    </div>
+
+					<!--<script id="noRecordsFoundTemplte" type="text/x-handlebars-template">
+
+	             		<div class="table-responsive-vertical">
+	                        <table class="table table-striped table-hover table-bordered table-mc-light-blue mdl-shadow--2dp" cellpadding="0" cellspacing="0">
+	                            <thead>
+	                            </thead>
+	                            <tbody>
+	                            	<tr>
+	                            		<td>{{NoRecordFoundMsg}}</td>
+	                            		<td colspan="5">{{NoRecordFoundMsg}}</td>
+	                            	</tr>
+	                            </tbody>
+	                        </table>
+	                    </div>
+			</script>  -->
+                </div>
+                 <div id="noRecords" style="display:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There is no record available.</div>
+
+               <br />
+                              <br />
+
+         	 <div class="simply-scroll simply-scroll-container">
+            	<div class="simply-scroll-back simply-scroll-btn simply-scroll-btn-left glyphicon glyphicon-chevron-left btn btn-default btn-lg"></div>
+            	<div class="simply-scroll-forward simply-scroll-btn simply-scroll-btn-right glyphicon glyphicon-chevron-right btn btn-default btn-lg"></div>
+			</div>
+        </main>
+    </div>
+</body>
+<style>
+    @media screen and (max-width: 767px) {
+        .buttons-excel {
+            float: left!important;
+        }
+    }
+</style>
+</html>

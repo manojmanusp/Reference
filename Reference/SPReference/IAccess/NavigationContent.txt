@@ -1,0 +1,58 @@
+<div id="sideNavBox" role="navigation" class="ms-dialogHidden ms-forceWrap ms-noList">
+                        <div id="DeltaPlaceHolderLeftNavBar" class="ms-core-navigation" role="navigation">
+		
+                        
+                        <div layout="row" class="topmenu layout-row">
+                                        <md-list layout="row" class="hmenu layout-row" role="list">
+                                            <md-list-item layout-align="center center" role="listitem" class="md-no-proxy _md layout-align-center-center">
+                                                <a class="active" href="/sites/oct9_QA1/IAccess/SitePages/Home.aspx">Dashboard</a>
+                                            <div class="md-secondary-container"></div></md-list-item>
+                                            <md-list-item layout-align="center center" role="listitem" class="md-no-proxy _md layout-align-center-center">
+                                                <a class="" href="/sites/oct9_QA1/IAccess/SitePages/Home.aspx">Search</a>
+                                            <div class="md-secondary-container"></div></md-list-item>
+                                            <md-list-item layout-align="center center" role="listitem" class="md-no-proxy _md layout-align-center-center">
+                                                <a class="" href="/sites/oct9_QA1/IAccess/SitePages/Home.aspx">Reports</a>
+                                            <div class="md-secondary-container"></div></md-list-item>
+                                            <md-list-item layout-align="center center" role="listitem" class="md-no-proxy _md layout-align-center-center">
+                                                <a class="" href="/sites/oct9_QA1/IAccess/SitePages/Home.aspx">Admin</a>
+                                            <div class="md-secondary-container"></div></md-list-item>
+                                            <md-list-item layout-align="center center" role="listitem" class="md-no-proxy _md layout-align-center-center">
+                                                <a class="" href="/sites/oct9_QA1/IAccess/SitePages/Home.aspx">Help</a>
+                                            <div class="md-secondary-container"></div></md-list-item>
+                                        </md-list>
+                                    </div>
+                        <a id="startNavigation" name="startNavigation" tabindex="-1">
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <div class="ms-core-sideNavBox-removeLeftMargin">
+                            <div id="ctl00_PlaceHolderLeftNavBar_QuickLaunchNavigationManager">
+			
+                            
+                            <div id="zz10_V4QuickLaunchMenu" class=" noindex ms-core-listMenu-verticalBox">
+				<ul id="zz11_RootAspMenu" class="root ms-core-listMenu-root static">
+					<li class="static"><a class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode" href="/sites/oct9_QA1/IAccess"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Home</span></span></a></li><li class="static"><a class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode" href="/sites/oct9_QA1/IAccess/_layouts/15/WopiFrame.aspx?sourcedoc={9c9e3123-870a-4722-9733-68d974b6d5a5}&amp;action=editnew"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Notebook</span></span></a></li><li class="static"><a class="static ms-quicklaunch-dropNode menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode ms-droppable" onepagenavigationaction="1" href="/sites/oct9_QA1/IAccess/Shared Documents/Forms/AllItems.aspx" dropid="2" aria-dropeffect="move"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Documents</span></span></a></li><li class="static"><a class="static ms-quicklaunch-dropNode menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode ms-droppable" onepagenavigationaction="1" href="/sites/oct9_QA1/IAccess/SitePages/Forms/ByAuthor.aspx" dropid="3" aria-dropeffect="move"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Pages</span></span></a></li><li class="static"><span class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Recent</span></span></span><ul class="static">
+						<li class="static"><a class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode" onepagenavigationaction="1" href="/sites/oct9_QA1/IAccess/Lists/TestList1/AllItems.aspx"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">TestList1</span></span></a></li><li class="static"><a class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode" onepagenavigationaction="1" href="/sites/oct9_QA1/IAccess/Lists/NewRequestList/AllRequests.aspx"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">NewRequestList</span></span></a></li>
+					</ul></li><li class="static"><a class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode" href="/sites/oct9_QA1/IAccess/_layouts/15/viewlsts.aspx"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Site contents</span></span></a></li><li class="static"><a class="static menu-item ms-core-listMenu-item ms-displayInline ms-navedit-linkNode" href="/sites/oct9_QA1/IAccess/Pages/Home1.aspx"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">Home1</span></span></a></li><li class="static selected"><a class="static selected menu-item ms-core-listMenu-item ms-displayInline ms-core-listMenu-selected ms-navedit-linkNode" href="/sites/oct9_QA1/IAccess/Pages/NewPage.aspx"><span class="additional-background ms-navedit-flyoutArrow"><span class="menu-item-text">NewPage</span><span class="ms-hidden">Currently selected</span></span></a></li><li class="static ms-verticalAlignTop ms-listMenu-editLink ms-navedit-editArea"><span class="ms-navedit-editSpan" id="zz10_V4QuickLaunchMenu_NavMenu_Edit"><a id="zz10_V4QuickLaunchMenu_NavMenu_EditLinks" class="ms-navedit-editLinksText" href="#" onclick="g_QuickLaunchMenu = null; EnsureScriptParams('quicklaunch.js', 'QuickLaunchInitEditMode', 'zz10_V4QuickLaunchMenu', 2, 0, 1, '\u002fSITES\u002fOCT9_QA1\u002fIACCESS'); cancelDefault(event); return false;" title="Edit Links"><span class="ms-displayInlineBlock"><span class="ms-navedit-editLinksIconWrapper ms-verticalAlignMiddle"><img class="ms-navedit-editLinksIcon" src="/_layouts/15/images/spcommon.png?rev=44#ThemeKey=spcommon" alt="Edit Links" role="presentation"></span><span class="ms-metadata ms-verticalAlignMiddle">Edit Links</span></span></a><span id="zz10_V4QuickLaunchMenu_NavMenu_Loading" class="ms-navedit-menuLoading ms-hide"><a id="zz10_V4QuickLaunchMenu_NavMenu_GearsLink" href="#" onclick="HideGears(); return false;" title="This animation indicates the operation is in progress. Click to remove this animated image."><img id="zz10_V4QuickLaunchMenu_NavMenu_GearsImage" src="/_layouts/15/images/loadingcirclests16.gif?rev=44" alt="This animation indicates the operation is in progress. Click to remove this animated image."></a></span><div id="zz10_V4QuickLaunchMenu_NavMenu_ErrorMsg" class="ms-navedit-errorMsg">
+
+					</div></span></li>
+				</ul>
+			</div>
+                            
+		</div>
+                            
+                            
+                            <div class="ms-core-listMenu-verticalBox">
+                                
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+	</div>
+                    </div>

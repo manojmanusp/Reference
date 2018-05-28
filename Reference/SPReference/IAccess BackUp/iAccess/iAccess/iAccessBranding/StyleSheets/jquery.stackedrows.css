@@ -1,0 +1,76 @@
+/*override default table syles for hidden tr / tds */
+.sr-table-tr td{
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom:none;
+	padding:0 0 0 0;
+}
+/*visible stacked row styles*/
+.sr-table-tr.even .sr-table-div {
+	background:#f8f8f8;
+}
+.sr-table-div{
+	padding:35px 30px 25px 30px;
+	border-bottom:1px solid #ddd;
+}
+.sr-tr-last .sr-table-div{
+	border-bottom:none;
+}
+.sr-table-record-div {
+	border-bottom:1px dashed #E2E2E2;
+	margin-bottom:14px;
+	padding-bottom: 10px;
+}
+.sr-table-tr.even .sr-table-record-div {
+	border-bottom:1px dashed #D5D5D5;
+}
+.sr-table-record-div:last-child {
+	border-bottom:none !important;
+	padding-bottom:0px;
+}
+.sr-table-record-div input, 
+.sr-table-record-div textarea, 
+.sr-table-record-div .uneditable-input, 
+.sr-table-record-div select {
+	margin-bottom:10px;
+	margin-top:3px;
+}
+.sr-table-div, 
+.sr-table-record-div.blankValue.blankLabel, 
+.sr-table-record-div.blankValue p, 
+.sr-table-record-div.blankLabel label {
+	display:none;
+}
+.sr-table-div img {
+	max-width: 100%;
+	width:100%;
+}
+.sr-table-record-div.blankValue label {
+	margin-bottom:10px;
+}
+.sr-table-record-div.blankLabel p, 
+.sr-table-record-div.blankLabel textarea {
+	margin-top:10px;
+}
+.sr-table-div label {
+	display:block;
+	margin-bottom:5px;
+	font-size: 11px;
+	font-style: italic;
+	color: #AEAEAE;
+}
+.sr-table-div label.hidden {
+	display:none;
+}
+
+
+@media (max-width: 767px){
+	.sr-hide, 
+	.sr-header{
+		display:none;
+	}
+	.sr-table-div {
+		display:block;		
+	}
+}

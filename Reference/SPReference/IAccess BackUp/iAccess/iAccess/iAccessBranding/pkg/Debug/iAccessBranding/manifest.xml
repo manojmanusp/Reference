@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="5c96f868-d232-4ac1-abd7-aeb47b9eda4e" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="iAccessBranding.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="iAccessBranding_iAccessBranding\Feature.xml" />
+  </FeatureManifests>
+</Solution>

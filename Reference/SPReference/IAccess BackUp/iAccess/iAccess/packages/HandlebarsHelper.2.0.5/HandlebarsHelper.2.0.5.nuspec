@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HandlebarsHelper</id>
+    <version>2.0.5</version>
+    <title>Handlebars Compiler/Bundler (ASP.Net)</title>
+    <authors>kingpin2k</authors>
+    <owners>kingpin2k</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/kingpin2k/HandlebarsHelper/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>HandlebarsHelper is a library for helping you precompile Handlebars v2.0 templates for Emberjs.
+
+If you are using a version of Handlebars less than v2.0 (version of Ember.JS less than v1.9) you should use 1.1.0 of this package.</description>
+    <summary />
+    <releaseNotes>Chrome bug giving new lines space, just fix it with css</releaseNotes>
+    <copyright>Copyright (c) 2014 kingpin2k</copyright>
+    <language>en-US</language>
+    <tags>Handlebarsjs Emberjs</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="YUICompressor.NET" version="2.3.0.0" />
+        <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.2" />
+        <dependency id="Jurassic" version="2.2.0" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="YUICompressor.NET" version="2.3.0.0" />
+        <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.2" />
+        <dependency id="Jurassic" version="2.2.0" />
+      </group>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="YUICompressor.NET" version="2.3.0.0" />
+        <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.2" />
+        <dependency id="Jurassic" version="2.2.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

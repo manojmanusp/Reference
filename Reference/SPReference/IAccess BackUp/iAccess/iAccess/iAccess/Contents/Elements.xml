@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Contents" Url="SiteAssets/iAccess">
+    <File Path="Contents\UpdateTask.html" Url="Contents/UpdateTask.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Contents\PendingActions.html" Url="Contents/PendingActions.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Contents\ViewApplication.html" Url="Contents/ViewApplication.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Contents\Search.html" Url="Contents/Search.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Contents\ViewActivity.html" Url="Contents/ViewActivity.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Contents\EditApplication.html" Url="Contents/EditApplication.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Contents\NewRequest.html" Url="Contents/NewRequest.html" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

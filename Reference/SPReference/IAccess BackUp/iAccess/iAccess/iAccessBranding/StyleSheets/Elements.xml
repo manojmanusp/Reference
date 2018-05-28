@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="StyleSheets" Url="Style Library/iAccess">
+    <File Path="StyleSheets\animate.min.css" Url="StyleSheets/animate.min.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\bootstrap.css" Url="StyleSheets/bootstrap.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\bootstrap.min.css" Url="StyleSheets/bootstrap.min.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\bootstrap-select.css" Url="StyleSheets/bootstrap-select.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\CustomStyle.css" Url="StyleSheets/CustomStyle.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\fonts.css" Url="StyleSheets/fonts.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\helper.css" Url="StyleSheets/helper.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\introjs.css" Url="StyleSheets/introjs.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\jquery.stackedrows.css" Url="StyleSheets/jquery.stackedrows.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\menu_top.css" Url="StyleSheets/menu_top.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\sp-custom.css" Url="StyleSheets/sp-custom.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\Style.css" Url="StyleSheets/Style.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\package\mdl\material.css" Url="StyleSheets/package/mdl/material.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\package\mdl\material.js" Url="StyleSheets/package/mdl/material.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\package\mdl\material.min.css" Url="StyleSheets/package/mdl/material.min.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\package\mdl\material.min.css.map" Url="StyleSheets/package/mdl/material.min.css.map" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\package\mdl\material.min.js" Url="StyleSheets/package/mdl/material.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\package\mdl\material.min.js.map" Url="StyleSheets/package/mdl/material.min.js.map" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\table.css" Url="StyleSheets/table.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="StyleSheets\iAccessBranding.css" Url="StyleSheets/iAccessBranding.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

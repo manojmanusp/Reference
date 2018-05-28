@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Font" Url="SiteAssets/iAccess">
+    <File Path="Font\glyphicons-halflings-regular.eot" Url="Font/glyphicons-halflings-regular.eot" Type="GhostableInLibrary" />
+    <File Path="Font\glyphicons-halflings-regular.svg" Url="Font/glyphicons-halflings-regular.svg" Type="GhostableInLibrary" />
+    <File Path="Font\glyphicons-halflings-regular.ttf" Url="Font/glyphicons-halflings-regular.ttf" Type="GhostableInLibrary" />
+    <File Path="Font\glyphicons-halflings-regular.woff" Url="Font/glyphicons-halflings-regular.woff" Type="GhostableInLibrary" />
+    <File Path="Font\glyphicons-halflings-regular.woff2" Url="Font/glyphicons-halflings-regular.woff2" Type="GhostableInLibrary" />
+  </Module>
+</Elements>

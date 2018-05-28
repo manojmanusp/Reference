@@ -1,0 +1,116 @@
+﻿
+
+<link href="../Site Assets/package/mld-icons/material-icons.css" rel="stylesheet" />
+<link href="../Site Assets/package/mdl/material.css" rel="stylesheet" />
+<link href="../Site Assets/fonts/font.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/table.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/style.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/helper.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/introjs.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/toastr.min.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/fixedHeader.dataTables.min.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/updateTask.css" rel="stylesheet" />
+<link href="../Site Assets/CSS/uploadifive.css" rel="stylesheet" />
+<link href="../Site Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script src="../Site Assets/package/mdl/material.min.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/dataTables.bootstrap.min.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/dataTables.fixedHeader.min.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/spscript.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/sppeoplepicker.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/toastr.js.map" type="text/plain"></script>
+<script src="../Site Assets/Scripts/toastr.min.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/camljs.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/handlebars-v4.0.5.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/UpdateTask.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/jquery.uploadifive.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/Attachments.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/Global.js" type="text/javascript"></script>
+<script src="../Site Assets/Scripts/intro.js" type="text/javascript"></script>
+
+<div class="mdl-demo" id="ApprovalSectionContainer">
+
+    <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+
+    <h4 id="ActivityHeading">Update Activity</h4>
+
+    <main class="mdl-layout__content">
+
+		<div id="comment-box" class="mdl-grid mdl-color--white mdl-shadow--2dp margin-v-10">
+
+			<div class="mdl-cell mdl-cell--6-col">
+
+			    <div class="mdl-cell mdl-cell--12-col margin-top-20">
+			        <label class="" for="sample1"> Action</label><span style="color:red">*</span>
+			    </div>
+
+			    <div class="mdl-cell mdl-cell--12-col">
+			        <div class="mdl-textfield mdl-js-textfield margin-top--20">
+			            <select class="mdl-textfield__input" name="outcome" id="ddlOutcome">
+					        <option value="">-- Select --</option>
+				        </select>
+			        </div>
+			    </div>
+
+			    <div class="mdl-cell mdl-cell--12-col">
+
+				    <div class="mdl-cell mdl-cell--12-col">
+						<label class="" for="sample1" >Attachment</label>
+					</div>
+
+					<div id="updateTasktblAttachment">
+						<table class="table table-striped">
+							<thead class='thead-inverse'><tr><th>File</th><th>Action</th></tr></thead>
+							<tbody>
+								<tr class="emptyRow"><td colspan="2" class="emptyRow">No attachment added</td></tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="mdl-cell mdl-cell--12-col">
+					    <div class=" mdl-js-textfield margin-top-15 padding-bottom-5" data-upgraded=",MaterialTextfield">
+						    <div class="">
+							    <input type="file" class="file form-control" id="filesUpload" multiple="multiple" data-step="1" data-intro="Attach the documents">
+							     <div class="">
+						         (<span id="SupportedExtn" style="color:grey;font-size:10px;"></span><span style="color:grey;font-size:10px;"> File Size Limit:30Mb</span>)
+							    </div>
+						    </div>
+					    </div>
+					</div>
+				</div>
+
+			    <div class="mdl-cell mdl-cell--12-col margin-top-20">
+			        <label class="" for="sample1"> Comment</label><span style="color:red">*</span>
+			    </div>
+
+			    <div class="mdl-cell mdl-cell--12-col">
+
+				    <div>
+			            <textarea class="form-control" rows="3" style="width:100%;"id="txtcomments"></textarea>
+			            <label class="mdl-textfield__label" for="sample1"></label>
+			        </div>
+			    </div>
+
+			    <div class="mdl-cell mdl-cell--12-col">
+
+			        <div class=" mdl-js-textfield">
+			            <label id="btnApproval" for="submit" class="mdl-button mdl-js-button green-bg-100">
+			                Submit
+			            </label>
+			        </div>
+			    </div>
+			</div>
+
+			<div class="mdl-cell mdl-cell--6-col"></div>
+		</div>
+	</main>
+</div>

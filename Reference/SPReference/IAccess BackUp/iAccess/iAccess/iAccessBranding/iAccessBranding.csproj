@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56A297B8-7290-4794-9218-204AFAE7BC12}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iAccessBranding</RootNamespace>
+    <AssemblyName>iAccessBranding</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\iAccessBranding\iAccessBranding.feature">
+      <FeatureId>{bf0a6930-7873-481c-b176-3f2e5168bb25}</FeatureId>
+    </None>
+    <None Include="Font\glyphicons-halflings-regular.ttf" />
+    <None Include="Font\glyphicons-halflings-regular.woff" />
+    <None Include="Font\glyphicons-halflings-regular.woff2" />
+    <None Include="Font\gotham-book.eot" />
+    <None Include="Font\Gotham-Book.otf" />
+    <None Include="Font\gotham-book.woff" />
+    <None Include="Font\GothamNarrow-Bold.otf" />
+    <None Include="Font\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{36322d61-cb30-4f0a-8596-07cfb7cfa06c}</SharePointProjectItemId>
+    </None>
+    <None Include="Font\vjs.eot" />
+    <None Include="Font\vjs.ttf" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4cfded4a-ec8c-4a32-bce6-6e6540293860}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{5c96f868-d232-4ac1-abd7-aeb47b9eda4e}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PageLayouts\iAccess.master" />
+    <None Include="PageLayouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f3d16211-c1e5-449f-99ac-24b25c505b15}</SharePointProjectItemId>
+    </None>
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b3d114d8-a1c3-453a-b3e8-8ada63deadc2}</SharePointProjectItemId>
+    </None>
+    <None Include="StyleSheets\package\mdl\material.min.css.map" />
+    <None Include="StyleSheets\package\mdl\material.min.js.map" />
+    <None Include="StyleSheets\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bee4a9ce-aa64-4779-955f-f73a3210abb7}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\iAccessBranding\iAccessBranding.Template.xml">
+      <DependentUpon>iAccessBranding.feature</DependentUpon>
+    </Content>
+    <Content Include="Font\Elements.xml" />
+    <Content Include="Font\glyphicons-halflings-regular.svg" />
+    <Content Include="Font\gotham-book.svg" />
+    <Content Include="Font\vjs.svg" />
+    <Content Include="Images\AVD_help.jpg" />
+    <Content Include="Images\avd_logo.png" />
+    <Content Include="Images\avd_plus.jpg" />
+    <Content Include="Images\breadcrumb_arrow.png" />
+    <Content Include="Images\dr-reddy-logo.png" />
+    <Content Include="Images\dropkpi.gif" />
+    <Content Include="Images\Elements.xml" />
+    <Content Include="Images\header_bg.jpg" />
+    <Content Include="Images\heading_bullet.jpg" />
+    <Content Include="Images\icon_calendar.jpg" />
+    <Content Include="Images\icon_home.jpg" />
+    <Content Include="Images\icon_home.png" />
+    <Content Include="Images\icon_taskitem_details.jpg" />
+    <Content Include="Images\icon_tasklist.jpg" />
+    <Content Include="Images\menu-down.gif" />
+    <Content Include="Images\menu-down.png" />
+    <Content Include="Images\Offboarding.png" />
+    <Content Include="Images\Picture1.png" />
+    <Content Include="Images\plus.jpg" />
+    <Content Include="Images\Search_Arrow.jpg" />
+    <Content Include="Images\Search_Arrow_RTL.jpg" />
+    <Content Include="Images\settingsIcon.png" />
+    <Content Include="Images\spcommon.png" />
+    <Content Include="Images\spintl.png" />
+    <Content Include="Images\text.png" />
+    <Content Include="Images\TillidLogo.png" />
+    <Content Include="PageLayouts\Elements.xml" />
+    <Content Include="Scripts\bootstrap-select.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\iAccessBranding.js" />
+    <Content Include="Scripts\intro.js" />
+    <Content Include="Scripts\jquery-1.12.1.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.stackedrows.js" />
+    <Content Include="Scripts\menu-top.js" />
+    <Content Include="Scripts\support.js" />
+    <Content Include="StyleSheets\animate.min.css" />
+    <Content Include="StyleSheets\bootstrap-select.css" />
+    <Content Include="StyleSheets\bootstrap.css" />
+    <Content Include="StyleSheets\bootstrap.min.css" />
+    <Content Include="StyleSheets\CustomStyle.css" />
+    <Content Include="StyleSheets\Elements.xml" />
+    <Content Include="StyleSheets\fonts.css" />
+    <Content Include="StyleSheets\helper.css" />
+    <Content Include="StyleSheets\iAccessBranding.css" />
+    <Content Include="StyleSheets\introjs.css" />
+    <Content Include="StyleSheets\jquery.stackedrows.css" />
+    <Content Include="StyleSheets\menu_top.css" />
+    <Content Include="StyleSheets\package\mdl\material.css" />
+    <Content Include="StyleSheets\package\mdl\material.js" />
+    <Content Include="StyleSheets\package\mdl\material.min.css" />
+    <Content Include="StyleSheets\package\mdl\material.min.js" />
+    <Content Include="StyleSheets\sp-custom.css" />
+    <Content Include="StyleSheets\Style.css" />
+    <Content Include="StyleSheets\table.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

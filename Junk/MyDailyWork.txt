@@ -105,3 +105,6 @@ Created windows application to create new page and add webpart as per choice to 
 
 May 21st
 Created console to add user to group and add user to sharepoint list item.
+
+May 22nd
+Worked to add multiple users to a sharepoint group using CSOM.

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Font\" Type="ElementManifest" />
+    <ProjectItemFile Source="glyphicons-halflings-regular.svg" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="glyphicons-halflings-regular.ttf" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="glyphicons-halflings-regular.woff" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="glyphicons-halflings-regular.woff2" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="gotham-book.eot" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="Gotham-Book.otf" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="gotham-book.svg" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="gotham-book.woff" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="GothamNarrow-Bold.otf" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="vjs.eot" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="vjs.svg" Target="Font\" Type="ElementFile" />
+    <ProjectItemFile Source="vjs.ttf" Target="Font\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

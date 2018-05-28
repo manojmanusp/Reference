@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Scripts" Url="SiteAssets/iAccess">
+    <File Path="Scripts\common.js" Url="Scripts/common.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\camljs.js" Url="Scripts/camljs.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\buttons.print.min.js" Url="Scripts/buttons.print.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\buttons.html5.min.js" Url="Scripts/buttons.html5.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\buttons.colVis.min.js" Url="Scripts/buttons.colVis.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\buttons.bootstrap.min.js" Url="Scripts/buttons.bootstrap.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\bootstrap-datetimepicker.js" Url="Scripts/bootstrap-datetimepicker.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\bootstrap-datepicker.min.js" Url="Scripts/bootstrap-datepicker.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\Attachments.js" Url="Scripts/Attachments.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\moment-with-locales.js" Url="Scripts/moment-with-locales.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\legacy.js" Url="Scripts/legacy.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jszip.min.js" Url="Scripts/jszip.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.uploadifive.js" Url="Scripts/jquery.uploadifive.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.SPServices-0.7.2.js" Url="Scripts/jquery.SPServices-0.7.2.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.simplyscroll.min.js" Url="Scripts/jquery.simplyscroll.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.dataTables.min.js" Url="Scripts/jquery.dataTables.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.1.7.0.js" Url="Scripts/jquery.1.7.0.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery-3.1.1.min.js" Url="Scripts/jquery-3.1.1.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery-3.1.1.js" Url="Scripts/jquery-3.1.1.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\handlebars-v4.0.5.js" Url="Scripts/handlebars-v4.0.5.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\Global.js" Url="Scripts/Global.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\editor.js" Url="Scripts/editor.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\DocumentLibraryUtilities.js" Url="Scripts/DocumentLibraryUtilities.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\datatables.min.js" Url="Scripts/datatables.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\dataTables.fixedHeader.min.js" Url="Scripts/dataTables.fixedHeader.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\dataTables.buttons.min.js" Url="Scripts/dataTables.buttons.min.js"  Type="GhostableInLibrary" />
+    <File Path="Scripts\dataTables.bootstrap.min.js" Url="Scripts/dataTables.bootstrap.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\vfs_fonts.js" Url="Scripts/vfs_fonts.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\toastr.min.js" Url="Scripts/toastr.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\toastr.js.map" Url="Scripts/toastr.js.map" Type="GhostableInLibrary" />
+    <File Path="Scripts\spscript.js.map" Url="Scripts/spscript.js.map"  Type="GhostableInLibrary" />
+    <File Path="Scripts\spscript.js" Url="Scripts/spscript.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\sppeoplepicker.js" Url="Scripts/sppeoplepicker.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\restDao.js.map" Url="Scripts/restDao.js.map" Type="GhostableInLibrary" />
+    <File Path="Scripts\picker.js" Url="Scripts/picker.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\picker.date.js" Url="Scripts/picker.date.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\PendingActions.js" Url="Scripts/PendingActions.js"  Type="GhostableInLibrary" />
+    <File Path="Scripts\pdfmake.min.js" Url="Scripts/pdfmake.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\NewRequest.js" Url="Scripts/NewRequest.js" />
+  </Module>
+</Elements>

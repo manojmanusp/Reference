@@ -1,0 +1,5 @@
+C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\DRL.UPPMBranding\bin\Debug\DRL.UPPMBranding.dll
+C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\DRL.UPPMBranding\bin\Debug\DRL.UPPMBranding.pdb
+C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\DRL.UPPMBranding\obj\Debug\DRLUPPMBranding.csprojResolveAssemblyReference.cache
+C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\DRL.UPPMBranding\obj\Debug\DRL.UPPMBranding.dll
+C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\DRL.UPPMBranding\obj\Debug\DRL.UPPMBranding.pdb

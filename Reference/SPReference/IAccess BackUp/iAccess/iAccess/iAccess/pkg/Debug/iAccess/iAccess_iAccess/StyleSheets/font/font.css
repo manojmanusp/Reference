@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+/*Gotham Book - font-family: 'GothamBook' !important;*/
+@font-face {
+	font-family: 'GothamBook';
+	src: url('gotham-book.eot');
+	src: url('gotham-book.woff') format('woff'), url('gotham-book.ttf') format('truetype'), url('gotham-book.svg#svgFontName') format('svg');
+}
+
+/*Gotham Light - font-family: 'GothamLight' !important; */
+@font-face {
+	font-family: 'GothamLight';
+	src: url('gothamnarrow-xlight.eot');
+	src: url('gothamnarrow-xlight.woff') format('woff'), url('gothamnarrow-xlight.ttf') format('truetype'), url('gothamnarrow-xlight.svg#svgFontName') format('svg');
+}
+
+/*Gotham Light - font-family: 'GothamLight' !important; */
+@font-face {
+	font-family: 'GothamMedium';
+	src: url('gothamnarrow-medium.eot');
+	src: url('gothamnarrow-medium.woff') format('woff'), url('gothamnarrow-medium.ttf') format('truetype'), url('gothamnarrow-medium.svg#svgFontName') format('svg');
+}
+
+/*Gotham Bold - font-family: 'GothamnBold' !important;*/
+@font-face {
+	font-family: 'GothamnBold';
+	src: url('gothamnarrow-bold.eot');
+	src: url('gothamnarrow-bold.woff') format('woff'), url('gothamnarrow-bold.ttf') format('truetype'), url('gothamnarrow-bold.svg#svgFontName') format('svg');
+}
+

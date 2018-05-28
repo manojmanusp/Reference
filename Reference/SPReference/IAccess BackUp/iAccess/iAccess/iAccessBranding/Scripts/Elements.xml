@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Scripts" Url="Style Library/iAccess">
+    <File Path="Scripts\bootstrap.min.js" Url="Scripts/bootstrap.min.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\intro.js" Url="Scripts/intro.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.stackedrows.js" Url="Scripts/jquery.stackedrows.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery-1.12.1.js" Url="Scripts/jquery-1.12.1.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\support.js" Url="Scripts/support.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\iAccessBranding.js" Url="Scripts/iAccessBranding.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\jquery.js" Url="Scripts/jquery.js" Type="GhostableInLibrary" />
+    <File Path="Scripts\menu-top.js" Url="Scripts/menu-top.js"  Type="GhostableInLibrary"/>
+    <File Path="Scripts\bootstrap-select.js" Url="Scripts/bootstrap-select.js" Type="GhostableInLibrary" />
+  </Module>
+</Elements>

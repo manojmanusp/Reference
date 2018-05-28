@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Font" Url="Style Library/iAccess">
+    <File Path="Font\glyphicons-halflings-regular.svg" Url="Font/glyphicons-halflings-regular.svg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\glyphicons-halflings-regular.ttf" Url="Font/glyphicons-halflings-regular.ttf" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\glyphicons-halflings-regular.woff" Url="Font/glyphicons-halflings-regular.woff" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\glyphicons-halflings-regular.woff2" Url="Font/glyphicons-halflings-regular.woff2" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\gotham-book.eot" Url="Font/gotham-book.eot" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\Gotham-Book.otf" Url="Font/Gotham-Book.otf" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\gotham-book.svg" Url="Font/gotham-book.svg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\gotham-book.woff" Url="Font/gotham-book.woff" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\GothamNarrow-Bold.otf" Url="Font/GothamNarrow-Bold.otf" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\vjs.eot" Url="Font/vjs.eot" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\vjs.svg" Url="Font/vjs.svg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Font\vjs.ttf" Url="Font/vjs.ttf" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

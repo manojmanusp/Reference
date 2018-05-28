@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="StyleSheets\" Type="ElementManifest" />
+    <ProjectItemFile Source="animate.min.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="bootstrap.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="bootstrap.min.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="bootstrap-select.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="CustomStyle.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="helper.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="introjs.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery.stackedrows.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="menu_top.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="sp-custom.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="Style.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mdl\material.css" Target="StyleSheets\package\mdl\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mdl\material.js" Target="StyleSheets\package\mdl\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mdl\material.min.css" Target="StyleSheets\package\mdl\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mdl\material.min.css.map" Target="StyleSheets\package\mdl\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mdl\material.min.js" Target="StyleSheets\package\mdl\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mdl\material.min.js.map" Target="StyleSheets\package\mdl\" Type="ElementFile" />
+    <ProjectItemFile Source="table.css" Target="StyleSheets\" Type="ElementFile" />
+    <ProjectItemFile Source="iAccessBranding.css" Target="StyleSheets\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

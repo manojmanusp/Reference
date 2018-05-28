@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="PageLayouts" Url="_catalogs/masterpage/iAccess">
+    <File Path="PageLayouts\iAccess.master" Url="iAccess.master" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

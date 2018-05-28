@@ -1,0 +1,22 @@
+﻿#commentsContainer
+{
+	width: 100% !important;
+	margin: 0px;
+	padding: 5px;
+}
+#commentsContainer table
+{	
+	border: 2px dotted #eee;
+	padding-left: -15px;
+}
+
+#commentsContainer table td{
+	border: 1px dotted #eee;
+}
+
+#commentsContainer table th
+{
+    background-color: #bbf0ff;
+    color: #666;
+    font-weight: bold;
+}

@@ -13,6 +13,7 @@ namespace GenericConsole
         static void Main(string[] args)
         {
             var userName = "murali@chennaitillidsoft.onmicrosoft.com";
+            string[] users = new string[] { "murali@chennaitillidsoft.onmicrosoft.com" , "murali@chennaitillidsoft.onmicrosoft.com" , "murali@chennaitillidsoft.onmicrosoft.com" };
             var pass = "ThisIsRight1!";
             //var listTitle = "NewLocationList";
             //var listTemplateName = "CustomLocationList.stp";
@@ -21,9 +22,8 @@ namespace GenericConsole
 
             using (var clientContext = new ClientContext(pageUrl))
             {
-
                 clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
-                AddUserToGroup(clientContext, userName);
+                AddUserToGroup(clientContext, userName, users);
                 //AddSPUserToList(clientContext);
 
                 //CreateListOverTemplate(clientContext, listTitle, listTemplateName);
@@ -34,7 +34,7 @@ namespace GenericConsole
 
         }
         #region Add user to existing group
-        public static void AddUserToGroup(ClientContext context, string userName)
+        public static void AddUserToGroup(ClientContext context, string userName,string[] users)
         {
             try
             {               
@@ -43,12 +43,20 @@ namespace GenericConsole
                 Group group = web.SiteGroups.GetByName(groupTitle);
                 context.Load(group);
                 context.ExecuteQuery();
-
+               
+                
                 if (group.Title == groupTitle)
                 {
-                    User member = web.EnsureUser(@userName);
-                    group.Users.AddUser(member);
+                    //User member = web.EnsureUser(userName);
+                    //group.Users.AddUser(member);
+                    foreach (string user in users)
+                    {
+                        User member = web.EnsureUser(user);
+                        group.Users.AddUser(member);
+
+                    }
                     group.Update();
+                    context.Load(group);                    
                     context.ExecuteQuery();
                     
                 }

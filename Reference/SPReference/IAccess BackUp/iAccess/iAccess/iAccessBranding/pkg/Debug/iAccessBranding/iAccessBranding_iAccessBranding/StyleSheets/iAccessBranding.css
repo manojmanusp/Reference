@@ -1,0 +1,455 @@
+﻿/*body {
+    overflow: inherit;
+}*/
+
+#suiteBarLeft {
+    background-color: #216190;
+    line-height: 23px;
+    background-repeat: no-repeat;
+}
+
+#suiteBar {
+    height: 45px;
+}
+
+#suiteBarRight {
+    background-color: #216190;
+    line-height: 23px;
+}
+
+.ms-welcome-root > a.ms-core-menu-root, .ms-signInLink {
+    color: rgb(255, 255, 255);
+}
+
+.ms-welcome-root {
+    height: 40px;
+    
+}
+
+.navbar {
+    min-height: 40px;
+   /* padding-top: 8px; */
+    margin: 0px 0px 5px;
+    background: rgb(242, 242, 242);
+}
+
+.container-fluid {
+    font-size: 12px;
+}
+
+.btn-success {
+    background-color: #00ef9f;
+    font-size: 14px;
+}
+
+.panel-title {
+    font-weight: 100;
+    font-size: 14px;
+    /* height: 40px;*/
+    padding-top: 7px;
+}
+
+.ms-welcome-hover, .ms-siteactions-hover {
+    background-color: transparent;
+    border-right-color: transparent;
+}
+
+.ms-welcome-root {
+    height: 40px;
+    margin-top: 8px;
+    
+}
+
+.panel-heading {
+    color: #333;
+    background-color: #77e1ff;
+}
+
+#s4-bodyContainer {
+    /*overflow: hidden !important;*/
+}
+
+#ctl00_ctl58_csr_sboxdiv, .ms-core-listMenu-root ul {
+    padding: 0 !important;
+}
+
+.ms-breadcrumb-top li.static  >  a {
+    display: none !important;
+}
+
+  .ms-breadcrumb-top li.static  >  ul a {
+    display: inline-block !important;
+}
+
+.ms-core-listMenu-root > li.static > a {
+    display: none !important;
+}
+
+#SearchBox div.ms-srch-sb-border {
+    float: none !important;
+    position: absolute;
+    right: 300px;
+    top: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 25px;
+}
+
+/*.navbar {
+    background-color: #C9C1DF;
+}*/
+.ms-srch-sb-borderFocused {
+    float: none !important;
+    position: absolute;
+    right: 300px;
+    top: 10px;
+    background: #fff;
+    border: 1px solid #E7E8E9;
+    border-radius: 4px;
+    height: 25px;
+}
+
+/*.btn-success {
+    color: #00e095 !important;
+    border-color: #398439 !important;
+}*/
+
+#suiteBarLeft {
+    padding-left: 5px !important;
+}
+
+#dlgTitleBtns {
+    margin-right: 0px !important;
+}
+
+.ms-welcome-root > .ms-core-menu-box.ms-core-menu-box, .ms-siteactions-hover > .ms-core-menu-box.ms-core-menu-box {
+    z-index: 999999;
+}
+
+/*Menu*/
+#main-navbar .navbar-default {
+    background-color: #1a4869;
+    border-bottom: none;
+    padding-top: 0px;
+    border-radius: 0;
+    padding: 0px;
+    margin: -10px -1px -10px -1px;
+}
+
+#main-navbar .navbar {
+    margin-bottom: 0;
+    min-height: 40px;
+}
+
+#main-navbar .navbar-default .navbar-nav > li > a {
+    color: #222;
+    font-weight: bold;
+    color: #fff;
+}
+
+#main-navbar .navbar-default .navbar-toggle .icon-bar {
+    background-color: #5225B5;
+}
+
+#main-navbar .navbar-toggle {
+    z-index: 99999;
+    background: #fff;
+}
+
+#main-navbar .navbar-nav > li > a {
+    padding: 10px;
+}
+
+.ms-core-listMenu-item, .ms-core-listMenu-item:link, .ms-core-listMenu-item:visited, .ms-tv-item:link, .ms-tv-item:visited, .ms-tv-header:link, .ms-tv-header:visited {
+    color: #fff;
+}
+
+.ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:link, .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:visited, .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected, .ms-tv-selected:link {
+    color: #fff;
+}
+
+.ms-navedit-editLinksText > span > .ms-metadata, .ms-core-listMenuEdit > tr > .ms-navedit-linkCell > .ms-core-listMenu-item {
+    color: #fff;
+}
+
+.ms-core-listMenu-horizontalBox {
+    display: block;
+}
+
+#main-navbar .ms-core-listMenu-root {
+    padding: 0;
+    margin-top: 10px;
+}
+
+#main-navbar .ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item {
+    margin-right: 0;
+}
+
+#main-navbar .navbar-nav > li.pipe {
+    vertical-align: middle;
+}
+
+#main-navbar .navbar-default .navbar-nav > .active > a, #main-navbar .navbar-default .navbar-nav > .active > a:hover, #main-navbar .navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: #fff;
+    border-bottom: 5px solid #ffd100;
+    margin-bottom: -5px;
+}
+
+@media (min-width: 320px) and (max-width:767px) {
+    #main-navbar .navbar-default .navbar-nav > .active > a, #main-navbar .navbar-default .navbar-nav > .active > a:hover, #main-navbar .navbar-default .navbar-nav > .active > a:focus {
+        background: #532f91;
+        color: #fff;
+    }
+
+    .dynamic.navbar-nav > li {
+        width: 218px !important;
+        margin-left: 30px;
+    }
+
+    .dynamic.navbar-nav {
+        left: -16px !important;
+    }
+
+    #main-navbar .navbar-default .navbar-nav > li > a:hover {
+        background: #00c7ff;
+    }
+
+    #main-navbar .navbar-nav > li {
+        padding: 0;
+        border-top: 1px solid #fff;
+    }
+
+        #main-navbar .navbar-nav > li:first-child {
+            border-top: 0;
+        }
+
+    #main-navbar .navbar-default .navbar-nav > .active > a, #main-navbar .navbar-default .navbar-nav > .active > a:hover, #main-navbar .navbar-default .navbar-nav > .active > a:focus {
+        background-color: #00c7ff;
+        color: #fff;
+        border-bottom: 0 solid #ffd100;
+        margin-bottom: 0px;
+    }
+
+    #main-navbar .navbar-nav {
+        margin: 0 -15px;
+    }
+
+    #mainNav .navbar-nav {
+        position: absolute;
+        top: -34px;
+        right: 72px;
+    }
+
+    #main-navbar .navbar-default {
+        padding-top: 0;
+    }
+
+    .navbar-default {
+        padding: 5px 0 0;
+    }
+
+    #main-navbar .navbar {
+        min-height: 0;
+    }
+
+    .navbar-nav .open .dropdown-menu {
+        position: absolute;
+    }
+
+    .navbar-nav .open .dropdown-menu {
+        background: #fff;
+    }
+}
+
+#ms-help {
+    margin-top: 9px;
+}
+
+.ms-siteactions-root > span > a.ms-core-menu-root {
+    padding: 15px 7px 6px 8px;
+}
+
+.ms-core-listMenu-horizontalBox ul, .ms-core-listMenu-horizontalBox li, .ms-core-listMenu-horizontalBox .ms-core-listMenu-item, .ms-core-listMenu-horizontalBox > ul > li > table {
+    display: block;
+}
+
+.ms-navedit-editLinksText {
+    display: none;
+}
+
+@media (min-width:320px) and (max-width:380px) {
+    .panel-collapse .panel-body {
+        overflow-y: scroll;
+        width: 300px;
+    }
+
+    #suiteBarRight {
+        white-space: normal;
+    }
+
+    #suiteBarButtons {
+        float: right;
+    }
+}
+
+@media (min-width:381px) and (max-width:480px) {
+    .panel-collapse .panel-body {
+        overflow-y: scroll;
+        width: 400px;
+    }
+}
+
+@media (min-width:481px) and (max-width:580px) {
+    .panel-collapse .panel-body {
+        overflow-y: scroll;
+        width: 500px;
+    }
+}
+
+@media (min-width:581px) and (max-width:680px) {
+    .panel-collapse .panel-body {
+        overflow-y: scroll;
+        width: 550px;
+    }
+}
+
+@media (min-width:681px) and (max-width:780px) {
+    .panel-collapse .panel-body {
+        overflow-y: scroll;
+        width: 700px;
+    }
+}
+
+@media (min-width:781px) and (max-width:850px) {
+    .panel-collapse .panel-body {
+        overflow-y: scroll;
+        width: 750px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+        text-align: left;
+        padding: 5px;
+    }
+}
+
+.table-responsive {
+   /*overflow-x: hidden;*/
+    margin-bottom: 10px;
+    /*    margin-right: 20px;*/
+    margin-top: 0px;
+}
+
+@media (max-width:850px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#main-navbar .navbar-default .navbar-nav > li > span {
+    color: #222;
+    font-weight: bold;
+    color: #fff;
+}
+
+#main-navbar .navbar-nav > li > span {
+    padding: 10px;
+}
+
+.navbar-default .navbar-nav > li > span:focus, .navbar-default .navbar-nav > li > span:hover {
+    color: #333;
+    background-color: transparent;
+}
+
+#main-navbar .navbar-default .navbar-nav > li > span > ul {
+    color: #fff;
+}
+
+ul.dynamic {
+    width: 250px;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    z-index: 50;
+    background-color: #532F91;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.47);
+}
+
+    ul.dynamic li a {
+        display: block;
+    }
+
+.ms-rtestate-field h4, h4.ms-rteElement-H4 {
+    color: #fff;
+}
+
+.navbar-default input[type=button], .navbar-default input[type=reset], .navbar-default input[type=submit], .navbar-default button {
+    min-width: inherit;
+}
+
+button {
+    min-width: inherit;
+}
+
+.hidden {
+    display: none;
+}
+
+.ajax-loader {
+    cursor: wait;
+    background: #ffffff url('../Images/ajax-loader.gif') no-repeat center center;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+    position: absolute;
+    z-index: 10000;
+    display: none;
+}
+
+.highlighted {
+    border: 2px solid royalblue;
+    opacity: 0.5;
+}
+
+#main-navbar .navbar-nav > li > a {
+    padding: 10px;
+}
+
+.dynamic.navbar-nav > li {
+    float: none;
+    width: 100%;
+}
+
+.ms-listviewtable > caption + thead > tr:first-child > td, .ms-listviewtable > caption + thead > tr:first-child > th, .ms-listviewtable > colgroup + thead > tr:first-child > td, .ms-listviewtable > colgroup + thead > tr:first-child > th, .ms-listviewtable > thead:first-child > tr:first-child > td, .ms-listviewtable > thead:first-child > tr:first-child > th {
+    background: rgba(0, 199, 255, 0.35);
+}
+
+#ms-help {
+    line-height: 23px;
+}
+
+    #ms-help a > span {
+        overflow: inherit !important;
+        height: 24px !important;
+        width: 24px !important;
+        /*line-height:38px; */
+    }
+
+h4.modal-title {
+    color: #333 !important;
+}
+
+#s4-workspace {
+    overflow-x: hidden !important;
+}

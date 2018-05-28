@@ -1,0 +1,9 @@
+﻿#delegateTaskPopupContainer .errorMessage
+{
+	color:red;
+	margin-bottom: 5px;
+}
+.adminApprovals
+{
+	z-index: 0 !important;
+}

@@ -1,0 +1,22 @@
+				 							    
+/*
+	Copyright (C) 2013 Hoefler & Frere-Jones 
+	
+	This software is the property of Hoefler & Frere-Jones (H&FJ).
+	Your right to access and use this software is subject to the
+	applicable License Agreement, or Terms of Service, that exists
+	between you and H&FJ. If no such agreement exists, you may not
+	access or use this software for any purpose.
+	
+	This software may only be hosted at the locations specified in
+	the applicable License Agreement or Terms of Service, and only
+	for the purposes expressly set forth therein.  You may not copy,
+	modify, convert, create derivative works from or distribute this
+	software in any way, or make it accessible to any third party,
+	without first obtaining the written permission of H&FJ. 
+
+	For more information, please visit H&FJ at http://typography.com.
+	157996-66892-20131028
+*/
+
+@font-face{ font-family: "Gotham Narrow A"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AADRIAA0AAAAAWbgAAQAAAAAyHAAAAiwAAAafAAAAAAAAAABDRkYgAAAJZAAAHZYAACRRVGkjk0dERUYAACb8AAAAHgAAACAA4QAER1BPUwAAJxwAAAjaAAAgGMgQvTdHU1VCAAAv+AAAAFoAAACA6gstjk9TLzIAAAGMAAAATwAAAGBZWmceY21hcAAABogAAALHAAAEKFamjiln"); font-weight:400; font-style:normal; } @font-face{ font-family: "Gotham Narrow B"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AABVsAAsAAAAAHWwAAQAAAAATQAAAAiwAAAafAAAAAAAAAABDRkYgAAAIFAAACmgAAAuzRPBZTkdERUYAABJ8AAAAHQAAACAAYQAET1MvMgAAAWQAAABPAAAAYFlbSKpjbWFwAAAGYAAAAZ4AAAMmI+RwZWdhc3AAABKcAAAACAAAAAgAAAALaGVhZAAAAQgAAAA0AAAANv3JlWRo"); font-weight:400; font-style:normal; } @font-face{ font-family: "Gotham Narrow A"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AADhJAA0AAAAAYHAAAQAAAAA2HAAAAi0AAAafAAAAAAAAAABDRkYgAAAJbAAAILwAACiexX2YHEdERUYAACooAAAAHgAAACAA4QAER1BPUwAAKkgAAAmbAAAiiPE9nltHU1VCAAAz5AAAAFoAAACA6gstjk9TLzIAAAGUAAAAUAAAAGBZWlccY21hcAAABowAAALHAAAEKFamjiln"); font-weight:400; font-style:italic; } @font-face{ font-family: "Gotham Narrow B"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AABY5AAsAAAAAHjgAAQAAAAAUDAAAAi0AAAafAAAAAAAAAABDRkYgAAAIGAAACywAAAyCCeRFEUdERUYAABNEAAAAHQAAACAAYQAET1MvMgAAAWgAAABQAAAAYFlbOKhjbWFwAAAGYAAAAZ4AAAMmI+RwZWdhc3AAABNkAAAACAAAAAgAAAALaGVhZAAAAQgAAAA0AAAANv3BlW1o"); font-weight:400; font-style:italic; } @font-face{ font-family: "Gotham Narrow A"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AADP8AA0AAAAAWfQAAQAAAAAx0AAAAiwAAAafAAAAAAAAAABDRkYgAAAJbAAAHWAAACSY6LMkQkdERUYAACbMAAAAHgAAACAA4QAER1BPUwAAJuwAAAizAAAgDuuYm3VHU1VCAAAvoAAAAFoAAACA6gstjk9TLzIAAAGQAAAAUQAAAGBZpWdgY21hcAAABpAAAALHAAAEKFamjiln"); font-weight:700; font-style:normal; } @font-face{ font-family: "Gotham Narrow B"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AABWMAAsAAAAAHaAAAQAAAAATYAAAAiwAAAafAAAAAAAAAABDRkYgAAAIHAAACnoAAAvl+0k7dEdERUYAABKYAAAAHQAAACAAYQAET1MvMgAAAWgAAABRAAAAYFmmSOljbWFwAAAGaAAAAZ4AAAMmI+RwZWdhc3AAABK4AAAACAAAAAgAAAALaGVhZAAAAQgAAAA1AAAANv22lY1o"); font-weight:700; font-style:normal; } @font-face{ font-family: "Gotham Narrow A"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AADhAAA0AAAAAYQwAAQAAAAA2FAAAAiwAAAafAAAAAAAAAABDRkYgAAAJbAAAILUAACk57WlSD0dERUYAACokAAAAHgAAACAA4QAER1BPUwAAKkQAAAmVAAAiiPERnt5HU1VCAAAz3AAAAFoAAACA6gstjk9TLzIAAAGUAAAAUAAAAGBZpVdfY21hcAAABowAAALHAAAEKFamjiln"); font-weight:700; font-style:italic; } @font-face{ font-family: "Gotham Narrow B"; src: url("data:application/x-font-woff;base64,d09GRk9UVE8AABZQAAsAAAAAHnwAAQAAAAAUJAAAAiwAAAafAAAAAAAAAABDRkYgAAAIIAAACz0AAAzHHMAUHEdERUYAABNgAAAAHQAAACAAYQAET1MvMgAAAWwAAABRAAAAYFmmOOpjbWFwAAAGaAAAAZ4AAAMmI+RwZWdhc3AAABOAAAAACAAAAAgAAAALaGVhZAAAAQgAAAA2AAAANv2tlZdo"); font-weight:700; font-style:italic; } 

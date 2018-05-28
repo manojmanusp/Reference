@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Contents\" Type="ElementManifest" />
+    <ProjectItemFile Source="UpdateTask.html" Target="Contents\" Type="ElementFile" />
+    <ProjectItemFile Source="PendingActions.html" Target="Contents\" Type="ElementFile" />
+    <ProjectItemFile Source="ViewApplication.html" Target="Contents\" Type="ElementFile" />
+    <ProjectItemFile Source="Search.html" Target="Contents\" Type="ElementFile" />
+    <ProjectItemFile Source="ViewActivity.html" Target="Contents\" Type="ElementFile" />
+    <ProjectItemFile Source="EditApplication.html" Target="Contents\" Type="ElementFile" />
+    <ProjectItemFile Source="NewRequest.html" Target="Contents\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

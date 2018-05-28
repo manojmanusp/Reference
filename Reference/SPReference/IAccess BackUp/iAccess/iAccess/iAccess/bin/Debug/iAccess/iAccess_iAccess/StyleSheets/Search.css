@@ -1,0 +1,72 @@
+﻿.dt-buttons {
+    margin-top: -9%;
+    margin-left: 28%;
+}
+
+.ptag {
+    margin-bottom: 0px !important;
+    margin-top: -5% !important;
+}
+
+.label-closed {
+    background-color: grey!important;
+}
+
+.label-notSubmit {
+    background-color: saddleBrown!important;
+    color: white;
+}
+
+#s4-ribbonrow {
+    display: none;
+}
+
+.dt-buttons {
+    margin-top: -9%;
+    margin-left: 28%;
+}
+
+.sp-peoplepicker-errorMsg, .none {
+    display: none;
+}
+
+.modal-backdrop.in {
+    opacity: 0 !important;
+}
+
+.modal-backdrop {
+    z-index: auto;
+}
+
+
+
+        .ptag {
+            margin-bottom: 0px !important;
+            margin-top: -5% !important;
+        }
+
+        .label-closed {
+            background-color: grey!important;
+        }
+
+        .label-notSubmit {
+            background-color: saddleBrown!important;
+            color: white;
+        }
+
+        #s4-ribbonrow {
+            display: none;
+        }
+
+        .sp-peoplepicker-errorMsg, .none {
+            display: none;
+        }
+
+        .modal-backdrop.in {
+            opacity: 0 !important;
+        }
+
+        .modal-backdrop {
+            z-index: auto;
+        }
+    

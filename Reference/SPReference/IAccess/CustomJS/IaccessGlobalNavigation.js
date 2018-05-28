@@ -11,9 +11,17 @@ $(document).ready(function () {
             }
         });
     });
-    
-    BreadCrumb();
-    UserMenu();
+      
+  $("header").find(".topmenu").hide();
+  
+  $("#contentRow").css("padding-top","0px");
+  $("#suiteBarLeft").css("background-color","#014782");
+  $("#suiteBarRight").css("background-color","#014782");
+  $(".ms-srch-sb").css("background","white");
+  $(".ms-breadcrumb-dropdownBox").css("margin-left","0px");
+  
+   // BreadCrumb();
+    //UserMenu();
 });
 
 
@@ -44,7 +52,9 @@ function GetTermsFromTaxonomyStore() {
         }
 
         for (var i = 0; i < array.length; i++) {
-            $(".topmenu.layout-row").find("a")[i].text = array[i];
+            //$(".topmenu.layout-row").find("a")[i].text = array[i];
+            $("#contentRow").find(".topmenu.layout-row").find("a")[i].text = array[i];
+
         }
 
     }, function (sender, args) {

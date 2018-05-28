@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5c96f868-d232-4ac1-abd7-aeb47b9eda4e" solutionId="5c96f868-d232-4ac1-abd7-aeb47b9eda4e" resetWebServer="false" sharePointProductVersion="15.0" name="iAccessBranding" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="bf0a6930-7873-481c-b176-3f2e5168bb25" />
+  </features>
+</package>

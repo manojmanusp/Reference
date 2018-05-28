@@ -1,0 +1,38 @@
+﻿#scrollerContainer {
+    overflow: hidden;
+    left: 0;
+}
+
+#rightArrow, #leftArrow {
+    background: #ff0000;
+    padding: 20px;
+}
+
+.dataTables_scrollBody {
+    overflow: auto !important;
+}
+
+div.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.panel-primary {
+    margin: 0px;
+}
+
+.panel-heading {
+    padding: 5px 5px 5px 20px;
+}
+
+.DTFC_LeftBodyWrapper, .DTFC_LeftBodyLiner {
+    top: -6px !important;
+}
+
+#headers th.sorting, #headers th.sorting_asc {
+    border: none !important;
+}
+
+.dataTables_scrollBody {
+    border: none !important;
+}

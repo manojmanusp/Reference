@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="StyleSheets"  Url="SiteAssets/iAccess">
+    <File Path="StyleSheets\dataTables.bootstrap.min.css" Url="StyleSheets/dataTables.bootstrap.min.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\date-picker.css" Url="StyleSheets/date-picker.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\helper.css" Url="StyleSheets/helper.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\jquery.stackedrows.css" Url="StyleSheets/jquery.stackedrows.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\style.css" Url="StyleSheets/style.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\table.css" Url="StyleSheets/table.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\bootstrap.css" Url="StyleSheets/bootstrap.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\bootstrap.min.css" Url="StyleSheets/bootstrap.min.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\bootstrap-datepicker3.css" Url="StyleSheets/bootstrap-datepicker3.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\components-md.css" Url="StyleSheets/components-md.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\font.css" Url="StyleSheets/font/font.css" />
+    <File Path="StyleSheets\font\glyphicons-halflings-regular.eot" Url="StyleSheets/font/glyphicons-halflings-regular.eot" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\glyphicons-halflings-regular.svg" Url="StyleSheets/font/glyphicons-halflings-regular.svg" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\glyphicons-halflings-regular.ttf" Url="StyleSheets/font/glyphicons-halflings-regular.ttf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\glyphicons-halflings-regular.woff" Url="StyleSheets/font/glyphicons-halflings-regular.woff" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\glyphicons-halflings-regular.woff2" Url="StyleSheets/font/glyphicons-halflings-regular.woff2" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gotham-book.eot" Url="StyleSheets/font/gotham-book.eot" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\Gotham-Book.otf" Url="StyleSheets/font/Gotham-Book.otf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gotham-book.svg" Url="StyleSheets/font/gotham-book.svg" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gotham-book.ttf" Url="StyleSheets/font/gotham-book.ttf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gotham-book.woff" Url="StyleSheets/font/gotham-book.woff" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-bold.eot" Url="StyleSheets/font/gothamnarrow-bold.eot" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\GothamNarrow-Bold.otf" Url="StyleSheets/font/GothamNarrow-Bold.otf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-bold.svg" Url="StyleSheets/font/gothamnarrow-bold.svg" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-bold.ttf" Url="StyleSheets/font/gothamnarrow-bold.ttf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-bold.woff" Url="StyleSheets/font/gothamnarrow-bold.woff" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-medium.eot" Url="StyleSheets/font/gothamnarrow-medium.eot" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\GothamNarrow-Medium.otf" Url="StyleSheets/font/GothamNarrow-Medium.otf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-medium.svg" Url="StyleSheets/font/gothamnarrow-medium.svg" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-medium.ttf" Url="StyleSheets/font/gothamnarrow-medium.ttf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-medium.woff" Url="StyleSheets/font/gothamnarrow-medium.woff" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-xlight.eot" Url="StyleSheets/font/gothamnarrow-xlight.eot" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\GothamNarrow-XLight.otf" Url="StyleSheets/font/GothamNarrow-XLight.otf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-xlight.svg" Url="StyleSheets/font/gothamnarrow-xlight.svg" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-xlight.ttf" Url="StyleSheets/font/gothamnarrow-xlight.ttf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\gothamnarrow-xlight.woff" Url="StyleSheets/font/gothamnarrow-xlight.woff" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\vjs.eot" Url="StyleSheets/font/vjs.eot" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\vjs.svg" Url="StyleSheets/font/vjs.svg" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\vjs.ttf" Url="StyleSheets/font/vjs.ttf" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\font\vjs.woff" Url="StyleSheets/font/vjs.woff" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\CheckBox.css" Url="StyleSheets/CheckBox.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\Dashboard.css" Url="StyleSheets/Dashboard.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\jquery.simplyscroll.css" Url="StyleSheets/jquery.simplyscroll.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\docUpload.css" Url="StyleSheets/docUpload.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\Search.css" Url="StyleSheets/Search.css" Type="GhostableInLibrary" />
+    <File Path="StyleSheets\datatables.min.css" Url="StyleSheets/datatables.min.css"  Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\uploadifive.css" Url="StyleSheets/uploadifive.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\uploadifive-cancel.png" Url="StyleSheets/uploadifive-cancel.png" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\css\font-awesome.css" Url="StyleSheets/font-awesome/css/font-awesome.css"  Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\css\font-awesome.min.css" Url="StyleSheets/font-awesome/css/font-awesome.min.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\fonts\fontawesome-webfont.eot" Url="StyleSheets/font-awesome/fonts/fontawesome-webfont.eot" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\fonts\fontawesome-webfont.svg" Url="StyleSheets/font-awesome/fonts/fontawesome-webfont.svg" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\fonts\fontawesome-webfont.ttf" Url="StyleSheets/font-awesome/fonts/fontawesome-webfont.ttf" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\fonts\fontawesome-webfont.woff" Url="StyleSheets/font-awesome/fonts/fontawesome-webfont.woff" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\fonts\fontawesome-webfont.woff2" Url="StyleSheets/font-awesome/fonts/fontawesome-webfont.woff2" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\font-awesome\fonts\FontAwesome.otf" Url="StyleSheets/font-awesome/fonts/FontAwesome.otf" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mdl\material.css" Url="StyleSheets/package/mdl/material.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mdl\material.js" Url="StyleSheets/package/mdl/material.js" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mdl\material.min.css" Url="StyleSheets/package/mdl/material.min.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mdl\material.min.css.map" Url="StyleSheets/package/mdl/material.min.css.map" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mdl\material.min.js" Url="StyleSheets/package/mdl/material.min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mdl\material.min.js.map" Url="StyleSheets/package/mdl/material.min.js.map" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\codepoints" Url="StyleSheets/package/mldicons/codepoints" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\materialicons.css" Url="StyleSheets/package/mldicons/materialicons.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.eot" Url="StyleSheets/package/mldicons/MaterialIconsRegular.eot" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.ijmap" Url="StyleSheets/package/mldicons/MaterialIconsRegular.ijmap" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.svg" Url="StyleSheets/package/mldicons/MaterialIconsRegular.svg" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.ttf" Url="StyleSheets/package/mldicons/MaterialIconsRegular.ttf" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.woff" Url="StyleSheets/package/mldicons/MaterialIconsRegular.woff" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.woff2" Url="StyleSheets/package/mldicons/MaterialIconsRegular.woff2" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\approvals.css" Url="StyleSheets/approvals.css"  Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\PastClearances.css" Url="StyleSheets/PastClearances.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\SPGridStyles.css" Url="StyleSheets/SPGridStyles.css" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\ViewRequest.css" Url="StyleSheets/ViewRequest.css" Type="GhostableInLibrary" />
+  </Module>
+</Elements>

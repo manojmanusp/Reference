@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B4B0469-A098-4E47-8672-8BC0D484F933}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iAccess</RootNamespace>
+    <AssemblyName>iAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Contents\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5739ae0b-4eee-4d19-b18a-e48b5fa14b86}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\iAccess\iAccess.feature">
+      <FeatureId>{a5f6d997-8b0c-4a93-9608-00449ad7993f}</FeatureId>
+    </None>
+    <None Include="Font\glyphicons-halflings-regular.eot" />
+    <None Include="Font\glyphicons-halflings-regular.ttf" />
+    <None Include="Font\glyphicons-halflings-regular.woff" />
+    <None Include="Font\glyphicons-halflings-regular.woff2" />
+    <None Include="Font\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ca9388c1-0427-4b30-9055-30bee48d7cc2}</SharePointProjectItemId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{aff6b090-0e2a-42c3-a0fa-75ca9e05c5d1}</SharePointProjectItemId>
+    </None>
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9315724b-7851-459a-9d74-84f19c59fd1a}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="packages\mdl\bower.json" />
+    <None Include="packages\mdl\LICENSE" />
+    <None Include="packages\mdl\material.min.css.map" />
+    <None Include="packages\mdl\material.min.js.map" />
+    <None Include="packages\mdl\package.json" />
+    <None Include="packages\mld-icons\codepoints" />
+    <None Include="packages\mld-icons\MaterialIcons-Regular.eot" />
+    <None Include="packages\mld-icons\MaterialIcons-Regular.ijmap" />
+    <None Include="packages\mld-icons\MaterialIcons-Regular.ttf" />
+    <None Include="packages\mld-icons\MaterialIcons-Regular.woff" />
+    <None Include="packages\mld-icons\MaterialIcons-Regular.woff2" />
+    <None Include="packages\mld-icons\README.md" />
+    <None Include="Package\Package.package">
+      <PackageId>{6ddaa026-32bf-4385-bc7c-d35a48955c14}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Scripts\restDao.js.map" />
+    <None Include="Scripts\spscript.js.map" />
+    <None Include="Scripts\toastr.js.map" />
+    <None Include="StyleSheets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <None Include="StyleSheets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <None Include="StyleSheets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <None Include="StyleSheets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="StyleSheets\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="StyleSheets\font\glyphicons-halflings-regular.eot" />
+    <None Include="StyleSheets\font\glyphicons-halflings-regular.ttf" />
+    <None Include="StyleSheets\font\glyphicons-halflings-regular.woff" />
+    <None Include="StyleSheets\font\glyphicons-halflings-regular.woff2" />
+    <None Include="StyleSheets\font\gotham-book.eot" />
+    <None Include="StyleSheets\font\Gotham-Book.otf" />
+    <None Include="StyleSheets\font\gotham-book.ttf" />
+    <None Include="StyleSheets\font\gotham-book.woff" />
+    <None Include="StyleSheets\font\gothamnarrow-bold.eot" />
+    <None Include="StyleSheets\font\GothamNarrow-Bold.otf" />
+    <None Include="StyleSheets\font\gothamnarrow-bold.ttf" />
+    <None Include="StyleSheets\font\gothamnarrow-bold.woff" />
+    <None Include="StyleSheets\font\gothamnarrow-medium.eot" />
+    <None Include="StyleSheets\font\GothamNarrow-Medium.otf" />
+    <None Include="StyleSheets\font\gothamnarrow-medium.ttf" />
+    <None Include="StyleSheets\font\gothamnarrow-medium.woff" />
+    <None Include="StyleSheets\font\gothamnarrow-xlight.eot" />
+    <None Include="StyleSheets\font\GothamNarrow-XLight.otf" />
+    <None Include="StyleSheets\font\gothamnarrow-xlight.ttf" />
+    <None Include="StyleSheets\font\gothamnarrow-xlight.woff" />
+    <None Include="StyleSheets\font\vjs.eot" />
+    <None Include="StyleSheets\font\vjs.ttf" />
+    <None Include="StyleSheets\font\vjs.woff" />
+    <None Include="StyleSheets\package\mdl\material.min.css.map" />
+    <None Include="StyleSheets\package\mdl\material.min.js.map" />
+    <None Include="StyleSheets\package\mldicons\codepoints" />
+    <None Include="StyleSheets\package\mldicons\MaterialIconsRegular.eot" />
+    <None Include="StyleSheets\package\mldicons\MaterialIconsRegular.ijmap" />
+    <None Include="StyleSheets\package\mldicons\MaterialIconsRegular.ttf" />
+    <None Include="StyleSheets\package\mldicons\MaterialIconsRegular.woff" />
+    <None Include="StyleSheets\package\mldicons\MaterialIconsRegular.woff2" />
+    <None Include="StyleSheets\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a0f6d16a-9c82-46cb-b3f9-ce058c793741}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Contents\NewRequest.html" />
+    <Content Include="Font\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\spcommon.png" />
+    <Content Include="Images\spintl.png" />
+    <Content Include="Images\TillidLogo.png" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\Attachments.js" />
+    <Content Include="Scripts\datatables.min.js" />
+    <Content Include="Scripts\jquery.uploadifive.js" />
+    <Content Include="Scripts\NewRequest.js" />
+    <Content Include="StyleSheets\approvals.css" />
+    <Content Include="StyleSheets\datatables.min.css" />
+    <Content Include="StyleSheets\docUpload.css" />
+    <Content Include="StyleSheets\font-awesome\css\font-awesome.css" />
+    <Content Include="StyleSheets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="StyleSheets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="StyleSheets\package\mdl\material.css" />
+    <Content Include="StyleSheets\package\mdl\material.js" />
+    <Content Include="StyleSheets\package\mdl\material.min.css" />
+    <Content Include="StyleSheets\package\mdl\material.min.js" />
+    <Content Include="StyleSheets\package\mldicons\materialicons.css" />
+    <Content Include="StyleSheets\package\mldicons\MaterialIconsRegular.svg" />
+    <Content Include="StyleSheets\PastClearances.css" />
+    <Content Include="StyleSheets\Search.css" />
+    <Content Include="StyleSheets\SPGridStyles.css" />
+    <Content Include="StyleSheets\uploadifive-cancel.png" />
+    <Content Include="StyleSheets\uploadifive.css" />
+    <Content Include="Contents\Elements.xml" />
+    <Content Include="Contents\EditApplication.html" />
+    <Content Include="Contents\PendingActions.html" />
+    <Content Include="Contents\Search.html" />
+    <Content Include="Contents\UpdateTask.html" />
+    <Content Include="Contents\ViewActivity.html" />
+    <Content Include="Contents\ViewApplication.html" />
+    <Content Include="Features\iAccess\iAccess.Template.xml">
+      <DependentUpon>iAccess.feature</DependentUpon>
+    </Content>
+    <Content Include="Font\Elements.xml" />
+    <Content Include="Images\Elements.xml" />
+    <Content Include="packages\mdl\material.css" />
+    <Content Include="packages\mdl\material.js" />
+    <Content Include="packages\mdl\material.min.css" />
+    <Content Include="packages\mdl\material.min.js" />
+    <Content Include="packages\mld-icons\material-icons.css" />
+    <Content Include="packages\mld-icons\MaterialIcons-Regular.svg" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\buttons.colVis.min.js" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\camljs.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DocumentLibraryUtilities.js" />
+    <Content Include="Scripts\editor.js" />
+    <Content Include="Scripts\Global.js" />
+    <Content Include="Scripts\handlebars-v4.0.5.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery.1.7.0.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.simplyscroll.min.js" />
+    <Content Include="Scripts\jquery.SPServices-0.7.2.js" />
+    <Content Include="Scripts\jszip.min.js" />
+    <Content Include="Scripts\legacy.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\pdfmake.min.js" />
+    <Content Include="Scripts\PendingActions.js" />
+    <Content Include="Scripts\picker.date.js" />
+    <Content Include="Scripts\picker.js" />
+    <Content Include="Scripts\sppeoplepicker.js" />
+    <Content Include="Scripts\spscript.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\vfs_fonts.js" />
+    <Content Include="StyleSheets\bootstrap-datepicker3.css" />
+    <Content Include="StyleSheets\bootstrap.css" />
+    <Content Include="StyleSheets\bootstrap.min.css" />
+    <Content Include="StyleSheets\CheckBox.css" />
+    <Content Include="StyleSheets\components-md.css" />
+    <Content Include="StyleSheets\Dashboard.css" />
+    <Content Include="StyleSheets\dataTables.bootstrap.min.css" />
+    <Content Include="StyleSheets\date-picker.css" />
+    <Content Include="StyleSheets\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="StyleSheets\font\font.css" />
+    <Content Include="StyleSheets\font\glyphicons-halflings-regular.svg" />
+    <Content Include="StyleSheets\font\gotham-book.svg" />
+    <Content Include="StyleSheets\font\gothamnarrow-bold.svg" />
+    <Content Include="StyleSheets\font\gothamnarrow-medium.svg" />
+    <Content Include="StyleSheets\font\gothamnarrow-xlight.svg" />
+    <Content Include="StyleSheets\font\vjs.svg" />
+    <Content Include="StyleSheets\helper.css" />
+    <Content Include="StyleSheets\jquery.simplyscroll.css" />
+    <Content Include="StyleSheets\jquery.stackedrows.css" />
+    <Content Include="StyleSheets\style.css" />
+    <Content Include="StyleSheets\table.css" />
+    <Content Include="StyleSheets\ViewRequest.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

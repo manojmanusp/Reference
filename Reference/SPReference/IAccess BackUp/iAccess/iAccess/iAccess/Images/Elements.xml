@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images" Url="SiteAssets/iAccess">
+    <File Path="Images\TillidLogo.png" Url="Images/TillidLogo.png" Type="GhostableInLibrary" />
+    <File Path="Images\ajax-loader.gif" Url="Images/ajax-loader.gif" Type="GhostableInLibrary" />
+    <File Path="Images\spcommon.png" Url="Images/spcommon.png" Type="GhostableInLibrary" />
+    <File Path="Images\spintl.png" Url="Images/spintl.png" Type="GhostableInLibrary" />
+  </Module>
+</Elements>

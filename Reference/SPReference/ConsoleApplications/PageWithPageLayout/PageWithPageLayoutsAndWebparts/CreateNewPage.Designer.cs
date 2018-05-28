@@ -50,7 +50,6 @@
             this.LblProvisionStatus = new System.Windows.Forms.Label();
             this.BtnSubmit = new System.Windows.Forms.Button();
             this.progressBar = new PageWithPageLayoutsAndWebparts.NewProgressBar();
-            this.DropdownZones = new System.Windows.Forms.ComboBox();
             this.TableAddPage.SuspendLayout();
             this.TableAddWebpart.SuspendLayout();
             this.SuspendLayout();
@@ -225,7 +224,7 @@
             this.BtnAddWebPart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BtnAddWebPart.Location = new System.Drawing.Point(288, 258);
             this.BtnAddWebPart.Name = "BtnAddWebPart";
-            this.BtnAddWebPart.Size = new System.Drawing.Size(181, 33);
+            this.BtnAddWebPart.Size = new System.Drawing.Size(216, 33);
             this.BtnAddWebPart.TabIndex = 12;
             this.BtnAddWebPart.Text = "Click this to add webpart to a page";
             this.BtnAddWebPart.UseVisualStyleBackColor = false;
@@ -258,7 +257,7 @@
             this.BtnSubmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSubmit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnSubmit.Location = new System.Drawing.Point(288, 258);
+            this.BtnSubmit.Location = new System.Drawing.Point(303, 258);
             this.BtnSubmit.Name = "BtnSubmit";
             this.BtnSubmit.Size = new System.Drawing.Size(181, 33);
             this.BtnSubmit.TabIndex = 15;
@@ -275,21 +274,12 @@
             this.progressBar.TabIndex = 7;
             this.progressBar.Visible = false;
             // 
-            // DropdownZones
-            // 
-            this.DropdownZones.FormattingEnabled = true;
-            this.DropdownZones.Location = new System.Drawing.Point(1, 436);
-            this.DropdownZones.Name = "DropdownZones";
-            this.DropdownZones.Size = new System.Drawing.Size(741, 21);
-            this.DropdownZones.TabIndex = 16;
-            // 
             // CreateNewPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(741, 535);
-            this.Controls.Add(this.DropdownZones);
+            this.ClientSize = new System.Drawing.Size(741, 419);
             this.Controls.Add(this.BtnSubmit);
             this.Controls.Add(this.LblProvisionStatus);
             this.Controls.Add(this.LblHeading);
@@ -336,6 +326,5 @@
         private System.Windows.Forms.Label LblProvisionStatus;
         private NewProgressBar progressBar;
         private System.Windows.Forms.Button BtnSubmit;
-        private System.Windows.Forms.ComboBox DropdownZones;
     }
 }

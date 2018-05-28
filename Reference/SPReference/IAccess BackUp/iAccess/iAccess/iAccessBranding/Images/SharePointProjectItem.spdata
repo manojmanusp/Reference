@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Images\" Type="ElementManifest" />
+    <ProjectItemFile Source="AVD_help.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="avd_logo.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="avd_plus.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="breadcrumb_arrow.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="dropkpi.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="dr-reddy-logo.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="header_bg.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="heading_bullet.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="icon_calendar.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="icon_home.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="icon_home.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="icon_taskitem_details.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="icon_tasklist.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="menu-down.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="menu-down.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Offboarding.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Picture1.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="plus.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Search_Arrow.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Search_Arrow_RTL.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="settingsIcon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="spintl.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="spcommon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="TillidLogo.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="text.png" Target="Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

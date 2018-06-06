@@ -1,0 +1,82 @@
+function saveNewRequest() {
+debugger;
+    var array = [];
+    var userIdColl = [];
+    $(".md-contact-name").each(function () {
+        array.push($(this).text());
+    });
+    for (var i = 0; i < array.length; i++) {
+        var context = new SP.ClientContext.get_current();
+        var manager = context.get_web().ensureUser(array[i]);
+        context.load(manager);
+        context.executeQueryAsync(function () {
+
+
+            userIdColl.push(manager.get_id());
+
+
+        }, function () { });
+
+    }
+
+    var item = [];
+    item.managerId = userIdColl;
+
+    item.RequestFor = $(".radioGroup input:radio:checked").first().parent().text().trim();
+    item.Comments = $("#txtRequestDetails").val();
+    if (item.RequestFor == "Self") {
+        item.RequesterID = _spPageContextInfo.userId;
+    }
+    else {
+        item.RequesterID = $("#txtEmployeeID").val();
+    }
+    item.Status = "Not Started";
+
+    var data = getNewRequestItem(item);
+    
+        var siteurl = _spPageContextInfo.webAbsoluteUrl;
+        $.ajax({
+            url: siteurl + "/_api/web/lists/getbytitle('ITRequest')/items",
+            method: "POST",
+            data: JSON.stringify(data),
+            headers: {
+                "Accept": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+	        "content-Type": "application/json;odata=verbose"
+            },
+            success: function (data) {
+                alert('Item added successfully');
+            },
+            error: function (error) {
+                alert("Error: " + JSON.stringify(error));
+            }
+        });
+    
+
+
+}
+
+
+
+function getNewRequestItem(requestItem) {
+    //var itemType = GetItemTypeForListName("ITRequest");
+
+    //  var admin = $.parseJSON($.replaceAll(requestItem.ITAdministratorId, "'", "\""));
+    var item = {
+        "__metadata": {
+            "type": "SP.Data.ITRequestListItem"
+        },
+        "Title": "",
+        "RequestFor": requestItem.RequestFor,
+        //"RequestType": requestItem.RequestType,
+        "Comments": requestItem.Comments,
+        "RequesterID": requestItem.RequesterID,
+        //"AdministratorId": admin,
+        "ManagerId": { "results": requestItem.managerId },
+        //"ManagerId": requestItem.managerId,
+        //"RequestId": getRequestUniqueId(),
+        "Status": requestItem.Status
+    };
+    return item;
+
+}

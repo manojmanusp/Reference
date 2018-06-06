@@ -1,0 +1,93 @@
+<html>
+  <head>
+   
+   
+  </head>
+  <body>
+<div id="crudDiv">
+       Title : <input type="text" id="txtTitle" name="listItemTitle"><br>
+       <table>
+         <tr>
+           <td><button type="button" onclick="addItem()">Add</button> </td>
+           <td><button type="button" onclick="updateItem()">Update</button> </td>
+           <td><button type="button" onclick="deleteItem()">Delete</button> </td>
+         </tr>
+       </table>
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+   <script type="text/javascript">
+    $(document).ready( function()
+          { SP.SOD.executeFunc('sp.js', 'SP.ClientContext',testing); 
+          } );
+function testing()
+{
+ console.log('sp.js loaded');
+}
+     
+  var itemId = "";
+  
+function addItem()
+     {
+        debugger;
+        var itemTitle = $('#txtTitle').val();        
+        var context = new SP.ClientContext();  
+         
+        var list = context.get_web().get_lists().getByTitle("TestList1");  
+    
+        var listItemCreationInformation = new SP.ListItemCreationInformation();  
+        this.listItem = list.addItem(listItemCreationInformation);          
+        listItem.set_item('Title', itemTitle);        
+        listItem.update();    
+        context.load(listItem);      
+        context.executeQueryAsync(Function.createDelegate(this, this.AddItemSuccess), Function.createDelegate(this, this.AddItemFailed));
+}
+
+function AddItemSuccess(sender,args) {
+    
+    
+    console.log("ID :"+listItem.get_id());
+   
+}
+
+function AddItemSuccess(sender, args) {
+
+   console.log("Failure");
+}
+itemId = AddItemSuccess();
+//var i = itemId;
+
+//      function updateItem()
+//      {
+//         debugger;
+//         //var itemTitle = $("#txtTitle").val();  
+//         var itemTitle = "test6";      
+//         var context = new SP.ClientContext("https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/");  
+         
+//         var list = context.get_web().get_lists().getByTitle("TestList1");  
+//         var query = new SP.camlQuery();
+//         var listItems = list.getItems(query);
+        
+//         var currItem = list.getItemById();         
+//         currItem.set_item('Title', itemTitle);        
+//         currItem.update();          
+//         context.load(listItem);
+//    context .executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));
+// }
+
+// function onQuerySucceeded() {
+
+//     alert('Item created: ' + oListItem.get_id());
+// }
+
+// function onQueryFailed(sender, args) {
+
+//     alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+// }
+
+
+   </script>
+    
+  </body>
+</html>
+
+   

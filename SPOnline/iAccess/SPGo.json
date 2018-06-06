@@ -1,0 +1,6 @@
+{
+    "sourceDirectory": "src",
+    "sharePointSiteUrl": "https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1",
+    "publishingScope": "SaveOnly",
+    "authenticationType": "Digest"
+}

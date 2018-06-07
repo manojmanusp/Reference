@@ -5,6 +5,25 @@ $(document).ready(function () {
     // picker will render.
     initializePeoplePicker('pplEmployee');
     initializePeoplePicker('pplManagers');
+    
+});
+
+$(window).on("load",function()
+{
+    $('.radio').change(function () {  
+        
+        if($(this).val() == "Self")
+        {
+            
+            AddUserToPeoplePicker();
+            getManagerFromUserProfile();
+            
+        }
+        else{
+            RemoveUsersFromPeoplePicker("pplEmployee");
+            RemoveUsersFromPeoplePicker("pplManagers");
+        }
+    });
 });
 
 // Render and initialize the client-side People Picker.
@@ -68,4 +87,69 @@ function ensureUserSuccess() {
 
 function onFail(sender, args) {
     alert('Query failed. Error: ' + args.get_message());
+}
+
+function getManagerFromUserProfile() {
+                
+    var requestHeaders = {
+        "Accept": "application/json;odata=verbose",
+        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+    };
+    var urlValue = _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v,propertyName='Manager')?@v='i:0%23.f|membership|murali@chennaitillidsoft.onmicrosoft.com'";
+    $.ajax({
+        url: urlValue,
+        type: "GET",
+        data: {},
+        async: false,
+        contentType: "application/json;odata=verbose",
+        headers: requestHeaders,
+        success: function (data) {
+            if (data.d.GetUserProfilePropertyFor != null && data.d.GetUserProfilePropertyFor != "") {
+               
+               var managerLogin = data.d.GetUserProfilePropertyFor;
+               var managerEmail = managerLogin.split('|')[2];
+               var userField = $("input[class='sp-peoplepicker-editorInput']").get(1);
+               var peoplepicker = SPClientPeoplePicker.PickerObjectFromSubElement(userField);
+               peoplepicker.AddUserKeys(managerEmail);
+            }
+            else {
+               
+            }
+        },
+        error: function (jqxr, errorCode, errorThrown) {
+          
+        }
+    });
+}
+
+
+function AddUserToPeoplePicker()
+{
+    var userField = $("input[class='sp-peoplepicker-editorInput']").get(0); // simplified user control search, real word scenario, first search proper row in your form
+    var peoplepicker = SPClientPeoplePicker.PickerObjectFromSubElement(userField);
+    peoplepicker.AddUserKeys(_spPageContextInfo.userLoginName); // or display name
+    $("#pplEmployee_TopSpan_ResolvedList").find("span[class='sp-peoplepicker-userSpan']").find("a").css("display","none");
+    var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplEmployee_TopSpan"];
+    spclientPeoplePicker.SetEnabledState(false);
+}
+
+function RemoveUsersFromPeoplePicker(peoplePickerId)
+{
+    
+    var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict[peoplePickerId+"_TopSpan"]; 
+     
+    if (spclientPeoplePicker) {
+    spclientPeoplePicker.SetEnabledState(true);
+    var eleId = "#"+peoplePickerId+"_TopSpan_ResolvedList"
+    //Get the Resolved Users list from Client People Picker
+    var ResolvedUsers = $(eleId).find("span[class='sp-peoplepicker-userSpan']");
+
+    //Clear the Client People Picker
+
+    $(ResolvedUsers).each(function (index) {
+
+    spclientPeoplePicker.DeleteProcessedUser(this);
+
+    });
+    }
 }

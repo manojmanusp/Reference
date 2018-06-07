@@ -22,10 +22,13 @@ namespace GenericConsole
             var pageUrl = "https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/Test1/";
             var listName = "PostList";
             var pagePath = "/Pages/CustomNewPages/New6.aspx";
+            string permissionLevelName = "Contribute";
             using (var clientContext = new ClientContext(pageUrl))
             {
                 clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
-                SetUpCurrentNavigation(clientContext);
+                CreateAGroup(clientContext, permissionLevelName);
+
+                //SetUpCurrentNavigation(clientContext);
                 //DeleteItems(clientContext);
                 //DeleteItemsInCurrentNavigation(clientContext);
                 //UpdateCurrentNavigation(clientContext);
@@ -43,8 +46,15 @@ namespace GenericConsole
 
 
         }
+
+
         #region Add user to existing group
-        public static void AddUserToGroup(ClientContext context, string userName, string[] users)
+        /// <summary>
+        /// Add user to a existing group
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        /// <param name="users">collection of users</param>
+        public static void AddUserToGroup(ClientContext context, string[] users)
         {
             try
             {
@@ -74,12 +84,16 @@ namespace GenericConsole
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
         }
         #endregion
 
         #region Add user to a list
+        /// <summary>
+        /// Add user to a existing list
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
         public static void AddSPUserToList(ClientContext context)
         {
             try
@@ -104,7 +118,13 @@ namespace GenericConsole
         }
         #endregion
 
-        // Create a list from list template
+        #region Create a list based on template
+        /// <summary>
+        /// Creates a new list based on template specified
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        /// <param name="listTitle">Custom title for new list</param>
+        /// <param name="listTemplateName">Name of the template</param>
         private static void CreateListOverTemplate(ClientContext context, string listTitle, string listTemplateName)
         {
             Web webSite = context.Web;
@@ -138,7 +158,14 @@ namespace GenericConsole
             Console.WriteLine("List created successfully");
             Console.ReadLine();
         }
-        // Password builder based on type of sharepoint environment
+        #endregion
+
+        #region Password builder based on type of sharepoint environment
+        /// <summary>
+        /// Password builder for credentials using security string
+        /// </summary>
+        /// <param name="currentPassword">Password for the current logging user</param>
+        /// <returns>Password in the form of security string</returns>
         private static SecureString PasswordBuilder(string currentPassword)
         {
             SecureString password = new SecureString();
@@ -148,7 +175,13 @@ namespace GenericConsole
             }
             return password;
         }
+        #endregion
 
+        #region Assign multiple values to a choice field
+        /// <summary>
+        /// Assign multiple values to a choice field
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
         private static void AssignMultipleValuesToChoiceField(ClientContext context)
         {
             var listName = "List";
@@ -184,7 +217,14 @@ namespace GenericConsole
             context.ExecuteQuery();
 
         }
+        #endregion
 
+        #region Get all views from a list
+        /// <summary>
+        /// Get all views from a list
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        /// <param name="listName">Name of the list</param>
         private static void GetAllViewsFromList(ClientContext context, string listName)
         {
             Web web = context.Web;
@@ -202,7 +242,14 @@ namespace GenericConsole
             }
             Console.ReadLine();
         }
+        #endregion
 
+        #region Delete all webparts existing in a sharepoint page
+        /// <summary>
+        /// Delete all webparts existing in a sharepoint page
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        /// <param name="pagePath">Path of the page like "/Pages/Folder/Pagename.aspx"</param>
         private static void DeleteAllWebpartsFromPage(ClientContext context, string pagePath)
         {
             Web web = context.Web;
@@ -223,8 +270,13 @@ namespace GenericConsole
             Console.ReadLine();
 
         }
+        #endregion
 
-
+        #region Add a list webpart to a sharepoint page
+        /// <summary>
+        /// Add a list webpart to a sharepoint page
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
         private static void AddingSharePointListWPToPage(ClientContext context)
         {
             string pageUrl = "/sites/oct9_QA1/SitePages/Home.aspx";
@@ -235,7 +287,15 @@ namespace GenericConsole
             context.ExecuteQuery(); // request the data
             AddWebPart(context, pageUrl, list.SchemaXml);
         }
+        #endregion
 
+        #region Add a webpart to a page
+        /// <summary>
+        /// Add a webpart to a page
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        /// <param name="pageUrl">Url of the page</param>
+        /// <param name="xml">Xml of the webpart as string</param>
         private static void AddWebPart(ClientContext context, string pageUrl, string xml)
         {
             var page = context.Web.GetFileByServerRelativeUrl(pageUrl);
@@ -251,8 +311,13 @@ namespace GenericConsole
             Console.ReadLine();
 
         }
+        #endregion
 
-
+        #region Update validation settings of a list
+        /// <summary>
+        /// Update validation settings of a list
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
         private static void UpdateValidationSettingsOfList(ClientContext context)
         {
             Web web = context.Web;
@@ -266,6 +331,8 @@ namespace GenericConsole
             Console.ReadLine();
 
         }
+        #endregion
+
 
         private static void UpdateCurrentNavigation(ClientContext context)
         {
@@ -367,7 +434,6 @@ namespace GenericConsole
             Console.ReadLine();
 
         }
-
         private static void DeleteItemsInCurrentNavigation(ClientContext context)
         {
             context.Load(context.Web);
@@ -376,9 +442,9 @@ namespace GenericConsole
             context.ExecuteQuery();
             foreach (NavigationNode node in qlNavNodeColl.ToList())
             {
-                if(node.Url.Contains(".aspx"))
-                { 
-                   node.DeleteObject();
+                if (node.Url.Contains(".aspx"))
+                {
+                    node.DeleteObject();
                 }
             }
             context.ExecuteQuery();
@@ -386,6 +452,11 @@ namespace GenericConsole
             Console.ReadLine();
         }
 
+        #region Setting up the current navigation of a site
+        /// <summary>
+        /// Setting up the current navigation of a site
+        /// </summary>
+        /// <param name="clientContext">client context of a specific site</param>
         private static void SetUpCurrentNavigation(ClientContext clientContext)
         {
 
@@ -407,10 +478,10 @@ namespace GenericConsole
             {
                 //if (qlNavNodeColl[ii].Title == "Home")
                 //{
-                    Console.WriteLine(qlNavNodeColl[ii].Title + "Deleted");
-                    qlNavNodeColl[ii].DeleteObject();
+                Console.WriteLine(qlNavNodeColl[ii].Title + "Deleted");
+                qlNavNodeColl[ii].DeleteObject();
 
-               // }
+                // }
 
             }
             clientContext.ExecuteQuery();
@@ -435,7 +506,48 @@ namespace GenericConsole
             clientContext.ExecuteQuery();
             Console.ReadLine();
         }
+        #endregion
 
+        #region Create a group with a permission in a site
+        /// <summary>
+        /// Creates a group with a permission in a site
+        /// </summary>
+        /// <param name="ctx">client context of a specific site</param>
+        /// <param name="permissionLevelName">Name of the permission</param>
+        private static void CreateAGroup(ClientContext ctx, string permissionLevelName)
+        {
+            try
+            {
+                //create the group
+                string groupName = "DemoGroup2";
+                string groupDesc = "This group with permission level " + permissionLevelName;
+                Web web = ctx.Web;
+                GroupCreationInformation grp = new GroupCreationInformation();
+                grp.Title = groupName;
+                grp.Description = groupDesc;
+                //add it to the list of site groups
+                Group newgrp = ctx.Web.SiteGroups.Add(grp);
+                //Breaking the role inheritance from parent site
+                web.BreakRoleInheritance(true, false);
+                //Get a role.
+                RoleDefinition rd = ctx.Web.RoleDefinitions.GetByName(permissionLevelName); // – > To Create a Custom Role definition or Permission level
+                //create the role definition binding collection
+                RoleDefinitionBindingCollection rdb = new RoleDefinitionBindingCollection(ctx);
+                //add the role definition to the collection
+                rdb.Add(rd);
+                //create a RoleAssigment with the group and role definition
+                ctx.Web.RoleAssignments.Add(newgrp, rdb);
+                //execute the query to add everything
+                ctx.Load(newgrp);
+                ctx.ExecuteQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        #endregion
     }
 }
 

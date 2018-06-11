@@ -19,15 +19,17 @@ namespace GenericConsole
             //var listTitle = "NewLocationList";
             //var listTemplateName = "CustomLocationList.stp";
             SecureString userPassword = PasswordBuilder(pass);
-            var pageUrl = "https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/Test1/";
+            var pageUrl = "https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/";
             var listName = "PostList";
             var pagePath = "/Pages/CustomNewPages/New6.aspx";
             string permissionLevelName = "Contribute";
             using (var clientContext = new ClientContext(pageUrl))
             {
                 clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
-                CreateAGroup(clientContext, permissionLevelName);
-
+                HideColumnsinContentType(clientContext);
+                //AddLookUpToList(clientContext, "ListA", "ListB", "LookupTest2", "Title", "multi");
+                //CreateAGroup(clientContext, permissionLevelName,"DemoGroup2","This group with permission level");
+                //CreateList(clientContext,"ListA");
                 //SetUpCurrentNavigation(clientContext);
                 //DeleteItems(clientContext);
                 //DeleteItemsInCurrentNavigation(clientContext);
@@ -514,13 +516,13 @@ namespace GenericConsole
         /// </summary>
         /// <param name="ctx">client context of a specific site</param>
         /// <param name="permissionLevelName">Name of the permission</param>
-        private static void CreateAGroup(ClientContext ctx, string permissionLevelName)
+        /// <param name="groupName">Name of the group</param>
+        /// <param name="groupDesc">Description of the group</param>
+        private static void CreateAGroup(ClientContext ctx, string permissionLevelName, string groupName, string groupDesc)
         {
             try
             {
-                //create the group
-                string groupName = "DemoGroup2";
-                string groupDesc = "This group with permission level " + permissionLevelName;
+                //create the group                
                 Web web = ctx.Web;
                 GroupCreationInformation grp = new GroupCreationInformation();
                 grp.Title = groupName;
@@ -545,6 +547,122 @@ namespace GenericConsole
             {
                 Console.WriteLine(ex.Message);
             }
+
+        }
+        #endregion
+
+        #region Create a custom list
+        /// <summary>
+        /// Create a custom list
+        /// </summary>
+        /// <param name="clientContext">client context of a specific site</param>
+        /// <param name="listName">Custom list name</param>
+        public static void CreateList(ClientContext clientContext, string listName)
+        {
+            try
+            {
+                ListCreationInformation creationInfo = new ListCreationInformation();
+                creationInfo.Title = listName;
+                //creationInfo.Description = "new list created using VS 2012 &CSOM";
+                creationInfo.TemplateType = (int)ListTemplateType.GenericList;
+                // Create a new custom list    
+
+                List newList = clientContext.Web.Lists.Add(creationInfo);
+                // Retrieve the custom list properties    
+                clientContext.Load(newList);
+                // Execute the query to the server.    
+                clientContext.ExecuteQuery();
+                // Display the custom list Title property    
+                Console.WriteLine(newList.Title);
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region Add lookup field to target list
+        /// <summary>
+        /// Add lookup field to target list
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        /// <param name="primaryList">Primary list name</param>
+        /// <param name="secondaryList">Secondary list name</param>
+        /// <param name="lookupFieldName">lookup field for secondary list</param>
+        /// <param name="parentFieldName">Field from primary list for lookup field in secondary list</param>
+        /// <param name="lookupType">Type of lookup like "multi"</param>
+        public static void AddLookUpToList(ClientContext context, string primaryList, string secondaryList, string lookupFieldName, string parentFieldName, string lookupType)
+        {
+            try
+            {
+                string schemaLookupField = "";
+                Web web = context.Web;
+
+                List booksList = context.Web.Lists.GetByTitle(primaryList);
+
+                List list = context.Web.Lists.GetByTitle(secondaryList);
+
+                context.Load(list, l => l.Fields);
+                context.Load(booksList, b => b.Id);
+                context.ExecuteQuery();
+                if (lookupType.ToLower() == "multi")
+                {
+                    schemaLookupField = @"<Field Type='LookupMulti' Name='" + lookupFieldName + "' StaticName='" + lookupFieldName + "' DisplayName='" + lookupFieldName + "' List='" + booksList.Id + "' ShowField = '" + parentFieldName + "' Mult='TRUE' />";
+                }
+                else
+                {
+                    schemaLookupField = @"<Field Type='Lookup' Name='LookUpMultiTitle' StaticName='LookUpMultiTitle' DisplayName='LookUpMultiTitle' List='" + booksList.Id + "' ShowField = 'Title' />";
+                }
+
+                Field lookupField = list.Fields.AddFieldAsXml(schemaLookupField, true, AddFieldOptions.DefaultValue);
+                lookupField.Update();
+
+                context.Load(lookupField);
+                context.ExecuteQuery();
+                Console.WriteLine("Lookup created successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region Hide columns of a contenttype
+        /// <summary>
+        /// Hide columns of a contenttype
+        /// </summary>
+        /// <param name="context">client context of a specific site</param>
+        public static void HideColumnsinContentType(ClientContext context)
+        {
+            string[] ContentTypeColumnNames = new string[] { "Title" };
+            List list = context.Web.Lists.GetByTitle("ListB");
+            context.Load(list);
+            var currContentType = context.LoadQuery(list.ContentTypes.Where(ct => ct.Name == "Item"));
+            context.ExecuteQuery();
+            ContentType contentType = (ContentType)currContentType.FirstOrDefault();
+            context.Load(contentType);
+            context.Load(contentType.Fields);
+            context.Load(contentType.FieldLinks);
+            context.ExecuteQuery();
+
+            foreach (FieldLink fieldLink in contentType.FieldLinks)
+            {
+                if (ContentTypeColumnNames.Contains(fieldLink.Name))
+                {
+                    fieldLink.Hidden = true;
+                    contentType.Update(false);
+                    context.ExecuteQuery();
+                }
+            }
+
+            context.Load(contentType);
+            context.ExecuteQuery();
+            Console.WriteLine("Hidden Option enabled");
 
         }
         #endregion

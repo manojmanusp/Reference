@@ -1,0 +1,118 @@
+﻿<!--<link type="text/css" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" rel="stylesheet">-->
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/css/style-tillidapps.css" rel="stylesheet">
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/bootstrap.css" rel="stylesheet">
+<!--<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/iAccess/StyleSheets/editor.css" rel="stylesheet">-->
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/app.css" rel="stylesheet">
+<!--<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/iAccess/StyleSheets/toastr.min.css" rel="stylesheet">-->
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/handlebars-v4.0.10.js"></script>
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/moment.min.js"></script>
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/camljs.js"></script>
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/people-picker.directive.js"></script>
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/iAccess/Scripts/Custom.js"></script>
+
+
+<div class="form_container">
+    <div class="load_con" style="display:none"><div class="loader"></div></div>
+    <h2 class="heading_title"></h2>
+
+    <div>
+        <fieldset>
+            <table class="tableContainer">
+                <tr class="rowContainer">
+                    <td class="columnContainer">
+                        <div>
+                            <label id="labelRequest" class=" " style="width: 100%;float: left;color:black">Request For</label>
+                            <div id="radioGroup">
+                                <label><input type="radio" name="RequestFor" value="Self" id="radioSelf" class="radio" checked="checked"/> Self </label>
+                                <label><input type="radio" name="RequestFor" value="Others" id="radioOthers" class="radio" /> Others </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="columnContainer">
+                        <div>
+                            <label>Request Details</label>
+                            <input name="RequestDetails" id="txtRequestDetails" minlength="1">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="rowContainer">
+                    <td class="columnContainer">
+                        <div>
+                            <label>Employee/UserId</label>
+                            <div class="pplEmployee" id="pplEmployee">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="columnContainer">
+                        <div style="padding-left: 32px;">
+                            <label id="labelRequestId">Request Id</label><br />
+                            <label id="labelRequestIdValue">18XXXXXXX</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="rowContainer">
+                    <td class="columnContainer">
+                        <div>
+                            <label>Managers</label>
+                            <div class="pplManagers" id="pplManagers">
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                  <td class="rowSubmit">
+                        <div>
+                            <input type="button" id="submitForm" value="Save"/>
+                        </div>
+                    </td>
+
+                  <td class="rowCancel">
+                        <div>
+                        <input type="button"  id="cancelSubmission" value="Cancel"/>
+
+                        </div>
+                    </td>
+
+                </tr>
+
+            </table>
+        </fieldset>
+
+    </div>
+
+
+</div>
+<!--<script type="text/javascript">
+
+    $('.radio').change(function () {
+        var value = $(this).val();
+        alert(value);
+    });
+</script>-->
+<style type="text/css">
+
+    .tableContainer {
+        width: 100%;
+    }
+
+    .rowContainer {
+        width: 100%;
+    }
+
+    .columnContainer {
+        width: 50%;
+    }
+
+    .radioGroup {
+        width: 90%;
+        padding-top: 25px;
+    }
+</style>
+

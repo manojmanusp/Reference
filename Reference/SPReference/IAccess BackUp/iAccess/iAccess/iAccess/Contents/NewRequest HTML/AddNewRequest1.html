@@ -1,0 +1,167 @@
+﻿<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/people-picker.directive.js"></script>
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/bootstrap.css" rel="stylesheet">
+<style>
+label {
+    color: rgba(0,0,0,0.38);
+}
+md-contact-chips.readonly md-chips-wrap {
+  cursor: default;
+}
+.md-contact-suggestion .md-contact-name {
+    margin-left: 8px;
+    width: 100%;
+}
+span.md-contact-email.ng-binding {
+    display: none;
+}
+
+md-contact-chips.readonly button.md-chip-remove {
+    display: none;
+  }
+
+md-contact-chips.readonly .md-chip-input-container md-autocomplete {
+    display: none;
+    cursor: default;
+  }
+    div.width-90 {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+md-radio-button.md-primary {
+    background: none!important;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-group:not([disabled]) .md-primary .md-on, md-radio-group.md-default-theme:not([disabled]).md-primary .md-on, md-radio-group:not([disabled]).md-primary .md-on, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-button:not([disabled]) .md-primary .md-on, md-radio-button.md-default-theme:not([disabled]).md-primary .md-on, md-radio-button:not([disabled]).md-primary .md-on {
+    background-color: rgb(117, 117, 117);
+}
+.md-chip-input-container.ng-scope {
+    margin: 0px;
+    max-height: 36px;
+}
+/* People Picker Modifications */
+div#strk .sp-peoplepicker-autoFillContainer{
+	z-index: 20;
+	background-color:#fff;
+}
+div#strk .sp-peoplepicker-topLevel{
+	background-color:#fff;
+}
+div#strk .sp-peoplepicker-topLevel{
+	min-height:34px;
+}
+.md-chip-content div {
+    float: left;
+color:#fff;
+}
+button.md-primary.rchip.ng-scope {
+    width: auto;
+    min-width: auto;
+    height: auto;
+    min-height: auto;
+    padding: 6px 10px;
+    border: none;
+    margin: 0px;
+    background-color: transparent!important;
+	color:#fff;
+}
+md-input-container.ng-scope {
+    vertical-align: top;
+    margin-top: 5px;
+}
+</style>
+<div class="form_container" ng-controller="NewRequest as ctrl">
+    <h2 class="md-title client">New Request</h2>
+    <div name="userForm">
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90">
+	                <div layout="row">
+		                <div layout="column" layout-align="center center" flex="10">
+		                	<label>Request For</label>
+		                </div>
+		                <div layout="column" layout-align="center center" flex="90">
+		                	 <md-radio-group ng-model="ctrl.requestfor" ng-change="ctrl.onrequestChange()">
+					            <md-radio-button value="Self" class="md-primary">Self</md-radio-button>
+					            <md-radio-button value="Others" class="md-primary">Others</md-radio-button>
+			        		 </md-radio-group>
+		                </div>
+					</div>              
+                   
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90">
+                    <label>Request Details</label>
+                    <input name="RequestDetails" ng-model="ctrl.RequestDetails" required md-maxlength="255" minlength="1">
+                    <div ng-messages="RequestDetails.$error" ng-show="RequestDetails.$dirty">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                    <div class="width-90">
+                        <label>Employee / User Id</label>
+                        <md-contact-chips
+                            ng-class="{'readonly': ctrl.readonly}"
+							ng-model="ctrl.Employee"
+							md-ngchange="ctrl.EmployeeChange"
+							md-contacts="ctrl.EmployeedelayedQuerySearch($query)"
+							md-contact-name="name"
+							md-contact-image="image"
+							md-contact-email="email"
+							md-require-match="true"
+                            md-highlight-flags="i"
+                            md-contact-max-chips=1
+							filter-selected="ctrl.EmployeefilterSelected"
+							placeholder="Add an Employee">
+				        </md-contact-chips>       
+                	</div>                    
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                    <div class="width-90">
+                       
+                            <label>Manager</label>
+                       
+                            <md-contact-chips  
+                                                           
+                                ng-model="ctrl.Managers"
+                                ng-change="ManagersChange()"
+                                md-contacts="ctrl.ManagersdelayedQuerySearch($query)"
+                                md-contact-name="name"
+                                md-contact-image="image"
+                                md-contact-email="email"
+                                md-require-match="true"
+                                md-highlight-flags="i"
+                                md-contact-max-chips=1
+                                filter-selected="ctrl.ManagersfilterSelected"
+                                placeholder="Add a Manager">
+                            </md-contact-chips>  
+                       
+                    </div>                   
+            </div>
+        </div>
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90">
+                    <label>Request Id</label>
+                    <input name="RequestID" ng-model="ctrl.RequestID" disabled required >
+                    <div ng-messages="RequestID.$error" ng-show="RequestID.$dirty">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+            <md-button class="md-raised md-primary md-button md-ink-ripple" ng-click="saveitem()">Save</md-button>
+            <md-button class="md-raised md-primary md-button black-color" ng-click="cancelitem()">Cancel</md-button>
+        </div>
+    </div>
+</div>

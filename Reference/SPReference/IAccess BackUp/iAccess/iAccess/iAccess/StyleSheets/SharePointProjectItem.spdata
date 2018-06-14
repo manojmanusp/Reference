@@ -69,9 +69,9 @@
     <ProjectItemFile Source="package\mldicons\MaterialIconsRegular.eot" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
     <ProjectItemFile Source="package\mldicons\MaterialIconsRegular.ijmap" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
     <ProjectItemFile Source="package\mldicons\MaterialIconsRegular.svg" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
-    <ProjectItemFile Source="package\mldicons\MaterialIconsRegular.ttf" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
-    <ProjectItemFile Source="package\mldicons\MaterialIconsRegular.woff" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
-    <ProjectItemFile Source="package\mldicons\MaterialIconsRegular.woff2" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mldicons\MaterialIcons-Regular.ttf" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mldicons\MaterialIcons-Regular.woff" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
+    <ProjectItemFile Source="package\mldicons\MaterialIcons-Regular.woff2" Target="StyleSheets\package\mldicons\" Type="ElementFile" />
     <ProjectItemFile Source="approvals.css" Target="StyleSheets\" Type="ElementFile" />
     <ProjectItemFile Source="PastClearances.css" Target="StyleSheets\" Type="ElementFile" />
     <ProjectItemFile Source="SPGridStyles.css" Target="StyleSheets\" Type="ElementFile" />

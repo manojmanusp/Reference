@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="iAccess" Id="4ff302d4-e208-49af-9bcd-00bc4d7397ec" Scope="Web">
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="4ff302d4-e208-49af-9bcd-00bc4d7397ec" Scope="Web" Title="iAccess">
   <ElementManifests>
     <ElementManifest Location="Contents\Elements.xml" />
     <ElementFile Location="Contents\UpdateTask.html" />
@@ -88,9 +88,9 @@
     <ElementFile Location="StyleSheets\package\mldicons\MaterialIconsRegular.eot" />
     <ElementFile Location="StyleSheets\package\mldicons\MaterialIconsRegular.ijmap" />
     <ElementFile Location="StyleSheets\package\mldicons\MaterialIconsRegular.svg" />
-    <ElementFile Location="StyleSheets\package\mldicons\MaterialIconsRegular.ttf" />
-    <ElementFile Location="StyleSheets\package\mldicons\MaterialIconsRegular.woff" />
-    <ElementFile Location="StyleSheets\package\mldicons\MaterialIconsRegular.woff2" />
+    <ElementFile Location="StyleSheets\package\mldicons\MaterialIcons-Regular.ttf" />
+    <ElementFile Location="StyleSheets\package\mldicons\MaterialIcons-Regular.woff" />
+    <ElementFile Location="StyleSheets\package\mldicons\MaterialIcons-Regular.woff2" />
     <ElementFile Location="StyleSheets\approvals.css" />
     <ElementFile Location="StyleSheets\PastClearances.css" />
     <ElementFile Location="StyleSheets\SPGridStyles.css" />

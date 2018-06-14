@@ -83,13 +83,22 @@ namespace PageWithPageLayoutsAndWebparts
                             clientContext.Credentials = new SharePointOnlineCredentials(userName, userPassword);
 
                         }
+                        else if (siteUrl.Contains("en"))
+                        {
+                            userName = "administrator";
+                            pass = "Adm!n@321";
+                            string domain = "win-o9gikgho82j";
+                            pageLayout = "NBOMobileAppPageLayout";
+                            SecureString userPassword = PasswordBuilder(pass);
+                            clientContext.Credentials = new NetworkCredential(userName, userPassword, domain);
+                        }
                         else
                         {
                             //To connect SharePoint On-premise with Authentication
                             userName = "administrator";
                             pass = "Adm!n@321";
                             string domain = "win-o9gikgho82j";
-                            pageLayout = "NBOMobileAppPageLayout";
+                            pageLayout = "NBOMobileAppARPageLayout";
                             SecureString userPassword = PasswordBuilder(pass);
                             clientContext.Credentials = new NetworkCredential(userName, userPassword, domain);
 

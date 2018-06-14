@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="iAccessBranding" AlwaysForceInstall="TRUE" Id="2ae6a571-0490-4fde-8ecb-629cae2b2db1" Scope="Site">
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" AlwaysForceInstall="TRUE" Id="2ae6a571-0490-4fde-8ecb-629cae2b2db1" Scope="Site" Title="iAccessBranding">
   <ElementManifests>
     <ElementManifest Location="Font\Elements.xml" />
     <ElementFile Location="Font\glyphicons-halflings-regular.svg" />

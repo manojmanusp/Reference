@@ -658,7 +658,7 @@ namespace GenericConsole
                     contentType.Update(false);
                     context.ExecuteQuery();
                 }
-            }
+            }          
 
             context.Load(contentType);
             context.ExecuteQuery();

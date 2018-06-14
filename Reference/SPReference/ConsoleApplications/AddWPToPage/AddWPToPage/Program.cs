@@ -20,14 +20,28 @@ namespace AddWPToPage
             string userName = "murali@chennaitillidsoft.onmicrosoft.com";
             Console.WriteLine("Enter your password.");
             string pass = "ThisIsRight1!";
-            SecureString  password= new SecureString();
+            SecureString password = new SecureString();
             for (var i = 0; i < pass.Length; i++)
             {
                 password.AppendChar(pass[i]);
             }
-           
 
-            var newScriptEditor = @"<webParts>
+            var newScriptEditor1= @"<webParts>
+                                      <webPart xmlns='http://schemas.microsoft.com/WebPart/v3'>
+                                        <metaData>
+                                          <type name='Microsoft.SharePoint.WebPartPages.XsltListViewWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c' />
+                                          <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                                        </metaData>
+                                        <data>
+                                          <properties>
+                                            <property name='ListUrl' type='string'>https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/IAccess/Lists/ITRequest/</property>
+                                            <property name='MissingAssembly' type='string'>Cannot import this Web Part.</property>
+                                          </properties>
+                                        </data>
+                                      </webPart>
+                                    </webParts>";
+
+            var newScriptEditor = @" < webParts>
   <webPart xmlns='http://schemas.microsoft.com/WebPart/v3'>
     <metaData>
       <type name='Microsoft.SharePoint.WebPartPages.ScriptEditorWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c' />
@@ -68,7 +82,7 @@ namespace AddWPToPage
     </data>
   </webPart>
 </webParts>";
-           
+
 
             // ClienContext - Get the context for the SharePoint Online Site  
             // SharePoint site URL -  
@@ -89,7 +103,7 @@ namespace AddWPToPage
 
                 {
                     viewUrl = view.ServerRelativeUrl;
-                   
+
                     Microsoft.SharePoint.Client.File page = web.GetFileByServerRelativeUrl(viewUrl);
                     clientContext.Load(page);
                     clientContext.ExecuteQuery();
@@ -113,12 +127,12 @@ namespace AddWPToPage
                     if (filteredWebParts.Count() <= 0)
                     {
                         // Import the webpart xml  
-                        var importedWebPart = wpm.ImportWebPart(newScriptEditor);
+                        var importedWebPart = wpm.ImportWebPart(newScriptEditor1);
                         var webPart = wpm.AddWebPart(importedWebPart.WebPart, "Header", 8);
                         clientContext.ExecuteQuery();
                     }
                     Console.WriteLine("WebPart Added Successfully");
-                    
+
 
                 }
             }
@@ -140,5 +154,7 @@ namespace AddWPToPage
 
             return securePassword;
         }
+
+
     }
 }

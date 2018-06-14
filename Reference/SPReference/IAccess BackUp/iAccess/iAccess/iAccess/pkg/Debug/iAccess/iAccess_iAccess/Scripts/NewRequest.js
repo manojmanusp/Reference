@@ -1,4 +1,10 @@
-﻿$(function () {
+﻿$(window).on("load", function () {
+
+   $(".mdl-layout__container").css("cssText", "position:relative !important");
+});
+
+    
+$(function () {
     // keys and configurations
     var configStoreListName = "Config Store";
     var configStoreCategory = "iAccess";
@@ -8,15 +14,19 @@
     var requestersId = [];
     var requestType = "";
 
-    $.showLoader();
-
+    //$.showLoader();
+   // $(".mdl-layout__container").css("cssText", "position:relative !important");
+   
     var keyCollection = {
         "RepositoryListName": "", // default value
         "CommentBoxValidationMessage": "",
         "InitiateProcessSuccessMessage": "",
         "RequestorEmptyValidationMessage": "",
-        "ManagerEmptyValidationMessage": ""
+        "ManagerEmptyValidationMessage": "",
+      
     };
+
+   
 
     var keys = Object.keys(keyCollection);
     var query = new CamlBuilder()
@@ -25,7 +35,10 @@
 
     SP.SOD.executeFunc('sp.js', 'SP.ClientContext', start());
 
+
+
     function start() {
+        console.log("process started");
         clientContext = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
         web = clientContext.get_web();
         var oList = web.get_lists().getByTitle(configStoreListName);
@@ -49,12 +62,12 @@
         $('#txtRequestUserName').val(currentUser.get_title());
         getManagerFromUserProfile(currentUser.get_loginName().split("|")[1]);
         initializePeoplePicker();
-        $.hideLoader();
+        //$.hideLoader();
     }
 
     function onQueryFailed(sender, args) {
-        $.hideLoader();
-        $.showError(args.get_message() + '\n' + args.get_stackTrace());
+        //$.hideLoader();
+        //$.showError(args.get_message() + '\n' + args.get_stackTrace());
     }
 
 
@@ -113,7 +126,7 @@
             if (validateNewRequest()) {
                 // calling jquery plugin method for secondary level authentication
                 $.performSecondLevelAuthentication(function (status) {
-                    $.showLoader();
+                    //$.showLoader();
                     // Get the people picker object from the page.
                     var peoplePicker = this.SPClientPeoplePicker.SPClientPeoplePickerDict.divManager_TopSpan;
                     // Get information about all users.
@@ -136,7 +149,7 @@
                             item.Status = "Not Started";
                             var result = fnAddToList("ITRequest", getNewRequestItem(item));
                             if (result > 0) {
-                                $.hideLoader();
+                                //$.hideLoader();
                                 $.showInfo(keyCollection["InitiateProcessSuccessMessage"]);
                                 setTimeout(redirectToRefererPage, 5000);
                             }
@@ -183,7 +196,7 @@
             // Get information about all users.
             var users = peoplePicker.GetAllUserInfo();
             if (users.length == 0) {
-                $.showError(keyCollection["RequestorEmptyValidationMessage"]);
+                //$.showError(keyCollection["RequestorEmptyValidationMessage"]);
                 return false;
             }
         }
@@ -192,11 +205,11 @@
         // Get information about all users.
         var users = peoplePicker.GetAllUserInfo();
         if (users.length == 0) {
-            $.showError(keyCollection["ManagerEmptyValidationMessage"]);
+            //$.showError(keyCollection["ManagerEmptyValidationMessage"]);
             return false;
         }
         if ($.trim($('#txtRequestComments').val()) == "") {
-            $.showError(keyCollection["CommentBoxValidationMessage"]);
+            //$.showError(keyCollection["CommentBoxValidationMessage"]);
             return false;
         }
         return true;
@@ -298,7 +311,7 @@
     }
 
     function onFail(sender, args) {
-        $.showError('Query failed. Error: ' + args.get_message());
+        //$.showError('Query failed. Error: ' + args.get_message());
     }
 
     function redirectToRefererPage() {

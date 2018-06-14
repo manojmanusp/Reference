@@ -7,147 +7,157 @@
 <!--<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/iAccess/StyleSheets/toastr.min.css" rel="stylesheet">-->
 
 
-
-
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
 <script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/handlebars-v4.0.10.js"></script>
 <script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/moment.min.js"></script>
 <script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/camljs.js"></script>
 <script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Scripts/people-picker.directive.js"></script>
-
 <script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/iAccess/Scripts/Custom.js"></script>
-
 
 
 <div class="form_container">
     <div class="load_con" style="display:none"><div class="loader"></div></div>
-    <h2 class="md-title client heading_title"></h2>
-    <ng-form name="myForm">
-        <div ng-controller="clientcontroll as ctrl">
-            <fieldset ng-disabled="isClicked">
-                <div layout="row">
-                    <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+    <h2 class="heading_title"></h2>
 
-                        <md-input-container class="width-90">
-                            <label id="labelRequest" class="md-required" style="width: 100%;float: left;color:black">Request For</label>
-
-                        </md-input-container >
-                        <div class="radioGroup" style="width:90%;padding-top:25px">
-                            <label><input type="radio" name="Self" ng-change="RadioChange('Self')" ng-model="RequestFor" value="Self" /> Self </label>
-                            <label><input type="radio" name="Others" ng-change="RadioChange('Others')" ng-model="RequestFor" value="Others" /> Others </label>
-                        </div>
-                        
-
-                        <!--<md-input-container class="width-90">
-                            <md-radio-group ng-model="data.group1" layout="row" ng-change="radioChanged(c)" >
-                                <md-radio-button name="self" value="Self" class="radioprimary" required ng-model='result' ng-value='"self"'> Self</md-radio-button>
-                                <md-radio-button name="others" value="Others" required ng-model='result' ng-value='"others"'> Others</md-radio-button>
-                            </md-radio-group>
-                        </md-input-container>-->
-                    </div>
-                    <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-                        <md-input-container class="width-90">
-                            <label>Request Details</label>
-                            <input name="RequestDetails" id="txtRequestDetails" ng-model="RequestDetails" required md-maxlength="512" minlength="1">
-                            <div ng-messages="myForm.BillingAddress.$error" ng-show="myForm.BillingAddress.$dirty">
-                                <div ng-message="required">This is required!</div>
-                            </div>
-                        </md-input-container>
-                    </div>
-                </div>
-
-                <div layout="row" style="padding-top: 30px;">
-                    <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-                        <div class="width-90 peoplepickermargin">
-                           <div id="PplEmployee"></div>>
-                            
-                            <div ng-messages="(myform.$submitted && myform.user.$touched) && myform.user.$error" class="customMessages">
-                                <div ng-message="required">User is required</div>
-                                <div ng-message="resolve">One or more users have not been resolved</div>
-                            </div>
-                        </div>
-                        <!--<md-input-container class="width-90">
-        <label id="labelEmployeeId" class="md-required" style="width: 100%;float: left;color:black">Employee/User-Id</label>
-    </md-input-container>
-    <md-input-container class="width-90">
-        <input name="EmployeeId" id="txtEmployeeID" ng-model="EmployeeID" required ng-readonly="false">
-        <div ng-messages="myForm.BillingAddress.$error" ng-show="myForm.BillingAddress.$dirty">
-            <div ng-message="required">This is required!</div>
-        </div>
-    </md-input-container>-->
-                        <!--<div class="width-90 peoplepickermargin">
-        <people-picker ng-click="vm.isMandatory=true"
-                       ng-class="vm.isMandatory==true?'Mandatory':''"
-                       name="user"
-                       service="ctrl.userLookupService"
-                       max-chips="10"
-                       placeholder="Employee/User-Id"
-                       pp-is-multiuser="{{false}}"
-                       ng-model="ctrl.users"
-                       aria-label="Users" required>
-        </people-picker>
-        <div ng-messages="(myform.$submitted && myform.user.$touched) && myform.user.$error" class="customMessages">
-            <div ng-message="required">User is required</div>
-            <div ng-message="resolve">One or more users have not been resolved</div>
-        </div>
-    </div>-->
-                    </div>
-                    <div layout="column" layout-align="center center" flex="50" flex-xs="100" style="padding-left: 32px;">
-                        <!--<md-input-container class="width-90">
-                            <label>Request Id</label>
-                            <input name="RequestId" id="txtRequestId" ng-model="RequestId" required md-maxlength="225" minlength="1">
-                            <div ng-messages="myForm.Location.$error" ng-show="myForm.Location.$dirty">
-                                <div ng-message="required">This is required!</div>
-                            </div>
-                        </md-input-container>-->
-                        <label id="labelRequestId" style="width:100%;float:left">Request Id</label>
-                        <label id="labelRequestIdValue" style="width:100%;float:left;padding-top: 10px;">18XXXXXXX</label>
-                    </div>
-                </div>
-
-                <div layout="row" style="padding-top: 30px;">
-                    <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-                        <div class="width-90 peoplepickermargin">
-                            <people-picker ng-click="vm.isMandatory=true"
-                                           ng-class="vm.isMandatory==true?'Mandatory':''"
-                                           name="user"
-                                           service="ctrl.userLookupService"
-                                           max-chips="10"
-                                           placeholder="Manager"
-                                           secondary-placeholder="Add Another?"
-                                           pp-is-multiuser="{{false}}"
-                                           ng-model="ctrl.users"
-                                           aria-label="Users" required>
-                            </people-picker>
-                            <div ng-messages="(myform.$submitted && myform.user.$touched) && myform.user.$error" class="customMessages">
-                                <div ng-message="required">User is required</div>
-                                <div ng-message="resolve">One or more users have not been resolved</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
-                    <md-button class="md-raised md-primary md-button md-ink-ripple" ng-click="clearitem()" id="btnclear">Clear</md-button>
-                    <md-button class="md-raised md-primary md-button md-ink-ripple" ng-click="savenewitem()" id="btnsave" ng-disabled="!(myForm.$valid && ctrl.users.length > 0)">Save</md-button>
-                    <md-button class="md-raised md-primary md-button black-color" ng-click="cancelitem()" id="btncancel">Cancel</md-button>
-                </div>
-
-            </fieldset>
-            <div flex layout-margin-lg layout="row" layout-align="end end" class="formbackbtnbg" style="display:none">
-                <md-button class="md-raised md-primary md-button black-color" ng-click="goBack()">Back</md-button>
+  <fieldset>
+<div id="containerDiv">
+  <div id="leftContainer" class="leftContainer">
+	    <div id="radioGroupDiv" class="branding">
+	      <label id="labelRequest" class="required" style="width: 100%;float: left;color:black">Request For</label>
+            <div id="radioGroup">
+                <label><input type="radio" name="RequestFor" value="Self" id="radioSelf" class="radio" checked="checked"/> Self </label>
+                <label><input type="radio" name="RequestFor" value="Others" id="radioOthers" class="radio" /> Others </label>
             </div>
-        </div>
+	    </div>
+	    <div id="EmployeeDiv" class="branding">	    
+            
+                <label class="required">Employee/UserId</label>
+                <div class="pplEmployee" id="pplEmployee">
+                </div>
+                <label id='errMsgEmployee'></label>
+                    
+	    </div>
+	    <div id="ManagersDiv" class="branding">
+	      
+	            <label class="required">Managers</label>
+	            <div class="pplManagers" id="pplManagers">
+	            </div>
+	            <label id='errMsgManagers'></label>
 
-    </ng-form>
+	    </div>
+  </div>
+  <div id="" class="rightContainer">
+        <div id="requestDetailsDiv" class="branding">
+        
+            <label class="required">Request Details</label>
+            <div>
+              <input name="RequestDetails" id="txtRequestDetails" minlength="1" class="inputCtrlClass">
+            </div>    
+            <label id='errMsgRequestId'></label>    
+              
+	    </div>
+	    <div id="requestIdDiv" class="branding">
+	    
+            <label id="labelRequestId">Request Id</label>
+            <div>
+              <label id="labelRequestIdValue">XXXXXXXX</label>
+            </div>
+
+	    </div>
+	    
+  </div>
+  <div id="" class="footerContainer" >
+        <div id="submitDiv">
+        
+            <div>
+                <input type="button" id="submitForm" value="SAVE" class="btnNewRequest"/>
+            </div>
+
+	    </div>
+	    <div id="cancelDiv">	    
+            <div>
+                <input type="button"  id="cancelSubmission" value="CANCEL" class="btnNewRequest"/>
+
+
+            </div>
+	    </div>
+	    
+  </div>
+
+   
 </div>
-<style>
-    .Mandatory label {
-        color: red;
-    }
+  
+</fieldset>
+</div>
 
-    .Mandatory md-chips .md-chips {
-        box-shadow: 0 1px rgb(255, 119, 119);
+
+
+<style type="text/css">
+  #containerDiv{
+   position:relative;
+   width:100%;
+   }
+  #containerDiv > div {
+	float:left;
+   }
+   .leftContainer{
+	  width:50%; 
     }
+    .rightContainer{
+     width:50%; 
+   }
+   .footerContainer{
+	width:100%
+   }
+   .footerContainer > div {
+	float:left;
+   }
+   
+   #submitDiv{
+	padding-left:75%;
+	padding-right:2%;
+   }
+
+   .branding{
+	padding-top:30px;
+	padding-left:8%;
+   }
+   
+   #containerDiv .btnNewRequest{
+	    width: 88px;
+	    font-family: "Open Sans", sans-serif;
+	    box-sizing: border-box;
+	    height: 36px;
+	    border: 0;
+	    border-radius: 3px;
+	    font-size: 14px;
+	    background-color: #0182b9;
+	    color: rgba(255,255,255,0.87);
+	    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+
+	}
+	
+	.footerContainer{
+		    background-color: #e6f3f9 !important;
+		    margin-top: 50px;
+		    height: 68px;		    
+		    justify-content: center;
+		    display: flex;
+		    align-items: center;	
+     }
+     
+     #cancelDiv #cancelSubmission{
+	   background-color:rgb(0, 0, 0);
+     }
+	
+	#containerDiv .inputCtrlClass{
+		width:90% !important;
+	}
+	
+	label.required::before {
+	  content: '*';
+	  margin-right: 4px;
+	  color: red;
+	}
 </style>

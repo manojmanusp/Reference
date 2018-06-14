@@ -6,3 +6,8 @@ C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\iAccess\bin\Debug\iAcce
 C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\iAccess\bin\Debug\iAccess.pdb
 C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\iAccess\obj\Debug\iAccess.dll
 C:\Users\Administrator.SERVER\Desktop\TillidApps\iAccess\iAccess\obj\Debug\iAccess.pdb
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\IAccess BackUp\iAccess\iAccess\iAccess\bin\Debug\iAccess.dll
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\IAccess BackUp\iAccess\iAccess\iAccess\bin\Debug\iAccess.pdb
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\IAccess BackUp\iAccess\iAccess\iAccess\obj\Debug\iAccess.csproj.CoreCompileInputs.cache
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\IAccess BackUp\iAccess\iAccess\iAccess\obj\Debug\iAccess.dll
+E:\Manoj\Git_Tillid_Reference\Reference\SPReference\IAccess BackUp\iAccess\iAccess\iAccess\obj\Debug\iAccess.pdb

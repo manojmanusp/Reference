@@ -17,7 +17,7 @@ function uploadDocument(AttachmentArray, TransactionId, cycle) {
     }
 
     if (AttachmentArray != null && AttachmentArray.length > 0) {
-        for (i = 0; i < AttachmentArray.length; i++) {
+        for (i = 0; i < AttachmentArray.length; i++) { 
             var fileName = AttachmentArray[i].Filename;
             fileName = fileName.splice(fileName.lastIndexOf("."), 0, "_" + TransactionId.toString());
             Upload(AttachmentArray[i].Content, fileName, TransactionId, cycle);

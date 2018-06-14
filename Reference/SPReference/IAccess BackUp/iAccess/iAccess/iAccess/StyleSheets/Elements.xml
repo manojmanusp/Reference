@@ -68,9 +68,9 @@
     <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.eot" Url="StyleSheets/package/mldicons/MaterialIconsRegular.eot" Type="GhostableInLibrary"/>
     <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.ijmap" Url="StyleSheets/package/mldicons/MaterialIconsRegular.ijmap" Type="GhostableInLibrary"/>
     <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.svg" Url="StyleSheets/package/mldicons/MaterialIconsRegular.svg" Type="GhostableInLibrary"/>
-    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.ttf" Url="StyleSheets/package/mldicons/MaterialIconsRegular.ttf" Type="GhostableInLibrary"/>
-    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.woff" Url="StyleSheets/package/mldicons/MaterialIconsRegular.woff" Type="GhostableInLibrary"/>
-    <File Path="StyleSheets\package\mldicons\MaterialIconsRegular.woff2" Url="StyleSheets/package/mldicons/MaterialIconsRegular.woff2" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIcons-Regular.ttf" Url="StyleSheets/package/mldicons/MaterialIcons-Regular.ttf" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIcons-Regular.woff" Url="StyleSheets/package/mldicons/MaterialIcons-Regular.woff" Type="GhostableInLibrary"/>
+    <File Path="StyleSheets\package\mldicons\MaterialIcons-Regular.woff2" Url="StyleSheets/package/mldicons/MaterialIcons-Regular.woff2" Type="GhostableInLibrary"/>
     <File Path="StyleSheets\approvals.css" Url="StyleSheets/approvals.css"  Type="GhostableInLibrary"/>
     <File Path="StyleSheets\PastClearances.css" Url="StyleSheets/PastClearances.css" Type="GhostableInLibrary"/>
     <File Path="StyleSheets\SPGridStyles.css" Url="StyleSheets/SPGridStyles.css" Type="GhostableInLibrary"/>

@@ -113,7 +113,7 @@
     var sNo = null;
     var arrayMyRequests = new Array();
     var arrayPendingAprrovals = new Array();
-    var workflowTitle = 'Test1';
+    var workflowTitle = 'NewRequestApproval';
     var workflowInstanceForItem="";
     
     $(document).ready(function () {
@@ -213,9 +213,10 @@
             }
 
             if (currentItem.get_item('Pending_x0020_with') != null) {
+                if(currentItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && currentItem.get_item('Status')=="Approved")
+                pendingWith = "No Pending";
+                else
                 pendingWith = currentItem.get_item('Pending_x0020_with').get_lookupValue();
-            } else {
-                pendingWith = "";
             }
 
             if (currentItem.get_item('Status') != null) {
@@ -231,9 +232,10 @@
 
 			if (currentItem.get_item(workflowTitle) != null) {
 				var workflowStatusValue = currentItem.get_item(workflowTitle); 
-				if(workflowStatusValue != undefined && workflowStatusValue.length > 0)
+				if(workflowStatusValue != undefined)
 				{
-					workflowInstanceForItem = workflowStatusValue.$2_1;
+				    var count = workflowStatusValue.$2_1.split("=").length;
+					workflowInstanceForItem = workflowStatusValue.$2_1.split("=")[count-1];
 				}	
            	 }
            	 else {
@@ -242,14 +244,15 @@
              
             sNo = i;
             rowID = i - 1;
-            redirectUrl = _spPageContextInfo.webAbsoluteUrl+"/Pages/ViewDetails.aspx";
+            viewDetailsUrl = _spPageContextInfo.webAbsoluteUrl+"/Pages/ViewDetails.aspx";
+            editRequestUrl = _spPageContextInfo.webAbsoluteUrl+"/Pages/EditRequest.aspx";
             txtHTMLMyRequest += '<tr>' +
                 '<TD>' + sNo + '</TD>' +
-                '<TD>' + requestID + '</TD>' +
+                '<TD><a href="javascript:;" onclick="RequestDetails(\''+requestID +'\',\''+itemID +'\')">'+ requestID +'</a></TD>'+                
                 '<TD>' + created + '</TD>' +
                 '<TD>' + pendingWith + '</TD>' +
                 '<TD>' + status + '</TD>' +
-                '<TD><a href="javascript:;" onclick="ViewDetails('+itemID +')">View</a></TD>';
+                '<TD><a href="javascript:;" onclick="ViewDetails(\''+itemID +'\',\''+ workflowInstanceForItem +'\')">View</a></TD>';
                // '<TD><a onclick="getViewDetails(' + rowID + ')">View</a></TD>';
             txtHTMLMyRequest += "</tr>";
             i++;
@@ -281,12 +284,16 @@
     }
 
 
-    function ViewDetails(currentItemID)
+    function ViewDetails(currentItemID, workflowInstanceForItem)
     {
-       window.location.href=redirectUrl+"?itemID="+currentItemID +"&workflowInstanceForItem="+workflowInstanceForItem;    
+       window.location.href=viewDetailsUrl+"?itemID="+currentItemID +"&workflowInstanceForItem="+workflowInstanceForItem;    
     }
     
-    
+    function RequestDetails(requestID,currentItemID)
+    {
+       window.location.href=editRequestUrl+"?requestID="+requestID+"&itemID="+currentItemID;    
+    }
+
 
     function getViewDetails(currentRowID) {
 
@@ -318,7 +325,7 @@
         var list = currentWeb.get_lists().getByTitle('ITRequest');
         var camlQuery = new SP.CamlQuery();
         var queryItems = new SP.CamlQuery.createAllItemsQuery();
-        var query = '<View><Query><OrderBy><FieldRef Name="ID" Ascending="false"/></OrderBy></Query></View>';
+        var query = "<View><Query><OrderBy><FieldRef Name='ID' Ascending='false'/></OrderBy><Where><And><Eq><FieldRef Name='Author' LookupId='True' /><Value Type='Lookup'>" + _spPageContextInfo.userId + "</Value></Eq><Neq><FieldRef Name='Status' /><Value Type='Text'>Approved</Value></Neq></And></Where></Query></View>";
         queryItems.set_viewXml(query);
         listDataPendingApprovals = list.getItems(queryItems);
         currentClientContext.load(listDataPendingApprovals);
@@ -345,7 +352,7 @@
         txtHTMLPendingApprovals += "<tbody class='row-border hover order-column dataTable' role='grid'>";
 
         var listEnumerator = listDataPendingApprovals.getEnumerator();
-        var i = 1;
+        var i = 1;  
         while (listEnumerator.moveNext()) {
             var currentItem = listEnumerator.get_current();
 
@@ -363,11 +370,11 @@
             }
 
             if (currentItem.get_item('Pending_x0020_with') != null) {
+            	if(currentItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && currentItem.get_item('Status')=="Approved")
+                pendingWith = "No Pending";
+                else
                 pendingWith = currentItem.get_item('Pending_x0020_with').get_lookupValue();
-            } else {
-                pendingWith = "";
-            }
-
+            } 
             if (currentItem.get_item('Status') != null) {
                 status = currentItem.get_item('Status');
             } else {
@@ -384,6 +391,18 @@
             } else {
                 itemID = "";
             }
+           
+           if (currentItem.get_item(workflowTitle) != null) {
+				var workflowStatusValue = currentItem.get_item(workflowTitle); 
+				if(workflowStatusValue != undefined)
+				{
+				    var count = workflowStatusValue.$2_1.split("=").length;
+					workflowInstanceForItem = workflowStatusValue.$2_1.split("=")[count-1];
+				}	
+           	 }
+           	 else {
+                workflowInstanceForItem = "";
+             }
 
             sNo = i;
 
@@ -394,7 +413,7 @@
                 "<TD>" + createdBy + "</TD>" +
                 "<TD>" + pendingWith + "</TD>" +
                 "<TD>" + status + "</TD>" +
-                '<TD><a href="javascript:;" onclick="ViewDetails('+itemID +')">View</a></TD>';
+                '<TD><a href="javascript:;" onclick="ViewDetails(\''+itemID +'\',\''+ workflowInstanceForItem +'\')">View</a></TD>';
                 
             txtHTMLPendingApprovals += "</tr>";
             i++;

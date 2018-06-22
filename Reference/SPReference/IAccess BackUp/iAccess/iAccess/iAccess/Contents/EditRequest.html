@@ -120,23 +120,18 @@ md-input-container.ng-scope {
 </style>
 <ng-form name="myForm">
 <div class="form_container" ng-controller="NewRequest as ctrl">
-    <h2 class="md-title client">New Request</h2>
+    <h2 class="md-title client">Edit Request</h2>
     <div name="userForm">
         <div layout="row">
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
                 <md-input-container class="width-90">
-	                <div layout="row">
-		                <div layout="column" layout-align="center center" flex="10">
-		                	<label id="requestforLbl">Request For</label>
-		                </div>
-		                <div layout="column" layout-align="center start" flex="90">
-		                	 <md-radio-group ng-model="ctrl.requestfor" ng-change="ctrl.onrequestChange()">
-					            <md-radio-button value="Self" class="md-primary">Self</md-radio-button>
-					            <md-radio-button value="Others" class="md-primary">Others</md-radio-button>
-			        		 </md-radio-group>
-		                </div>
-					</div>              
-                   
+                    <label>Request Id</label>
+                    <input name="resubmitRequestID" ng-model="ctrl.resubmitRequestID"  disabled required >
+                    <div ng-messages="resubmitRequestID.$error" ng-show="resubmitRequestID.$dirty">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
                 </md-input-container>
             </div>
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
@@ -200,21 +195,20 @@ md-input-container.ng-scope {
         </div>
         <div layout="row">
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-                <md-input-container class="width-90">
-                    <label>Request Id</label>
-                    <input name="RequestID" ng-model="ctrl.RequestID" disabled required >
-                    <div ng-messages="RequestID.$error" ng-show="RequestID.$dirty">
-                        <div ng-message="required">This is required!</div>
-                        <div ng-message="md-maxlength">That's too long!</div>
-                        <div ng-message="minlength">That's too short!</div>
-                    </div>
-                </md-input-container>
+                
             </div>
         </div>
         <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
-            <md-button class="md-raised md-primary md-button md-ink-ripple" id="saveBtn" disabled="disabled" ng-click="saveitem()">Save</md-button>
-            <md-button class="md-raised md-primary md-button black-color" id="cancelBtn" ng-click="cancelitem()">Cancel</md-button>
+            <md-button class="md-raised md-primary md-button md-ink-ripple" id="resubmitBtn" disabled="disabled" ng-click="resubmitItem()">Re-Submit</md-button>
+            <md-button class="md-raised md-primary md-button black-color" id="cancelBtn" ng-click="resubmitCancelItem()">Cancel</md-button>
         </div>
     </div>
 </div>
 </<ng-form>
+
+
+<script type="text/javascript">
+
+ 
+
+</script>

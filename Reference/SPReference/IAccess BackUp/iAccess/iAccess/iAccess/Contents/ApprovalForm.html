@@ -1,0 +1,42 @@
+﻿<div id="control.ID">
+            <h3>
+                <div>
+                    <p id="idApprovalRequest" class="paraHeading"><b>Request Approval</b></p>
+                </div>
+            </h3>
+
+	        <div layout="row" class="">   
+	           <div layout="column" layout-align="center start" flex="100">         
+	               <md-radio-group ng-model="control.requestApproval" ng-change="control.onrequestApprovalChange()">
+	                 <div layout="row" class="">
+		              <md-radio-button value="Approved" class="radioApproval">Approve</md-radio-button>
+		              <md-radio-button value="Rejected" class="radioApproval">Sent Back</md-radio-button>
+		              <md-radio-button value="Canceled" class="radioApproval">Cancel</md-radio-button>
+		             </div>
+	    		   </md-radio-group>
+	           </div>
+	        </div>
+        
+        
+	        <div layout="row" class="">
+	           <div layout="column" layout-align="center center" flex="100" flex-xs="100">
+	                <md-input-container class="width-90">
+	                    <label>Comments</label>
+	                    <textarea name="ApprovalComments" rows="1" md-select-on-focus md-no-autogrow ng-model="control.ApprovalComments"  required md-maxlength="512" minlength="1"></textarea> 
+	                    <div ng-messages="myForm.ApprovalComments.$error" ng-show="myForm.ApprovalComments.$dirty">
+	                        <div ng-message="required">This is required!</div>
+	                        <div ng-message="md-maxlength">That's too long!</div>
+	                        <div ng-message="minlength">That's too short!</div>
+	                    </div>
+	                </md-input-container>
+	            </div>
+	        </div>    
+	  
+	        <div layout="row" class="">
+	           <div layout="column" layout-align="center center" flex="100" flex-xs="100">
+	             <p class="paraSubmit">
+	                <md-button class="md-raised md-primary md-button md-ink-ripple" id="submitBtn"  ng-click="control.submitApproval()">Submit</md-button>     
+	            </p>
+	           </div>
+	        </div>   
+        </div>

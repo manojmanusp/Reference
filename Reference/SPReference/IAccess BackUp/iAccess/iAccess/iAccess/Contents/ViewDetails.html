@@ -7,6 +7,9 @@
 
 }
 
+#workflowHistory {
+    font-size: 20px;
+}
 .paraHeading {
         text-align:left;
         padding-left: 20px;
@@ -225,7 +228,7 @@ md-radio-group {
         <div id="divWorkflowHistory">
             <h3>
                 <div>
-                    <p id="workflowHistory" class="paraHeading"><b>Workflow History</b></p>
+                    <p id="workflowHistory" class=""><b>Workflow History</b></p>
                 </div>
             </h3>
 
@@ -234,49 +237,10 @@ md-radio-group {
 
         </div>
         
-        
-        <div id="divApprovalRequest">
-            <h3>
-                <div>
-                    <p id="idApprovalRequest" class="paraHeading"><b>Request Approval</b></p>
-                </div>
-            </h3>
-
-	        <div layout="row" class="">   
-	           <div layout="column" layout-align="center start" flex="100">         
-	               <md-radio-group ng-model="ctrl.requestApproval" ng-change="ctrl.onrequestApprovalChange()">
-	                 <div layout="row" class="">
-		              <md-radio-button value="Approve" class="radioApproval">Approve</md-radio-button>
-		              <md-radio-button value="Sent Back" class="radioApproval">Sent Back</md-radio-button>
-		              <md-radio-button value="Cancel" class="radioApproval">Cancel</md-radio-button>
-		             </div>
-	    		   </md-radio-group>
-	           </div>
-	        </div>
-        
-        
-	        <div layout="row" class="">
-	           <div layout="column" layout-align="center center" flex="100" flex-xs="100">
-	                <md-input-container class="width-90">
-	                    <label>Comments</label>
-	                    <textarea name="ApprovalComments" rows="1" md-select-on-focus md-no-autogrow ng-model="ctrl.ApprovalComments"  required md-maxlength="512" minlength="1"></textarea> 
-	                    <div ng-messages="myForm.ApprovalComments.$error" ng-show="myForm.ApprovalComments.$dirty">
-	                        <div ng-message="required">This is required!</div>
-	                        <div ng-message="md-maxlength">That's too long!</div>
-	                        <div ng-message="minlength">That's too short!</div>
-	                    </div>
-	                </md-input-container>
-	            </div>
-	        </div>    
-	  
-	        <div layout="row" class="">
-	           <div layout="column" layout-align="center center" flex="100" flex-xs="100">
-	             <p class="paraSubmit">
-	                <md-button class="md-raised md-primary md-button md-ink-ripple" id="submitBtn"  ng-click="submitApproval()">Submit</md-button>     
-	            </p>
-	           </div>
-	        </div>   
-        </div>
+        <div class="approvalform" ng-repeat="(index,control) in controls"> 
+			<approvalform control="control" common="common" index="index" flex="100"> </approvalform>     
+			 
+		</div>        
         
         <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
             <p class="paraClose">
@@ -294,15 +258,18 @@ md-radio-group {
 var myReqArrayItems = new Array();  
 var arrayFields = new Array();
 var arrayFieldValues = new Array();  
+var ApprovalFormArray = [];
 $(document).ready(function () {
     JSRequest.EnsureSetup();
     var idValue = JSRequest.QueryString["itemID"];
-    var workflowInstanceID = JSRequest.QueryString["workflowInstanceForItem"];
+    window.workflowInstanceID = JSRequest.QueryString["workflowInstanceForItem"];
     GetItemDetails(idValue);
     DrawWorkFlowHistory();
+	
+	
     });   
     
-    
+
     function GetItemDetails(idValue)
     {
       	var context = new SP.ClientContext();
@@ -371,11 +338,14 @@ $(document).ready(function () {
             }
      
      if (oItem.get_item("Pending_x0020_with") != null) {
-                pendingWith = oItem.get_item("Pending_x0020_with").get_lookupValue();
-            } else {
-                pendingWith = "NA";
+                if(oItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && oItem.get_item('Status')=="Approved")
+                pendingWith = "No Pending";
+                else
+                pendingWith = oItem.get_item('Pending_x0020_with').get_lookupValue();
             }
-	
+	else
+                pendingWith = "NA";
+
 	 if (oItem.get_item("Created") != null) {
 	                var dateVariable = oItem.get_item('Created');
                     createdOn = FormatDate(dateVariable);	       
@@ -447,18 +417,18 @@ $(document).ready(function () {
 
         return formattedDate = months[month_value] + " " + day_value + " " + twoDigitsCurrentYear + " " + time;
     }
-    
+
     
     function DrawWorkFlowHistory() {
         var currentClientContext = new SP.ClientContext.get_current();
         var currentWeb = currentClientContext.get_web();
         var list = currentWeb.get_lists().getByTitle('Workflow History');        
-		var camlQuery = SP.CamlQuery.createAllItemsQuery();
-		//var camlQuery = new SP.CamlQuery();
-       // camlQuery.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'WorkflowInstance\'/>' +
-        //                                                '<Value Type=\'Text\'>' + workflowInstanceID + '</Value>' +
-        //                                          '</Eq></Where></Query>' +
-        //                               '<RowLimit>10</RowLimit></View>');
+		//var camlQuery = SP.CamlQuery.createAllItemsQuery();
+		 var camlQuery = new SP.CamlQuery();
+        camlQuery.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'WorkflowInstance\'/>' +
+                                                        '<Value Type=\'Text\'>' + workflowInstanceID + '</Value>' +
+                                                 '</Eq></Where></Query>' +
+                                       '<RowLimit>10</RowLimit></View>');
 	    this.listItems = list.getItems(camlQuery);
 	    currentClientContext.load(listItems);
 
@@ -473,8 +443,7 @@ function OnWorkFlowSuccess(sender,args)
             "<tr>" +
             "<th>Action Taken By</th>" +
             "<th>Action Taken</th>" +
-            "<th>Action Taken On</th>" +
-            "<th>Description</th>" +            
+            "<th>Action Taken On</th>" +                       
             "</tr>" +
             "</thead>";
 
@@ -512,9 +481,9 @@ function OnWorkFlowSuccess(sender,args)
 			
 			txtHTML += '<tr>' +   
 			    '<TD>' + userID + '</TD>' +
-			    '<TD>' + outcome + '</TD>' +
-			    '<TD>' + dateOccured + '</TD>' + 
-                '<TD>' + description + '</TD>';             
+			    '<TD>' + description+ '</TD>' +
+			    '<TD>' + dateOccured + '</TD>'; 
+                            
                 
                // '<TD><a onclick="getViewDetails(' + rowID + ')">View</a></TD>';
             txtHTML += "</tr>";
@@ -529,9 +498,8 @@ function OnWorkFlowSuccess(sender,args)
             {
                 "columnDefs": [
                     { "targets": [0], "visible": true, "width": "25%" },
-                    { "targets": [1], "visible": true, "width": "25%" },
-                    { "targets": [2], "visible": true, "width": "25%" },
-                    { "targets": [3], "visible": true, "width": "25%" }
+                    { "targets": [1], "visible": true, "width": "50%" },
+                    { "targets": [2], "className": "dt-center","visible": true, "width": "25%" }                    
                 ]
             }
         );

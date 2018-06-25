@@ -1,0 +1,539 @@
+﻿
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/bootstrap.css" rel="stylesheet">
+<style>
+.paraClose {    
+    text-align: right;
+    padding-right: 38px;
+
+}
+
+#workflowHistory {
+    font-size: 20px;
+}
+.paraHeading {
+        text-align:left;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+.divRow{
+	align-items: start;
+}
+label.fieldLbl {
+    color: #333;
+    margin-right: 51px;
+    font-weight: bold;
+    
+}
+label.fieldValueLbl {
+  color: indigo;   
+  white-space:normal !important; 
+}
+.divField{
+	float:left;
+	width:28%;
+}
+
+.divFieldValue{
+	
+	float:left;
+	width:72%;
+	    position: relative;
+}
+
+label.fieldLbl, .fieldValueLbl {
+    position: relative!important;
+}
+
+div#divWorkflowHistory {
+    margin-top: 5%;
+    width: 93%;
+    margin: 20px auto 48px auto;
+    padding: 15px;
+}
+.viewdetailscontainer{
+	 width: 93%;
+	padding: 15px 20px;
+	margin: 20px auto 20px auto;
+}
+
+.viewdetailscontainer .divRow {
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+}
+.viewdetailscontainer .divRow .firstchild {
+    border-top: 1px solid #CCC;
+}
+.viewdetailscontainer .divRow {
+    border-right: 1px solid #CCC;
+}
+#idworkflowHistory_filter + table.dataTable.cell-border tbody tr td:first-child {
+    border-left: none;
+}
+.viewdetailscontainer .divRow .width-90 {
+    width: 100%;
+    padding: 0px 15px;
+}
+.viewdetailscontainer .divFieldValue:before {
+    content: ':';
+    padding-right: 20px;
+    color: #828282;
+	position: absolute;
+    left: -10px;
+}
+.viewdetailscontainer .divFieldValue label.fieldValueLbl {
+	color:#000;
+}
+#idworkflowHistory_wrapper {
+	padding:0px;
+}
+.viewdetailscontainer  .divRow {
+    align-items: start;
+}
+.viewdetailscontainer .divRow .layout-column:nth-child(even){
+	border-left:1px solid #CCC;
+}
+
+.radioApproval {
+    padding-left: -44px;
+    margin-left: 98px;
+}
+
+md-radio-group {
+    text-align: left;
+    padding-left: 67px;
+}
+
+p#idApprovalRequest {    
+    font-size: 20px;
+    text-align: left;
+	padding-left: 10px;
+}
+
+</style>
+<ng-form name="myForm">
+<div class="form_container" ng-controller="ViewDetails as ctrl">
+    <h2 class="md-title viewDetails">View Details</h2>
+    <div name="viewDetails">
+    <div class="viewdetailscontainer">
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100" class="firstchild">
+                <md-input-container class="width-90 custom">
+
+	                    <div class="divField">
+	                     <label class="fieldLbl"></label>
+	                    </div>
+	                    <div class="divFieldValue">
+	                     <label class="fieldValueLbl"></label>
+	                    </div>
+
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100" class="firstchild">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                    <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">
+                    <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+       <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">  
+                     <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">  
+                    <label class="fieldValueLbl"></label>
+                   </div> 
+                    
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">
+                    <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">
+                    <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+        </div>
+        <div id="divWorkflowHistory">
+            <h3>
+                <div>
+                    <p id="workflowHistory" class=""><b>Workflow History</b></p>
+                </div>
+            </h3>
+
+            <table style="width: 100%;" id="idworkflowHistory" class="cell-border" cellspacing="0"></table>     
+
+
+        </div>
+        
+        <div class="approvalform" ng-repeat="(index,control) in controls"> 
+			<approvalform control="control" common="common" index="index" flex="100"> </approvalform>     
+			 
+		</div>        
+        
+        <div id="viewdetailsFooter" flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+            <p class="paraClose">
+             <md-button class="md-raised md-primary md-button md-ink-ripple" id="closeBtn"  ng-click="closePage()">Close</md-button>     
+            </p>       
+        </div>
+
+        
+    </div>
+</div>
+</ng-form>
+
+
+<script type="text/javascript">
+var myReqArrayItems = new Array();  
+var arrayFields = new Array();
+var arrayFieldValues = new Array();  
+var ApprovalFormArray = [];
+$(document).ready(function () {
+    
+    JSRequest.EnsureSetup();
+    var idValue = JSRequest.QueryString["itemID"];
+    window.workflowInstanceID = JSRequest.QueryString["workflowInstanceForItem"];
+    GetItemDetails(idValue);
+    DrawWorkFlowHistory();
+	
+	
+    });   
+    
+$(window).on("load",function(){
+		 setTimeout(function(){
+				 if($("#approvalFooter").length>0)
+				    { 
+				      $("#viewdetailsFooter").hide();
+				    }
+				    else
+				    {
+				      $("#viewdetailsFooter").show();
+				
+				    }          
+		 },200);
+
+ 
+});
+    function GetItemDetails(idValue)
+    {
+      	var context = new SP.ClientContext();
+	    var list = context.get_web().get_lists().getByTitle("ITRequest");
+	    this.oItem= list.getItemById(idValue);   
+	    context.load(oItem);		
+		context.executeQueryAsync(Function.createDelegate(this, this.onSuccess), Function.createDelegate(this, this.OnFail));    
+    }
+    
+    function onSuccess(sender,args)
+    {
+     if (oItem.get_item("RequesterID") != null) {
+                requester = oItem.get_item("RequesterID").get_lookupValue();
+                
+            } else {
+                requester = "NA";
+            }
+            
+     if (oItem.get_item("ManagerID") != null) {
+                manager = oItem.get_item("ManagerID")[0].get_lookupValue();
+            } else {
+                manager = "NA";
+            }
+            
+	if (oItem.get_item("ITDeskID") != null) {
+                itDeskID = oItem.get_item("ITDeskID").get_lookupValue();
+            } else {
+                itDeskID = "NA";
+            }
+
+            
+    if (oItem.get_item("Comments") != null) {
+                var reg = new RegExp("<div class=\"ExternalClass[0-9A-F]+\">", "");                
+                comments = oItem.get_item("Comments").replace(reg, "").replace("</div>","").trim().replace(/&#160;/g," ").replace(/<br>/g,"");
+            } else {
+                comments = "NA";
+            }
+            
+	if (oItem.get_item("ManagerComments") != null) {
+                var reg = new RegExp("<div class=\"ExternalClass[0-9A-F]+\">", "");                
+                managerComments = oItem.get_item("ManagerComments").replace(reg, "").replace("</div>","").trim().replace(/&#160;/g," ").replace(/<br>/g,"");
+            } else {
+                managerComments = "NA";
+            }
+
+
+    if (oItem.get_item("ITDeskComments") != null) {
+                var reg = new RegExp("<div class=\"ExternalClass[0-9A-F]+\">", "");                
+                itDeskComments = oItem.get_item("ITDeskComments").replace(reg, "").replace("</div>","").trim().replace(/&#160;/g," ").replace(/<br>/g,"");
+            } else {
+                itDeskComments = "NA";
+            }
+
+            
+
+     if (oItem.get_item("Status") != null) {
+                status = oItem.get_item("Status");
+            } else {
+                status = "NA";
+            }
+            
+     if (oItem.get_item("RequestID") != null) {
+                requestID = oItem.get_item("RequestID");
+            } else {
+                requestID = "NA";
+            }
+     
+     if (oItem.get_item("Pending_x0020_with") != null) {
+                //if(oItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && oItem.get_item('Status')=="Approved")
+                if(oItem.get_item('Status')=="Approved" ||  oItem.get_item('Status')=="Canceled"){
+              		  pendingWith = "No Pending";
+                }
+                else
+                pendingWith = oItem.get_item('Pending_x0020_with').get_lookupValue();
+            }
+	    else
+                pendingWith = "No Pending";
+
+	 if (oItem.get_item("Created") != null) {
+	                var dateVariable = oItem.get_item('Created');
+                    createdOn = FormatDate(dateVariable);	       
+                         } 
+                    
+                    else {
+	                createdOn = "NA";
+	            }
+       
+        if (oItem.get_item("Author") != null) {
+                createdBy = oItem.get_item("Author").get_lookupValue();
+            } else {
+                createdBy = "NA";
+            }
+       
+        //myReqArrayItems.push({ "Request ID": requestID,"Comments":comments,"CreatedOn": createdOn,"Pending With": pendingWith,"Manager":manager,"Manager Comments":managerComments,"IT Desk":itDeskID,"IT Desk Comments": itDeskComments,"Status": status,"CreatedBy":createdBy});
+        var myReqArrayItems = { "Request ID": requestID,"Comments":comments,"Created On": createdOn,"Pending With": pendingWith,"Manager":manager,"Manager Comments":managerComments,"IT Desk":itDeskID,"IT Desk Comments": itDeskComments,"Status": status,"Created By":createdBy};
+        
+        $.each( myReqArrayItems, function( key, value ) {
+			  arrayFields.push(key);
+			  arrayFieldValues.push(value);
+				});
+		$(".fieldLbl").each(function(index){ 
+			  $(this).text(arrayFields[index]);
+			  
+			});
+       	$(".fieldValueLbl").each(function(index){ 
+			  $(this).text(arrayFieldValues[index]);
+			  
+			});
+    }
+    
+    function OnFail(sender,args)
+    {
+      console.log(args.get_message());
+    }
+    
+    
+    function FormatDate(dateVariable) {
+
+        var month = dateVariable.getMonth() + 1;
+        var date = dateVariable.getDate();
+        var fullYear = dateVariable.getFullYear();
+        var hours = dateVariable.getHours();
+        var minutes = dateVariable.getMinutes();
+        var date_value = month + "/" + date + "/" + fullYear + " " + hours + ":" + minutes;
+        var months = new Array(12);
+        months[0] = "Jan";
+        months[1] = "Feb";
+        months[2] = "Mar";
+        months[3] = "Apr";
+        months[4] = "May";
+        months[5] = "Jun";
+        months[6] = "Jul";
+        months[7] = "Aug";
+        months[8] = "Sep";
+        months[9] = "Oct";
+        months[10] = "Nov";
+        months[11] = "Dec";
+        var current_date = new Date(date_value);
+        month_value = current_date.getMonth();
+        day_value = current_date.getDate();
+        if (day_value < 10) {
+            day_value = '0' + day_value;
+        }
+
+        var twoDigitsCurrentYear = parseInt(new Date().getFullYear().toString().substr(2, 2));
+        var time = current_date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
+        return formattedDate = months[month_value] + " " + day_value + " " + twoDigitsCurrentYear + " " + time;
+    }
+
+    
+    function DrawWorkFlowHistory() {
+        var currentClientContext = new SP.ClientContext.get_current();
+        var currentWeb = currentClientContext.get_web();
+        var list = currentWeb.get_lists().getByTitle('Workflow History');        
+		//var camlQuery = SP.CamlQuery.createAllItemsQuery();
+		 var camlQuery = new SP.CamlQuery();
+        camlQuery.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'WorkflowInstance\'/>' +
+                                                        '<Value Type=\'Text\'>' + workflowInstanceID + '</Value>' +
+                                                 '</Eq></Where></Query>' +
+                                                 '</View>');
+	    this.listItems = list.getItems(camlQuery);
+	    currentClientContext.load(listItems);
+
+        currentClientContext.executeQueryAsync(Function.createDelegate(this, this.OnWorkFlowSuccess), Function.createDelegate(this, this.OnWorkFlowFailed));
+}
+
+function OnWorkFlowSuccess(sender,args)
+{
+		txtHTML = "";
+
+        var Header = "<thead>" +
+            "<tr>" +
+            "<th>Action Taken By</th>" +
+            "<th>Action Taken</th>" +
+            "<th>Action Taken On</th>" +                       
+            "</tr>" +
+            "</thead>";
+
+        txtHTML += Header;
+        txtHTML += "<tbody class='row-border hover order-column dataTable' role='grid'>";        
+        var listEnumerator = listItems.getEnumerator();
+        
+        while (listEnumerator.moveNext()) {
+            var currentItem = listEnumerator.get_current();
+            if (currentItem.get_item("User") != null) {
+                userID = currentItem.get_item("User").get_lookupValue();
+            } else {
+                userID = "NA";
+            }
+
+            if (currentItem.get_item("Outcome") != null) {
+                outcome = currentItem.get_item("Outcome");
+            } else {
+                outcome = "NA";
+            }
+            
+			if (currentItem.get_item("Description") != null) {
+                description = currentItem.get_item("Description");
+            } else {
+                description = "NA";
+            }
+              
+            if (currentItem.get_item("Occurred") != null) {
+                dateVariable = currentItem.get_item("Occurred");                    
+			    dateOccured = FormatDate(dateVariable);
+            } else {
+                dateOccured = "NA";
+            }	
+			
+			
+			txtHTML += '<tr>' +   
+			    '<TD>' + userID + '</TD>' +
+			    '<TD>' + description+ '</TD>' +
+			    '<TD>' + dateOccured + '</TD>'; 
+                            
+                
+               // '<TD><a onclick="getViewDetails(' + rowID + ')">View</a></TD>';
+            txtHTML += "</tr>";
+
+         }
+         txtHTML += "</tbody>";
+
+        //Bind the HTML data to the Table
+        $("#idworkflowHistory").append(txtHTML);
+
+        table = $('#idworkflowHistory').DataTable(
+            {
+                "columnDefs": [
+                    { "targets": [0], "visible": true, "width": "25%" },
+                    { "targets": [1], "visible": true, "width": "50%" },
+                    { "targets": [2], "className": "dt-center","visible": true, "width": "25%" }                    
+                ]
+            }
+        );
+        //table.clear();
+        table.draw();
+        $(".sorting_asc").removeClass('sorting_asc').addClass('sorting');
+
+}
+function OnWorkFlowFailed(sender,args){
+  console.log(args.get_message());
+}
+
+</script>

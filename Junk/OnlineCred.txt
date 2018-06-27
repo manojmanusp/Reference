@@ -1,0 +1,40 @@
+Office 365
+https://chennaitillidsoft-admin.sharepoint.com
+
+murali@chennaitillidsoft.onmicrosoft.com
+ThisIsRight1!
+
+
+
+Git_Tillid_Ref
+https://spcodetillid.visualstudio.com/SPTeamCodes/_git/User-Manoj
+
+
+
+Remote Server
+
+SharePoint Dev 02 RDP : tss.from-in.com:4951
+User Name    : win-o9gikgho82j\administrator
+Password    : Adm!n@321
+
+
+
+Teams
+https://teams.microsoft.com/l/team/19%3a58162b7bc880429da25c13bb173710bd%40thread.skype/conversations?groupId=c24d90d3-7459-4a7e-bcc9-764de363c813&tenantId=a815cfce-b744-472b-80be-9b6cc1f72e2a
+
+
+
+
+EU Market
+https://ferragamogroup.sharepoint.com/sites/Europe_QA/RoyaltiesReminders/Lists/Reminders/AllItems.aspx
+
+UserName : tenant.service.account@ferragamogroup.onmicrosoft.com
+PassWord : f5rr5g5m.
+
+
+Time Sheet
+https://tillidsoftware.timetask.com
+
+
+Github setup
+https://www.techrepublic.com/article/how-to-set-up-a-gitlab-server-and-host-your-own-git-repositories/

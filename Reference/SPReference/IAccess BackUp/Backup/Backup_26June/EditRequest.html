@@ -1,0 +1,225 @@
+﻿
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/bootstrap.css" rel="stylesheet">
+<style>
+
+::-webkit-input-placeholder,:-moz-placeholder,::-moz-placeholder ,:-ms-input-placeholder,::-ms-input-placeholder,::placeholder {
+    color: #ddd!important;
+    font-size: 11px;
+}
+ 
+#asterikSpan{
+	padding-left:4px;
+	color: rgba(0,0,0,0.38);
+
+} 
+
+.md-autocomplete-suggestions li {
+    /* font-size: 14px; */
+    overflow: hidden;
+    padding: 0 15px;
+    line-height: 25px;
+    height: 25px !important;
+    -webkit-transition: background .15s linear;
+    transition: background .15s linear;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+md-virtual-repeat-container {
+    min-width: 340px !important;
+}
+md-radio-group {
+    padding-left: 35px;
+}
+md-icon svg {
+    height: 55%;    
+    padding-top: 5px;
+}
+
+label#requestforLbl {
+    padding-bottom: 8px;
+}
+
+label.required:after      
+{
+  content:"*";  
+  padding-left: 4px;
+}
+ 
+label {
+    color: rgba(0,0,0,0.38);
+}
+md-contact-chips.readonly md-chips-wrap {
+  cursor: default;
+}
+.md-contact-suggestion .md-contact-name {
+    margin-left: 8px;
+    width: 100%;
+}
+span.md-contact-email.ng-binding {
+    display: none;
+}
+
+md-contact-chips.readonly button.md-chip-remove {
+    display: none;
+  }
+
+md-contact-chips.readonly .md-chip-input-container md-autocomplete {
+    display: none;
+    cursor: default;
+  }
+    div.width-90 {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+md-radio-button.md-primary {
+    background: none!important;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-group:not([disabled]) .md-primary .md-on, md-radio-group.md-default-theme:not([disabled]).md-primary .md-on, md-radio-group:not([disabled]).md-primary .md-on, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-button:not([disabled]) .md-primary .md-on, md-radio-button.md-default-theme:not([disabled]).md-primary .md-on, md-radio-button:not([disabled]).md-primary .md-on {
+    background-color: rgb(117, 117, 117);
+}
+.md-chip-input-container.ng-scope {
+    margin: 0px;
+    max-height: 36px;
+}
+/* People Picker Modifications */
+div#strk .sp-peoplepicker-autoFillContainer{
+	z-index: 20;
+	background-color:#fff;
+}
+div#strk .sp-peoplepicker-topLevel{
+	background-color:#fff;
+}
+div#strk .sp-peoplepicker-topLevel{
+	min-height:34px;
+}
+.md-chip-content div {
+    float: left;
+color:#fff;
+}
+button.md-primary.rchip.ng-scope {
+    width: auto;
+    min-width: auto;
+    height: auto;
+    min-height: auto;
+    padding: 6px 10px;
+    border: none;
+    margin: 0px;
+    background-color: transparent!important;
+	color:#fff;
+}
+md-input-container.ng-scope {
+    vertical-align: top;
+    margin-top: 5px;
+}
+</style>
+<ng-form name="myForm">
+<div class="form_container" ng-controller="NewRequest as ctrl">
+    <h2 class="md-title client">Edit Request</h2>
+    <div name="userForm">
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90">
+                    <label>Request Id</label>
+                    <input name="resubmitRequestID" ng-model="ctrl.resubmitRequestID"  disabled required >
+                    <div ng-messages="resubmitRequestID.$error" ng-show="resubmitRequestID.$dirty">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90">
+                    <label>Request Details</label>
+                    <textarea name="RequestDetails" rows="1" md-select-on-focus md-no-autogrow ng-model="ctrl.RequestDetails" ng-blur="ctrl.validate()" required md-maxlength="512" minlength="1"></textarea> 
+                    <div ng-messages="myForm.RequestDetails.$error" ng-show="myForm.RequestDetails.$dirty">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                    <div class="width-90">
+                        <label class="employee">Employee / User Id</label><span id="asterikSpan">*</span>
+                        <md-contact-chips
+                            ng-class="{'readonly': ctrl.readonly}"
+							ng-model="ctrl.Employee"							
+							md-ngchange="ctrl.EmployeeChange"
+							md-contacts="ctrl.EmployeedelayedQuerySearch($query)"
+							md-contact-name="name"
+							md-contact-image="image"
+							md-contact-email="email"
+							md-require-match="true"
+                            md-highlight-flags="i"
+                            md-contact-max-chips=1
+							filter-selected="ctrl.EmployeefilterSelected"
+							placeholder="Add an Employee">
+				        </md-contact-chips>  
+				        <div ng-messages="(myForm.$submitted || myForm.name.$touched) && myForm.name.$error" class="customMessages">
+                        <div ng-message="required">User is required</div>
+                        <div ng-message="resolve">One or more users have not been resolved</div>
+                    </div>     
+                	</div>                    
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                    <div class="width-90">
+                           
+                            <label class="manager">Manager</label><span id="asterikSpan">*</span>
+                       
+                            <md-contact-chips  
+                                                           
+                                ng-model="ctrl.Managers"
+                                ng-change="ManagersChange()"
+                                md-contacts="ctrl.ManagersdelayedQuerySearch($query)"
+                                md-contact-name="name"
+                                md-contact-image="image"
+                                md-contact-email="email"
+                                md-require-match="true"
+                                md-highlight-flags="i"
+                                md-contact-max-chips=1
+                                filter-selected="ctrl.ManagersfilterSelected"
+                                placeholder="Add a Manager">
+                            </md-contact-chips>  
+                       
+                    </div>                   
+            </div>
+        </div>
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 select">
+                    <label>Category</label>
+                      <md-select  title="Please select the category" name="Category" ng-model="ctrl.category"  aria-label="Category" >
+                            <md-option ng-value="opt.ID" ng-repeat="opt in ctrl.optCategory">{{ opt.Title }}</md-option>   
+                                
+                      </md-select>                                         
+                    <div ng-messages="myform.category.$error" ng-show="myform.category.$dirty">
+                        <div ng-message="required">This is required!</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+        </div>
+        <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+            <md-button class="md-raised md-primary md-button md-ink-ripple" id="resubmitBtn" ng-disabled="!(myForm.$valid)" ng-click="resubmitItem()">Resubmit</md-button>
+            <md-button class="md-raised md-primary md-button black-color" id="cancelBtn" ng-click="resubmitCancelItem()">Cancel</md-button>
+        </div>
+        <div ng-model="ctrl.arrayRelatedItems"></div>
+    </div>
+</div>
+</<ng-form>
+
+
+<script type="text/javascript">
+
+ 
+
+</script>

@@ -1,0 +1,45 @@
+﻿
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/bootstrap.css" rel="stylesheet">
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/stylesheets/CustomCSS/Dashboard.css" rel="stylesheet">
+
+<ng-form name="myForm">
+    <div class="form_container" ng-controller="Dashboard as ctrl">
+        <h2 class="md-title dashboard">Dashboard</h2>
+        <div name="dashboard">
+            
+            <div id="divMyRequests">
+                <h3>
+                    <div>
+                        <p id="myRequests" class="paraHeading"><b>My Requests</b></p>
+                    </div>
+                </h3>
+                <p class="paraNewRequest">
+                <button id="bntAddNewRequest" ng-click="addnewRequest()" class="md-raised md-primary md-button" type="button"><span class="ng-scope">+ Add New Request</span></button>
+                </p>
+
+                <table style="width: 100%;" id="idMyRequests" class="cell-border" cellspacing="0"></table>
+                <div></div>
+
+
+            </div>
+            <div id="divPendingApprovals">
+                <h3>
+                    <div>
+                        <p id="pendingApprovals" class="paraHeading"><b>Pending Approvals</b></p>
+                    </div>
+                </h3>
+                <table style="width: 100%;" id="idpendingApprovals" class="cell-border" cellspacing="0"></table>
+                <div></div>
+            </div>
+            <div id="divViewdetails">
+            </div>
+
+        </div>
+    </div>
+</ng-form>
+
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Scripts/CustomJS/Dashboard.js">
+   
+
+
+

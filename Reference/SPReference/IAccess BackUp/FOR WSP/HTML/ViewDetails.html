@@ -1,0 +1,150 @@
+﻿
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Ref/Peoplepicker/styles/bootstrap.css" rel="stylesheet">
+
+<link type="text/css" href="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/stylesheets/CustomCSS/ViewDetails.css" rel="stylesheet">
+
+
+<ng-form name="myForm">
+<div class="form_container" ng-controller="ViewDetails as ctrl">
+    <h2 class="md-title viewDetails">View Details</h2>
+    <div name="viewDetails">
+    <div class="viewdetailscontainer">
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100" class="firstchild">
+                <md-input-container class="width-90 custom">
+
+	                    <div class="divField">
+	                     <label class="fieldLbl"></label>
+	                    </div>
+	                    <div class="divFieldValue">
+	                     <label class="fieldValueLbl"></label>
+	                    </div>
+
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100" class="firstchild">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                    <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">
+                    <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+       <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">  
+                     <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">  
+                    <label class="fieldValueLbl"></label>
+                   </div> 
+                    
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+               <md-input-container class="width-90 custom">
+                    <div class="divField">
+                     <label class="fieldLbl"></label>
+                    </div>
+                    <div class="divFieldValue">
+                     <label class="fieldValueLbl"></label>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+                <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">
+                    <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+        </div>
+        
+        <div layout="row" class="divRow">
+            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
+              <md-input-container class="width-90 custom">
+                   <div class="divField">
+                     <label class="fieldLbl"></label>
+                   </div>
+                   <div class="divFieldValue">
+                    <label class="fieldValueLbl"></label>
+                   </div>
+                </md-input-container>
+            </div>
+            
+        </div>    
+        
+        </div>
+        <div id="divWorkflowHistory">
+            <h3>
+                <div>
+                    <p id="workflowHistory" class=""><b>Workflow Tasks</b></p>
+                </div>
+            </h3>
+
+            <table style="width: 100%;" id="idworkflowHistory" class="cell-border" cellspacing="0"></table>     
+
+
+        </div>
+        
+        <div class="approvalform" ng-repeat="(index,control) in controls"> 
+			<approvalform control="control" common="common" index="index" flex="100"> </approvalform>     
+			 
+		</div>        
+        
+        <div id="viewdetailsFooter" flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+            <p class="paraClose">
+             <md-button class="md-raised md-primary md-button md-ink-ripple" id="closeBtn"  ng-click="closePage()">Close</md-button>     
+            </p>       
+        </div>
+
+        
+    </div>
+</div>
+</ng-form>
+
+
+<script type="text/javascript" src="https://chennaitillidsoft.sharepoint.com/sites/oct9_QA1/SiteAssets/IAccess/Scripts/CustomJS/ViewDetails.js" />
+
+    

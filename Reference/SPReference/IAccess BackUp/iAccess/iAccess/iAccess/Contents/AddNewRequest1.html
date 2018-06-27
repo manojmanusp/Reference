@@ -117,27 +117,43 @@ md-input-container.ng-scope {
     vertical-align: top;
     margin-top: 5px;
 }
+
+
+md-input-container.category {
+    margin-bottom: 42px !important;
+  }
+  
+  
+.layout-row>.flex-33, .layout-row>.flex-66 {    
+    padding-left: 8px;
+}
+
 </style>
 <ng-form name="myForm">
 <div class="form_container" ng-controller="NewRequest as ctrl">
-    <h2 class="md-title client">Edit Request</h2>
+    <h2 class="md-title client">New Request</h2>
     <div name="userForm">
         <div layout="row">
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
                 <md-input-container class="width-90">
-                    <label>Request Id</label>
-                    <input name="resubmitRequestID" ng-model="ctrl.resubmitRequestID"  disabled required >
-                    <div ng-messages="resubmitRequestID.$error" ng-show="resubmitRequestID.$dirty">
-                        <div ng-message="required">This is required!</div>
-                        <div ng-message="md-maxlength">That's too long!</div>
-                        <div ng-message="minlength">That's too short!</div>
-                    </div>
+	                <div layout="row">
+		                <div layout="column" layout-align="center center" flex="10">
+		                	<label id="requestforLbl">Request For</label>
+		                </div>
+		                <div layout="column" layout-align="center start" flex="90">
+		                	 <md-radio-group ng-model="ctrl.requestfor" ng-change="ctrl.onrequestChange()">
+					            <md-radio-button value="Self" class="md-primary">Self</md-radio-button>
+					            <md-radio-button value="Others" class="md-primary">Others</md-radio-button>
+			        		 </md-radio-group>
+		                </div>
+					</div>              
+                   
                 </md-input-container>
             </div>
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
                 <md-input-container class="width-90">
                     <label>Request Details</label>
-                    <textarea name="RequestDetails" rows="1" md-select-on-focus md-no-autogrow ng-model="ctrl.RequestDetails" ng-blur="ctrl.validate()" required md-maxlength="512" minlength="1"></textarea> 
+                    <textarea name="RequestDetails" rows="1" md-select-on-focus md-no-autogrow ng-model="ctrl.RequestDetails" ng-click="ctrl.focusIn()" ng-blur="ctrl.validate()" required md-maxlength="512" minlength="1"></textarea> 
                     <div ng-messages="myForm.RequestDetails.$error" ng-show="myForm.RequestDetails.$dirty">
                         <div ng-message="required">This is required!</div>
                         <div ng-message="md-maxlength">That's too long!</div>
@@ -195,7 +211,18 @@ md-input-container.ng-scope {
         </div>
         <div layout="row">
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-                <md-input-container class="width-90 select">
+                <md-input-container class="width-90">
+                    <label>Request Id</label>
+                    <input name="RequestID" ng-model="ctrl.RequestID" disabled required >
+                    <div ng-messages="RequestID.$error" ng-show="RequestID.$dirty">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center center" flex="33" flex-xs="100">
+                <md-input-container class="width-90 select category">
                     <label>Category</label>
                       <md-select  title="Please select the category" name="Category" ng-model="ctrl.category"  aria-label="Category" >
                             <md-option ng-value="opt.ID" ng-repeat="opt in ctrl.optCategory">{{ opt.Title }}</md-option>   
@@ -205,21 +232,13 @@ md-input-container.ng-scope {
                         <div ng-message="required">This is required!</div>
                     </div>
                 </md-input-container>
-
             </div>
+
         </div>
         <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
-            <md-button class="md-raised md-primary md-button md-ink-ripple" id="resubmitBtn" ng-disabled="!(myForm.$valid)" ng-click="resubmitItem()">Resubmit</md-button>
-            <md-button class="md-raised md-primary md-button black-color" id="cancelBtn" ng-click="resubmitCancelItem()">Cancel</md-button>
+            <md-button class="md-raised md-primary md-button md-ink-ripple" id="saveBtn" ng-disabled="!(myForm.$valid)" ng-click="saveitem()">Save</md-button>
+            <md-button class="md-raised md-primary md-button black-color" id="cancelBtn" ng-click="cancelitem()">Cancel</md-button>
         </div>
-        <div ng-model="ctrl.arrayRelatedItems"></div>
     </div>
 </div>
 </<ng-form>
-
-
-<script type="text/javascript">
-
- 
-
-</script>

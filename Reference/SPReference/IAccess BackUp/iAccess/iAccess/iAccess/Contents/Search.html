@@ -1,4 +1,10 @@
-﻿
+﻿<style>
+
+  md-input-container.category {
+    margin-top: 37px !important;
+  }
+</style>
+
 <div class="form_container" ng-controller="mycontrol as ctrl">
     <h2 class="md-title client">Search</h2>
     <div name="userForm">   
@@ -36,7 +42,7 @@
                     
                 </div>    
         <div layout="row">
-            <div layout="column" layout-align="center center" flex="40" flex-xs="100">
+            <div layout="column" layout-align="center center" flex="33" flex-xs="100">
                 <md-input-container class="width-90">
                         <md-contact-chips
 							ng-model="ctrl.Employee"							
@@ -53,7 +59,7 @@
   
                 </md-input-container>
             </div>
-            <div layout="column" layout-align="center center" flex="40" flex-xs="100">
+            <div layout="column" layout-align="center center" flex="33" flex-xs="100">
                 <md-input-container class="width-90">                    
                             <md-contact-chips
                                                            
@@ -71,12 +77,27 @@
                        
                 </md-input-container>                  
             </div>
-            <div layout="column" layout-align="center center" flex="20" flex-xs="100">
-                <md-input-container class="width-90">
+            <div layout="column" layout-align="center center" flex="33" flex-xs="100">
+                <md-input-container class="width-90 select category">
+                    <label>Category</label>
+                      <md-select  title="Please select the category" name="Category" ng-model="ctrl.category"  aria-label="Category" >
+                            <md-option ng-value="opt.ID" ng-repeat="opt in ctrl.optCategory">{{ opt.Title }}</md-option>   
+                                
+                      </md-select>                                         
+                    <div ng-messages="myform.category.$error" ng-show="myform.category.$dirty">
+                        <div ng-message="required">This is required!</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+            
+        </div>
+        <div layout="row">
+            <div layout="column" layout-align="center center" flex="40" flex-xs="100">
+               <md-input-container class="width-90">
                     <md-button class="md-raised md-primary md-button md-ink-ripple" id="searchBtn"  ng-click="ctrl.searchitem1()">Search</md-button>
                 </md-input-container>
             </div>
-            
         </div>
         
         

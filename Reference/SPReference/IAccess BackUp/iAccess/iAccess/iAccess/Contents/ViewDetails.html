@@ -105,6 +105,17 @@ md-radio-group {
     text-align: left;
     padding-left: 67px;
 }
+
+p#idApprovalRequest {    
+    font-size: 20px;
+    text-align: left;
+	padding-left: 10px;
+}
+
+th.sorting {
+    text-align: left;   
+    border-left: 1px solid #dddddd;
+}
 </style>
 <ng-form name="myForm">
 <div class="form_container" ng-controller="ViewDetails as ctrl">
@@ -202,19 +213,10 @@ md-radio-group {
                 </md-input-container>
             </div>
         </div>
+        
         <div layout="row" class="divRow">
             <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-               <md-input-container class="width-90 custom">
-                    <div class="divField">
-                     <label class="fieldLbl"></label>
-                    </div>
-                    <div class="divFieldValue">
-                     <label class="fieldValueLbl"></label>
-                    </div>
-                </md-input-container>
-            </div>
-            <div layout="column" layout-align="center center" flex="50" flex-xs="100">
-                <md-input-container class="width-90 custom">
+              <md-input-container class="width-90 custom">
                    <div class="divField">
                      <label class="fieldLbl"></label>
                    </div>
@@ -223,12 +225,14 @@ md-radio-group {
                    </div>
                 </md-input-container>
             </div>
-        </div>
+            
+        </div>    
+        
         </div>
         <div id="divWorkflowHistory">
             <h3>
                 <div>
-                    <p id="workflowHistory" class=""><b>Workflow History</b></p>
+                    <p id="workflowHistory" class=""><b>Workflow Tasks</b></p>
                 </div>
             </h3>
 
@@ -242,7 +246,7 @@ md-radio-group {
 			 
 		</div>        
         
-        <div flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
+        <div id="viewdetailsFooter" flex layout-margin-lg layout="row" layout-align="end end" class="formbtnbg">
             <p class="paraClose">
              <md-button class="md-raised md-primary md-button md-ink-ripple" id="closeBtn"  ng-click="closePage()">Close</md-button>     
             </p>       
@@ -259,17 +263,105 @@ var myReqArrayItems = new Array();
 var arrayFields = new Array();
 var arrayFieldValues = new Array();  
 var ApprovalFormArray = [];
+var idValue = "";
+var commentsInfo = "";
 $(document).ready(function () {
+    
     JSRequest.EnsureSetup();
-    var idValue = JSRequest.QueryString["itemID"];
+    idValue = JSRequest.QueryString["itemID"];
     window.workflowInstanceID = JSRequest.QueryString["workflowInstanceForItem"];
     GetItemDetails(idValue);
-    DrawWorkFlowHistory();
-	
-	
+    GetTaskID();
+	//DrawWorkFlowHistory();
+	DrawWorkFlowTasks();
     });   
     
+$(window).on("load",function(){
+		 setTimeout(function(){
+				 if($("#approvalFooter").length>0)
+				    { 
+				      $("#viewdetailsFooter").hide();
+				    }
+				    else
+				    {
+				      $("#viewdetailsFooter").show();
+				
+				    }          
+		 },200);
 
+ 
+});
+
+var taskComments = new Array();
+var taskAssignedToID = "";
+var taskStatus = "";
+function GetComments()
+{
+     var itemtypeITReq = "SP.Data.WorkflowTasksItem";
+     for(var i=0;i<arrayRelatedItems.length;i++){           
+       requestUriITReq =_spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('Workflow Tasks')/items("+arrayRelatedItems[i].TaskID+")?$select=Status,Action_x0020_Taken,Created,Comments,AssignedTo/Title,AssignedTo/Id&$expand=AssignedTo";
+		 $.ajax(
+		    {
+		        url: requestUriITReq,
+		        async: false,
+		        type: "GET",				                
+		        headers: {
+	 					  "Accept": "application/json; odata=verbose"
+					     },
+	            success: function (data) {
+	               var date = new Date(data.d.Created)
+	               var dateVariable = date;
+                   dateOccured = FormatDate(dateVariable);
+		          taskAssignedToID  = data.d.AssignedTo.Id;		          	          
+		          taskComments.push({
+			            taskid: arrayRelatedItems[i].TaskID, 
+			            taskComments: data.d.Comments,
+			            taskStatus : data.d.Action_x0020_Taken,
+			            taskAssignedTo : data.d.AssignedTo.Title,
+			            taskCreated : dateOccured
+			        });
+		       
+		        },
+		        error: function (err) {
+		             console.log(JSON.stringify(err));
+	
+		        }
+		    }); 
+     }
+	 
+
+
+}
+
+var arrayRelatedItems=[];
+function GetTaskID()
+{
+  
+	  //itemID=GetParameterValues("itemID");
+		jQuery.ajax({
+	        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('Workflow Tasks')/items?$select=ID,Title,Status,AssignedTo/Title,AssignedTo/Id,RelatedItems,PercentComplete&$expand=AssignedTo&$filter=(AssignedTo/Id eq "+_spPageContextInfo.userId+")",
+	        type: "GET",
+	        async: false,
+	        headers: { "accept": "application/json;odata=verbose"},
+	        success: function (data) {
+	            if (data.d.results) {
+	                $.each(data.d.results,function(key,value){
+	                    relatedItemjson=JSON.parse(value.RelatedItems);
+	                    if(idValue==relatedItemjson[0].ItemId)
+	                    {
+	                    	arrayRelatedItems.push({index:idValue,ID:value.ID,TaskID:value.ID});
+	                    }
+	                });                        
+	
+	            }
+	            GetComments();
+	        },
+	        error: function (err) {
+	            console.log(JSON.stringify(err));
+	        }
+	    });
+
+}
     function GetItemDetails(idValue)
     {
       	var context = new SP.ClientContext();
@@ -307,6 +399,7 @@ $(document).ready(function () {
             } else {
                 comments = "NA";
             }
+			commentsInfo = comments;
             
 	if (oItem.get_item("ManagerComments") != null) {
                 var reg = new RegExp("<div class=\"ExternalClass[0-9A-F]+\">", "");                
@@ -338,13 +431,15 @@ $(document).ready(function () {
             }
      
      if (oItem.get_item("Pending_x0020_with") != null) {
-                if(oItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && oItem.get_item('Status')=="Approved")
-                pendingWith = "No Pending";
+                //if(oItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && oItem.get_item('Status')=="Approved")
+                if(oItem.get_item('Status')=="Approved" ||  oItem.get_item('Status')=="Canceled"){
+              		  pendingWith = "No Pending";
+                }
                 else
                 pendingWith = oItem.get_item('Pending_x0020_with').get_lookupValue();
             }
-	else
-                pendingWith = "NA";
+	    else
+                pendingWith = "No Pending";
 
 	 if (oItem.get_item("Created") != null) {
 	                var dateVariable = oItem.get_item('Created');
@@ -361,8 +456,14 @@ $(document).ready(function () {
                 createdBy = "NA";
             }
        
-        //myReqArrayItems.push({ "Request ID": requestID,"Comments":comments,"CreatedOn": createdOn,"Pending With": pendingWith,"Manager":manager,"Manager Comments":managerComments,"IT Desk":itDeskID,"IT Desk Comments": itDeskComments,"Status": status,"CreatedBy":createdBy});
-        var myReqArrayItems = { "Request ID": requestID,"Comments":comments,"Created On": createdOn,"Pending With": pendingWith,"Manager":manager,"Manager Comments":managerComments,"IT Desk":itDeskID,"IT Desk Comments": itDeskComments,"Status": status,"Created By":createdBy};
+        if (oItem.get_item("Category") != null) {
+                category = oItem.get_item("Category").get_lookupValue();
+            } else {
+                category = "NA";
+            }
+
+        //var myReqArrayItems = { "Request ID": requestID,"Comments":comments,"Created On": createdOn,"Pending With": pendingWith,"Manager":manager,"Manager Comments":managerComments,"IT Desk":itDeskID,"IT Desk Comments": itDeskComments,"Status": status,"Created By":createdBy};
+        var myReqArrayItems = { "Request ID": requestID,"Comments":comments,"Created On": createdOn,"Pending With": pendingWith,"Manager":manager,"Created By":createdBy,"IT Desk":itDeskID,"Status": status,"Category":category};
         
         $.each( myReqArrayItems, function( key, value ) {
 			  arrayFields.push(key);
@@ -376,12 +477,9 @@ $(document).ready(function () {
 			  $(this).text(arrayFieldValues[index]);
 			  
 			});
+			//updateWFHistoryItem();
     }
     
-    function OnFail(sender,args)
-    {
-      console.log(args.get_message());
-    }
     
     
     function FormatDate(dateVariable) {
@@ -418,77 +516,35 @@ $(document).ready(function () {
         return formattedDate = months[month_value] + " " + day_value + " " + twoDigitsCurrentYear + " " + time;
     }
 
-    
-    function DrawWorkFlowHistory() {
-        var currentClientContext = new SP.ClientContext.get_current();
-        var currentWeb = currentClientContext.get_web();
-        var list = currentWeb.get_lists().getByTitle('Workflow History');        
-		//var camlQuery = SP.CamlQuery.createAllItemsQuery();
-		 var camlQuery = new SP.CamlQuery();
-        camlQuery.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'WorkflowInstance\'/>' +
-                                                        '<Value Type=\'Text\'>' + workflowInstanceID + '</Value>' +
-                                                 '</Eq></Where></Query>' +
-                                       '<RowLimit>10</RowLimit></View>');
-	    this.listItems = list.getItems(camlQuery);
-	    currentClientContext.load(listItems);
 
-        currentClientContext.executeQueryAsync(Function.createDelegate(this, this.OnWorkFlowSuccess), Function.createDelegate(this, this.OnWorkFlowFailed));
-}
+   function DrawWorkFlowTasks() {       
 
-function OnWorkFlowSuccess(sender,args)
-{
 		txtHTML = "";
 
         var Header = "<thead>" +
             "<tr>" +
             "<th>Action Taken By</th>" +
             "<th>Action Taken</th>" +
+            "<th>Comments</th>" +
             "<th>Action Taken On</th>" +                       
             "</tr>" +
             "</thead>";
 
         txtHTML += Header;
         txtHTML += "<tbody class='row-border hover order-column dataTable' role='grid'>";        
-        var listEnumerator = listItems.getEnumerator();
         
-        while (listEnumerator.moveNext()) {
-            var currentItem = listEnumerator.get_current();
-            if (currentItem.get_item("User") != null) {
-                userID = currentItem.get_item("User").get_lookupValue();
-            } else {
-                userID = "NA";
-            }
-
-            if (currentItem.get_item("Outcome") != null) {
-                outcome = currentItem.get_item("Outcome");
-            } else {
-                outcome = "NA";
-            }
-            
-			if (currentItem.get_item("Description") != null) {
-                description = currentItem.get_item("Description");
-            } else {
-                description = "NA";
-            }
-              
-            if (currentItem.get_item("Occurred") != null) {
-                dateVariable = currentItem.get_item("Occurred");                    
-			    dateOccured = FormatDate(dateVariable);
-            } else {
-                dateOccured = "NA";
-            }	
-			
-			
-			txtHTML += '<tr>' +   
-			    '<TD>' + userID + '</TD>' +
-			    '<TD>' + description+ '</TD>' +
-			    '<TD>' + dateOccured + '</TD>'; 
-                            
-                
+        
+        for(var i=0;i<taskComments.length;i++) {
+              if(taskComments[i].taskStatus.toLowerCase()!="not started"&&taskComments[i].taskStatus.toLowerCase()!=""){
+		     	txtHTML += '<tr>' +   
+			    '<TD>' + taskComments[i].taskAssignedTo + '</TD>' +
+			    '<TD>' + taskComments[i].taskStatus + '</TD>' +
+			    '<TD>' + taskComments[i].taskComments+ '</TD>' +
+			    '<TD>' + taskComments[i].taskCreated  + '</TD>';
                // '<TD><a onclick="getViewDetails(' + rowID + ')">View</a></TD>';
-            txtHTML += "</tr>";
-
-         }
+                txtHTML += "</tr>";
+            }
+		}
          txtHTML += "</tbody>";
 
         //Bind the HTML data to the Table
@@ -498,8 +554,9 @@ function OnWorkFlowSuccess(sender,args)
             {
                 "columnDefs": [
                     { "targets": [0], "visible": true, "width": "25%" },
-                    { "targets": [1], "visible": true, "width": "50%" },
-                    { "targets": [2], "className": "dt-center","visible": true, "width": "25%" }                    
+                    { "targets": [1], "visible": true, "width": "25%" },
+                    { "targets": [2], "visible": true,"width": "25%" },
+                    { "targets": [3], "className": "dt-center","visible": true, "width": "25%" }                    
                 ]
             }
         );
@@ -508,8 +565,8 @@ function OnWorkFlowSuccess(sender,args)
         $(".sorting_asc").removeClass('sorting_asc').addClass('sorting');
 
 }
-function OnWorkFlowFailed(sender,args){
-  console.log(args.get_message());
-}
+
+
+    
 
 </script>

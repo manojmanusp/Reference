@@ -213,12 +213,21 @@
             }
 
             if (currentItem.get_item('Pending_x0020_with') != null) {
-                if(currentItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && currentItem.get_item('Status')=="Approved")
+                //if(currentItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && (currentItem.get_item('Status')=="Approved" || currentItem.get_item('Status')=="Canceled"))
+                if(currentItem.get_item('Status')=="Approved" || currentItem.get_item('Status')=="Canceled")
                 pendingWith = "No Pending";
                 else
                 pendingWith = currentItem.get_item('Pending_x0020_with').get_lookupValue();
             }
-
+            else{
+                pendingWith = "No Pending";
+            }
+            
+            if(currentItem.get_item('Status').toLowerCase() == "pending with requester")
+            { 
+              pendingWith = currentItem.get_item('RequesterID').get_lookupValue();
+            }
+            
             if (currentItem.get_item('Status') != null) {
                 status = currentItem.get_item('Status');
             } else {
@@ -244,11 +253,20 @@
              
             sNo = i;
             rowID = i - 1;
+            var bindLinkToReqID = '';
+            if(currentItem.get_item('Status').toLowerCase() == "pending with requester")
+            {
+            	bindLinkToReqID = '<a href="javascript:;" onclick="RequestDetails(\''+requestID +'\',\''+itemID +'\')">'+ requestID +'</a>';
+            }
+            else
+            {
+	            bindLinkToReqID = requestID;
+            }
             viewDetailsUrl = _spPageContextInfo.webAbsoluteUrl+"/Pages/ViewDetails.aspx";
             editRequestUrl = _spPageContextInfo.webAbsoluteUrl+"/Pages/EditRequest.aspx";
             txtHTMLMyRequest += '<tr>' +
                 '<TD>' + sNo + '</TD>' +
-                '<TD><a href="javascript:;" onclick="RequestDetails(\''+requestID +'\',\''+itemID +'\')">'+ requestID +'</a></TD>'+                
+                '<TD>'+ bindLinkToReqID +'</TD>'+                
                 '<TD>' + created + '</TD>' +
                 '<TD>' + pendingWith + '</TD>' +
                 '<TD>' + status + '</TD>' +
@@ -325,7 +343,7 @@
         var list = currentWeb.get_lists().getByTitle('ITRequest');
         var camlQuery = new SP.CamlQuery();
         var queryItems = new SP.CamlQuery.createAllItemsQuery();
-        var query = "<View><Query><OrderBy><FieldRef Name='ID' Ascending='false'/></OrderBy><Where><And><Eq><FieldRef Name='Author' LookupId='True' /><Value Type='Lookup'>" + _spPageContextInfo.userId + "</Value></Eq><Neq><FieldRef Name='Status' /><Value Type='Text'>Approved</Value></Neq></And></Where></Query></View>";
+        var query = "<View><Query><OrderBy><FieldRef Name='ID' Ascending='false'/></OrderBy><Where><And><Eq><FieldRef Name='RequesterID' LookupId='True' /><Value Type='Lookup'>" + _spPageContextInfo.userId + "</Value></Eq><And><Neq><FieldRef Name='Status' /><Value Type='Text'>Approved</Value></Neq><Neq><FieldRef Name='Status' /><Value Type='Text'>Canceled</Value></Neq></And></And></Where></Query></View>";
         queryItems.set_viewXml(query);
         listDataPendingApprovals = list.getItems(queryItems);
         currentClientContext.load(listDataPendingApprovals);
@@ -370,11 +388,21 @@
             }
 
             if (currentItem.get_item('Pending_x0020_with') != null) {
-            	if(currentItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && currentItem.get_item('Status')=="Approved")
+                //if(currentItem.get_item('Pending_x0020_with').get_lookupValue()=="ITDesk_Members" && (currentItem.get_item('Status')=="Approved" || currentItem.get_item('Status')=="Canceled"))
+                if(currentItem.get_item('Status')=="Approved" || currentItem.get_item('Status')=="Canceled")
                 pendingWith = "No Pending";
                 else
                 pendingWith = currentItem.get_item('Pending_x0020_with').get_lookupValue();
-            } 
+            }
+            else{
+                pendingWith = "No Pending";
+            }
+            
+            if(currentItem.get_item('Status').toLowerCase() == "pending with requester")
+            { 
+              pendingWith = currentItem.get_item('RequesterID').get_lookupValue();
+            }
+ 
             if (currentItem.get_item('Status') != null) {
                 status = currentItem.get_item('Status');
             } else {
@@ -405,10 +433,19 @@
              }
 
             sNo = i;
+            var bindLinkToReqID = '';
+            if(currentItem.get_item('Status').toLowerCase() == "pending with requester")
+            {
+            	bindLinkToReqID = '<a href="javascript:;" onclick="RequestDetails(\''+requestID +'\',\''+itemID +'\')">'+ requestID +'</a>';
+            }
+            else
+            {
+	            bindLinkToReqID = requestID;
+            }
 
             txtHTMLPendingApprovals += "<tr>" +
                 "<TD>" + sNo + "</TD>" +
-                "<TD>" + requestID + "</TD>" +
+                "<TD>" + bindLinkToReqID + "</TD>" +
                 "<TD>" + created + "</TD>" +
                 "<TD>" + createdBy + "</TD>" +
                 "<TD>" + pendingWith + "</TD>" +

@@ -10,50 +10,50 @@ $(document).ready(function () {
     if ($("#radioGroup input[type='radio']:checked").attr("id").toLowerCase() == "radioself") {
         AddUserToPeoplePicker();
         PopulatePeoplePicker("pplEmployee");
-
+        
 
     }
-
+    
 
     $('.radio').change(function (e) {
-        e.stopImmediatePropagation();
+        e.stopImmediatePropagation(); 
         RemoveUsersFromPeoplePicker("pplEmployee");
         RemoveUsersFromPeoplePicker("pplManagers");
         if ($(this).val() == "Self") {
-
+            
             AddUserToPeoplePicker();
-            PopulatePeoplePicker("pplEmployee");
+            PopulatePeoplePicker("pplEmployee");           
 
         }
-
+        
     });
 
-    $("#submitForm").click(function () {
-        var loginName = JSON.parse($("#pplEmployee_TopSpan_HiddenInput").attr("value"))[0].Key;
-        var userID = "";
-        getUserId(loginName).then(function (result) {
+   $("#submitForm").click(function(){
+       var loginName = JSON.parse($("#pplEmployee_TopSpan_HiddenInput").attr("value"))[0].Key;
+       var userID="";
+       getUserId(loginName).then(function(result) {
             userID = result;
             GetRequestID(userID);
         });
-
-
-    });
-    $("#cancelSubmission").click(function () {
-        window.location.href = _spPageContextInfo.webAbsoluteUrl + "/Pages/newrequest.aspx";
-    });
-
-    $(".heading_title").text($(document).find("title").text().trim());
-    $("#submitForm").attr("disabled", "disabled");
-    $("#submitForm").css({ "color": "rgba(0,0,0,0.38)" });
-
-
-    $("#pplEmployee input:last").blur(function () {
+      
+       
+   });
+   $("#cancelSubmission").click(function(){
+       window.location.href = _spPageContextInfo.webAbsoluteUrl+"/Pages/newrequest.aspx";
+   });
+   
+   $(".heading_title").text($(document).find("title").text().trim());
+   $("#submitForm").attr("disabled","disabled");
+   $("#submitForm").css({"color": "rgba(0,0,0,0.38)"});
+   
+   
+   $("#pplEmployee input:last").blur(function(){
         FormFieldsValidation();
-    });
-
-    $("#pplManagers input:last").blur(function () {
-        FormFieldsValidation();
-    });
+   });
+   
+   $("#pplManagers input:last").blur(function(){
+       FormFieldsValidation();
+   });
 
 });
 
@@ -63,56 +63,57 @@ $(window).on("load", function () {
     //        PopulatePeoplePicker();
     //    }
     //});
-
+    
     $("#leftContainer .sp-peoplepicker-topLevel").addClass("inputCtrlClass");
-
+   
     this.SPClientPeoplePicker.SPClientPeoplePickerDict.pplEmployee_TopSpan.OnUserResolvedClientScript = function (peoplePickerId, selectedUsersInfo) {
-
+        
         if ($("#radioGroup input[type='radio']:checked").attr("id").toLowerCase() == "radioothers") {
-            console.log("pplEmployee reslove is called");
+        console.log("pplEmployee reslove is called");
+            
+             var curUserJSON = JSON.parse($("#pplEmployee_TopSpan_HiddenInput").attr("value"));
 
-            var curUserJSON = JSON.parse($("#pplEmployee_TopSpan_HiddenInput").attr("value"));
+            if(curUserJSON[0] != undefined && curUserJSON[0].Key != "") 
+            {
+            PopulatePeoplePicker("pplEmployee");
+            var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplEmployee_TopSpan"];
+    	    spclientPeoplePicker.SetEnabledState(false);
+    	    $("#pplEmployee a").click(function() {
+              var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplEmployee_TopSpan"];
+    	      spclientPeoplePicker.SetEnabledState(true);
+              RemoveUsersFromPeoplePicker("pplManagers");
+              FormFieldsValidation();
 
-            if (curUserJSON[0] != undefined && curUserJSON[0].Key != "") {
-                PopulatePeoplePicker("pplEmployee");
-                var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplEmployee_TopSpan"];
-                spclientPeoplePicker.SetEnabledState(false);
-                $("#pplEmployee a").click(function () {
-                    var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplEmployee_TopSpan"];
-                    spclientPeoplePicker.SetEnabledState(true);
-                    RemoveUsersFromPeoplePicker("pplManagers");
-                    FormFieldsValidation();
+             });
 
-                });
-
-            }
+    	   }
         }
         FormFieldsValidation();
     };
+      
+     this.SPClientPeoplePicker.SPClientPeoplePickerDict.pplManagers_TopSpan.OnUserResolvedClientScript = function (peoplePickerId, selectedUsersInfo) { 
+     
+              console.log("pplManagers reslove is called");
+	          var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplManagers_TopSpan"];
+	    	      spclientPeoplePicker.SetEnabledState(false);
 
-    this.SPClientPeoplePicker.SPClientPeoplePickerDict.pplManagers_TopSpan.OnUserResolvedClientScript = function (peoplePickerId, selectedUsersInfo) {
-
-        console.log("pplManagers reslove is called");
-        var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplManagers_TopSpan"];
-        spclientPeoplePicker.SetEnabledState(false);
-
-        $("#pplManagers a").click(function () {
-            var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplManagers_TopSpan"];
-            spclientPeoplePicker.SetEnabledState(true);
-            FormFieldsValidation();
-        });
+	            $("#pplManagers a").click(function() {
+	              var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplManagers_TopSpan"];
+	    	      spclientPeoplePicker.SetEnabledState(true);
+	              FormFieldsValidation();
+	             });
         FormFieldsValidation();
+	         
+	   };   
+	   
+	  
 
-    };
-
-
-
-
-    $("#txtRequestDetails").blur(function () {
-        FormFieldsValidation();
-
-    });
-
+   	 	
+	   $("#txtRequestDetails").blur(function(){
+	              FormFieldsValidation();              
+			     
+			   });	   
+	   
 });
 
 
@@ -127,10 +128,10 @@ function initializePeoplePicker(peoplePickerElementId) {
     if (peoplePickerElementId.toLowerCase() == "pplemployee") {
         schema['AllowMultipleValues'] = false;
     }
-    else {
+    else{
         schema['AllowMultipleValues'] = true;
     }
-
+    
     schema['MaximumEntitySuggestions'] = 50;
     schema['Width'] = '280px';
 
@@ -152,7 +153,7 @@ function getUserInfo() {
     var userInfo = '';
     for (var i = 0; i < users.length; i++) {
         var user = users[i];
-        for (var userProperty in user) {
+        for (var userProperty in user) { 
             userInfo += userProperty + ':  ' + user[userProperty] + '<br>';
         }
     }
@@ -173,103 +174,107 @@ function getUserId(loginName) {
     this.user = context.get_web().ensureUser(loginName);
     context.load(this.user);
     context.executeQueryAsync(function ensureUserSuccess() {
-        console.log(user.get_id());
-        deferred.resolve(user.get_id());
-    },
+								    console.log(user.get_id());
+								    deferred.resolve(user.get_id());
+								},
 
-        function onFail(sender, args) {
-            console.log('Query failed. Error: ' + args.get_message());
-            deferred.reject(args.get_message());
-
-        });
-
+								function onFail(sender, args) {
+								    console.log('Query failed. Error: ' + args.get_message());
+								    deferred.reject(args.get_message());
+								
+								} );
+                                
     return deferred.promise();
 }
 
 
 function getManagerFromUserProfile(curUserAccName) {
-    curUserAccName = encodeURIComponent(curUserAccName);
+    curUserAccName = encodeURIComponent(curUserAccName);          
     var requestHeaders = {
         "Accept": "application/json;odata=verbose",
         "X-RequestDigest": $("#__REQUESTDIGEST").val()
     };
-    var urlValue = _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v,propertyName='Manager')?@v='" + curUserAccName + "'";
-    $.ajax({
+    var urlValue = _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v,propertyName='Manager')?@v='" + curUserAccName+"'";
+    $.ajax({        
         url: urlValue,
-        type: "GET",
+        type: "GET", 
         data: {},
         async: false,
         contentType: "application/json;odata=verbose",
         headers: requestHeaders,
         success: function (data) {
             if (data.d.GetUserProfilePropertyFor != null && data.d.GetUserProfilePropertyFor != "") {
-
-                var managerLogin = data.d.GetUserProfilePropertyFor;
-                var managerEmail = managerLogin.split('|')[2];
-                var userField = $("input[class='sp-peoplepicker-editorInput']").get(1);
-                var peoplepicker = SPClientPeoplePicker.PickerObjectFromSubElement(userField);
-                peoplepicker.AddUserKeys(managerEmail);
+               
+               var managerLogin = data.d.GetUserProfilePropertyFor;
+               var managerEmail = managerLogin.split('|')[2];
+               var userField = $("input[class='sp-peoplepicker-editorInput']").get(1);
+               var peoplepicker = SPClientPeoplePicker.PickerObjectFromSubElement(userField);
+               peoplepicker.AddUserKeys(managerEmail);
+        
             }
             else {
-
+               
             }
         },
         error: function (jqxr, errorCode, errorThrown) {
-
+          console.log("error while getting manager using user");
+        
         }
     });
 }
 
 
-function AddUserToPeoplePicker() {
+function AddUserToPeoplePicker()
+{
     var userField = $("input[class='sp-peoplepicker-editorInput']").get(0); // simplified user control search, real word scenario, first search proper row in your form
     var peoplepicker = SPClientPeoplePicker.PickerObjectFromSubElement(userField);
     peoplepicker.AddUserKeys(_spPageContextInfo.userLoginName); // or display name
-    $("#pplEmployee_TopSpan_ResolvedList").find("span[class='sp-peoplepicker-userSpan']").find("a").css("display", "none");
+    $("#pplEmployee_TopSpan_ResolvedList").find("span[class='sp-peoplepicker-userSpan']").find("a").css("display","none");
     var employeePeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplEmployee_TopSpan"];
     employeePeoplePicker.SetEnabledState(false);
 }
 
-function RemoveUsersFromPeoplePicker(peoplePickerId) {
-
-    var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict[peoplePickerId + "_TopSpan"];
-
+function RemoveUsersFromPeoplePicker(peoplePickerId)
+{
+    
+    var spclientPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict[peoplePickerId+"_TopSpan"]; 
+     
     if (spclientPeoplePicker) {
-        spclientPeoplePicker.SetEnabledState(true);
-        var eleId = "#" + peoplePickerId + "_TopSpan_ResolvedList"
-        //Get the Resolved Users list from Client People Picker
-        var ResolvedUsers = $(eleId).find("span[class='sp-peoplepicker-userSpan']");
+    spclientPeoplePicker.SetEnabledState(true);
+    var eleId = "#"+peoplePickerId+"_TopSpan_ResolvedList"
+    //Get the Resolved Users list from Client People Picker
+    var ResolvedUsers = $(eleId).find("span[class='sp-peoplepicker-userSpan']");
 
-        //Clear the Client People Picker
+    //Clear the Client People Picker
 
-        $(ResolvedUsers).each(function (index) {
+    $(ResolvedUsers).each(function (index) {
 
-            spclientPeoplePicker.DeleteProcessedUser(this);
+    spclientPeoplePicker.DeleteProcessedUser(this);
 
-        });
+    });
     }
 }
 
 function PopulatePeoplePicker(peoplePickerId) {
 
-    setTimeout(function () {
+    setTimeout(function() {
         console.log("Populate pplManagers is called");
 
-        var curUserJSON = JSON.parse($("#" + peoplePickerId + "_TopSpan_HiddenInput").attr("value"));
-        //  for(var i=0;i<curUserJSON.length;i++)
-        //	{ 
-        //	  managersColl.push(curUserJSON[i].Key);
-        //	}
-        //	for(var j=0;j<managersColl.length;j++)
-        //	{
-        //	  getManagerFromUserProfile(managersColl[j]);
-        //	}
+        var curUserJSON = JSON.parse($("#"+peoplePickerId+"_TopSpan_HiddenInput").attr("value"));
+      //  for(var i=0;i<curUserJSON.length;i++)
+	//	{ 
+	//	  managersColl.push(curUserJSON[i].Key);
+	//	}
+	//	for(var j=0;j<managersColl.length;j++)
+	//	{
+	//	  getManagerFromUserProfile(managersColl[j]);
+	//	}
         if (curUserJSON[0] != undefined && curUserJSON[0].Key != "") {
             var curUserAccName = curUserJSON[0].Key;
             getManagerFromUserProfile(curUserAccName);
             var managerPeoplePicker = SPClientPeoplePicker.SPClientPeoplePickerDict["pplManagers_TopSpan"];
-            managerPeoplePicker.SetEnabledState(false);
-        }
+   		    managerPeoplePicker.SetEnabledState(false);            
+        }        
 
     }, 2000);
 }
@@ -285,7 +290,7 @@ function GetLastItemId(userID) {
     //var userId = _spPageContextInfo.userId;
     var caml = "<View><Query><Where>"
         + "<Eq><FieldRef Name='Author' LookupId='TRUE' /><Value Type='Integer'>"
-        + userID + "</Value></Eq></Where>"
+        + userID  + "</Value></Eq></Where>"
         + "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>"
         + "</Query><RowLimit>1</RowLimit></View>";
     var ctx = SP.ClientContext.get_current()
@@ -315,7 +320,7 @@ function GetLastItemId(userID) {
     }, function () {
         //failure handling comes here
         alert("failed");
-    });
+        });
     return deferred.promise();
 }
 var requestID = "";
@@ -328,16 +333,16 @@ function GetRequestID(userID) {
         var employeeID = "";
         var curUserManagerJSON = JSON.parse($("#pplManagers_TopSpan_HiddenInput").attr("value"))[0].Key;
         var curUserEmployeeJSON = JSON.parse($("#pplManagers_TopSpan_HiddenInput").attr("value"))[0].Key;
-        getUserId(curUserManagerJSON).then(function (result) {
-            managerID = result;
-            getUserId(curUserEmployeeJSON).then(function (result) {
-                employeeID = result;
-                AddItemToList(managerID, employeeID);
-            });
-        });
-
+	    getUserId(curUserManagerJSON).then(function(result) {
+	            managerID= result; 
+				getUserId(curUserEmployeeJSON).then(function(result) {
+				            employeeID= result; 
+				            AddItemToList(managerID,employeeID);          
+				        });  
+	        });
+                
     });
-
+    
 }
 
 function formatDate(paramDate) {
@@ -358,7 +363,7 @@ function formatDate(paramDate) {
 
 
 
-function AddItemToList(managerID, employeeID) {
+function AddItemToList(managerID,employeeID) {
     var requestForValue = $("#radioGroup input:radio:checked").first().parent().text().trim();
     var context = new SP.ClientContext();
     var list = context.get_web().get_lists().getByTitle('ITRequest');
@@ -374,7 +379,7 @@ function AddItemToList(managerID, employeeID) {
     if (requestForValue == "Self") {
         listItem.set_item("RequesterID", _spPageContextInfo.userId);
     }
-    else {
+    else{
         listItem.set_item("RequesterID", employeeID);
     }
     /*else {
@@ -395,85 +400,122 @@ function AddItemToList(managerID, employeeID) {
 
 
 
-function RequestDetailsValidation() {
+function RequestDetailsValidation()
+{
 
-    var error = 0;
+	var error = 0;
     var name = $("#txtRequestDetails").val();
 
     var regex_length = /^[A-Za-z0-9]{3,255}$/;
 
-    if (!regex_length.test(name)) {
+    if(!regex_length.test(name)){
         error = 1;
         //alert("Name should be between 3-6 characters");
     }
-    else { }
+    else{}
 
-    if (error) {
+    if(error){
         return false;
-    } else {
+    }else{
         return true;
     }
 }
 
 
-function FormFieldsValidation() {
-    var validationStatus = RequestDetailsValidation();
-    var curUserJSON = JSON.parse($("#pplEmployee_TopSpan_HiddenInput").attr("value"));
-    if ($("#pplManagers_TopSpan_HiddenInput").attr("value") != undefined) {
-        var curManagersJSON = JSON.parse($("#pplManagers_TopSpan_HiddenInput").attr("value"));
-        if (validationStatus) {
-            $("#errMsgRequestId").remove();
-            if ((curUserJSON[0] != undefined && curUserJSON[0].Key != "") && (curManagersJSON[0] != undefined && curManagersJSON[0].Key != "")) {
-                $("#submitForm").removeAttr("disabled", "disabled");
-                $("#submitForm").css({ "color": "rgba(255, 255, 255, 0.87)" });
-
-            }
-            else {
-                $("#submitForm").attr("disabled", "disabled");
-                $("#submitForm").css({ "color": "rgba(0,0,0,0.38)" });
-
-            }
-
-        }
-        else {
-            $("#submitForm").attr("disabled", "disabled");
-            $("#submitForm").css({ "color": "rgba(0,0,0,0.38)" });
-            if ($("#requestDetailsDiv #errMsgRequestId").length == 0) {
-                $("#requestDetailsDiv").append("<label id='errMsgRequestId'>Must in between 3 to 255 characters</label>");
-            }
-            else {
-                $("#errMsgRequestId").remove();
-            }
-
-        }
-
-        if (curManagersJSON[0].Key == undefined && curManagersJSON[0].Key == "") {
-            if ($("#ManagersDiv #errMsgManagers").length == 0) {
-                $("#ManagersDiv").append("<label id='errMsgManagers'>Please enter a manager</label>");
-            }
-            else {
-                $("#errMsgManagers").remove();
-
-            }
-
-        }
-        else {
-            $("#errMsgManagers").remove();
-        }
-
+function validateEmployeePeoplePicker(curUser)
+{
+  if(curUser != undefined){
+    if(curUser.IsResolved){
+      $("#errMsgEmployee").hide();
     }
-    else {}
+    else{
+	     $("#errMsgEmployee").text("Please enter a valid employee");
+	     $("#errMsgEmployee").show();
 
-    if (curUserJSON[0].Key == undefined && curUserJSON[0].Key == "") {
-        if ($("#EmployeeDiv #errMsgEmployee").length == 0) {
-            $("#EmployeeDiv").append("<label id='errMsgEmployee'>Please enter a employee</label>");
-        }
-        else {
-            $("#errMsgEmployee").remove();
-        }
+	   }
+  }
+  else
+	{ 
+	  $("#errMsgEmployee").text("Please enter a employee");
+	  $("#errMsgEmployee").show();
+    	     
+	}
+    
+}
+
+
+function validateManagerPeoplePicker(curManager)
+{
+   if(curManager != undefined){
+	   if(curManager.IsResolved){
+	     $("#errMsgManagers").hide();
+	   }
+	   else{
+	     $("#errMsgManagers").text("Please enter a valid manager");
+	     $("#errMsgManagers").show();
+
+	   }
+   }
+   else
+    { 	           
+      $("#errMsgManagers").text("Please enter a manager");
+      $("#errMsgManagers").show();
     }
-    else {
-        $("#errMsgEmployee").remove();
-    }
+    
+}
+
+function FormFieldsValidation()
+{
+      var validationStatus = RequestDetailsValidation();
+	  var curUserJSON = JSON.parse($("#pplEmployee_TopSpan_HiddenInput").attr("value"));
+	    if($("#pplManagers_TopSpan_HiddenInput").attr("value") !=undefined)
+	    {
+		      var curManagersJSON = JSON.parse($("#pplManagers_TopSpan_HiddenInput").attr("value"));
+		      if(validationStatus)
+		      {
+		           $("#errMsgRequestId").hide();
+		           if(curUserJSON[0] != undefined && curManagersJSON[0] != undefined)
+			        {
+			          if(curUserJSON[0].IsResolved && curManagersJSON[0].IsResolved)
+			          {
+			            $("#submitForm").removeAttr("disabled","disabled");
+			            $("#submitForm").css({"color": "rgba(255, 255, 255, 0.87)"});  
+			          }
+			          else if(!curUserJSON[0].IsResolved)
+			          {
+			            $("#errMsgEmployee").text("Please enter a valid employee");
+	                    $("#errMsgEmployee").show();
+
+			          }		
+			          else
+			          {
+				         $("#errMsgManagers").text("Please enter a valid manager");
+	                     $("#errMsgManagers").show();
+
+			          }	          
+			          
+			        }   
+			        else
+		          	{ 
+		          	  $("#submitForm").attr("disabled","disabled");
+		              $("#submitForm").css({"color": "rgba(0,0,0,0.38)"});
+		             
+		            }
+		
+			  }
+			  else
+			  { 
+		        $("#submitForm").attr("disabled","disabled");	        
+		        $("#submitForm").css({"color": "rgba(0,0,0,0.38)"});
+		        $("#errMsgRequestId").text("Must be in between 3 to 255 characters");
+		        $("#errMsgRequestId").show();	              
+	            
+			  }
+		      
+		       validateManagerPeoplePicker(curManagersJSON[0]);
+
+	   }
+		    
+	  validateEmployeePeoplePicker(curUserJSON[0]);
 
 }

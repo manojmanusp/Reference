@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images" Url="Style Library/iAccess">
+    <File Path="Images\AVD_help.jpg" Url="Images/AVD_help.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\avd_logo.png" Url="Images/avd_logo.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\avd_plus.jpg" Url="Images/avd_plus.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\breadcrumb_arrow.png" Url="Images/breadcrumb_arrow.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\dropkpi.gif" Url="Images/dropkpi.gif" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\dr-reddy-logo.png" Url="Images/dr-reddy-logo.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\header_bg.jpg" Url="Images/header_bg.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\heading_bullet.jpg" Url="Images/heading_bullet.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\icon_calendar.jpg" Url="Images/icon_calendar.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\icon_home.jpg" Url="Images/icon_home.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\icon_home.png" Url="Images/icon_home.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\icon_taskitem_details.jpg" Url="Images/icon_taskitem_details.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\icon_tasklist.jpg" Url="Images/icon_tasklist.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\menu-down.gif" Url="Images/menu-down.gif" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\menu-down.png" Url="Images/menu-down.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\Offboarding.png" Url="Images/Offboarding.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\Picture1.png" Url="Images/Picture1.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\plus.jpg" Url="Images/plus.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\Search_Arrow.jpg" Url="Images/Search_Arrow.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\Search_Arrow_RTL.jpg" Url="Images/Search_Arrow_RTL.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\settingsIcon.png" Url="Images/settingsIcon.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\spintl.png" Url="Images/spintl.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\spcommon.png" Url="Images/spcommon.png" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Images\TillidLogo.png" Url="Images/TillidLogo.png" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+    <File Path="Images\text.png" Url="Images/text.png" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+    <File Path="Module-DesignFiles\Images\favicon.png" Url="Module-DesignFiles/Images/favicon.png" />
+    <File Path="Module-DesignFiles\Images\header_bg.jpg" Url="Module-DesignFiles/Images/header_bg.jpg" />
+    <File Path="Module-DesignFiles\Images\heading_bullet.jpg" Url="Module-DesignFiles/Images/heading_bullet.jpg" />
+    <File Path="Module-DesignFiles\Images\help-icon.png" Url="Module-DesignFiles/Images/help-icon.png" />
+    <File Path="Module-DesignFiles\Images\iacess.jpg" Url="Module-DesignFiles/Images/iacess.jpg" />
+    <File Path="Module-DesignFiles\Images\icon_calendar.jpg" Url="Module-DesignFiles/Images/icon_calendar.jpg" />
+    <File Path="Module-DesignFiles\Images\icon_home.jpg" Url="Module-DesignFiles/Images/icon_home.jpg" />
+    <File Path="Module-DesignFiles\Images\icon_home.png" Url="Module-DesignFiles/Images/icon_home.png" />
+    <File Path="Module-DesignFiles\Images\icon_taskitem_details.jpg" Url="Module-DesignFiles/Images/icon_taskitem_details.jpg" />
+    <File Path="Module-DesignFiles\Images\icon_tasklist.jpg" Url="Module-DesignFiles/Images/icon_tasklist.jpg" />
+    <File Path="Module-DesignFiles\Images\left-pattern.png" Url="Module-DesignFiles/Images/left-pattern.png" />
+    <File Path="Module-DesignFiles\Images\logo.jpg" Url="Module-DesignFiles/Images/logo.jpg" />
+    <File Path="Module-DesignFiles\Images\mail-icon.png" Url="Module-DesignFiles/Images/mail-icon.png" />
+    <File Path="Module-DesignFiles\Images\menu-down.gif" Url="Module-DesignFiles/Images/menu-down.gif" />
+    <File Path="Module-DesignFiles\Images\menu-down.png" Url="Module-DesignFiles/Images/menu-down.png" />
+    <File Path="Module-DesignFiles\Images\notification-icon.png" Url="Module-DesignFiles/Images/notification-icon.png" />
+    <File Path="Module-DesignFiles\Images\Offboarding.png" Url="Module-DesignFiles/Images/Offboarding.png" />
+    <File Path="Module-DesignFiles\Images\Picture1.png" Url="Module-DesignFiles/Images/Picture1.png" />
+    <File Path="Module-DesignFiles\Images\plus.jpg" Url="Module-DesignFiles/Images/plus.jpg" />
+    <File Path="Module-DesignFiles\Images\project-icon.png" Url="Module-DesignFiles/Images/project-icon.png" />
+    <File Path="Module-DesignFiles\Images\report-icon.png" Url="Module-DesignFiles/Images/report-icon.png" />
+    <File Path="Module-DesignFiles\Images\right-pattern.png" Url="Module-DesignFiles/Images/right-pattern.png" />
+    <File Path="Module-DesignFiles\Images\Search_Arrow.jpg" Url="Module-DesignFiles/Images/Search_Arrow.jpg" />
+    <File Path="Module-DesignFiles\Images\Search_Arrow_RTL.jpg" Url="Module-DesignFiles/Images/Search_Arrow_RTL.jpg" />
+    <File Path="Module-DesignFiles\Images\search-icon.png" Url="Module-DesignFiles/Images/search-icon.png" />
+    <File Path="Module-DesignFiles\Images\settingsIcon.png" Url="Module-DesignFiles/Images/settingsIcon.png" />
+  </Module>
+</Elements>

@@ -1,0 +1,115 @@
+﻿.paraClose {    
+    text-align: right;
+    padding-right: 38px;
+
+}
+
+#workflowHistory {
+    font-size: 20px;
+}
+.paraHeading {
+        text-align:left;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+.divRow{
+	align-items: start;
+}
+label.fieldLbl {
+    color: #333;
+    margin-right: 51px;
+    font-weight: bold;
+    
+}
+label.fieldValueLbl {
+  color: indigo;   
+  white-space:normal !important; 
+}
+.divField{
+	float:left;
+	width:28%;
+}
+
+.divFieldValue{
+	
+	float:left;
+	width:72%;
+	    position: relative;
+}
+
+label.fieldLbl, .fieldValueLbl {
+    position: relative!important;
+}
+
+div#divWorkflowHistory {
+    margin-top: 5%;
+    width: 93%;
+    margin: 20px auto 48px auto;
+    padding: 15px;
+}
+.viewdetailscontainer{
+	 width: 93%;
+	padding: 15px 20px;
+	margin: 20px auto 20px auto;
+}
+
+.viewdetailscontainer .divRow {
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+}
+.viewdetailscontainer .divRow .firstchild {
+    border-top: 1px solid #CCC;
+}
+.viewdetailscontainer .divRow {
+    border-right: 1px solid #CCC;
+}
+#idworkflowHistory_filter + table.dataTable.cell-border tbody tr td:first-child {
+    border-left: none;
+}
+.viewdetailscontainer .divRow .width-90 {
+    width: 100%;
+    padding: 0px 15px;
+}
+.viewdetailscontainer .divFieldValue:before {
+    content: ':';
+    padding-right: 20px;
+    color: #828282;
+	position: absolute;
+    left: -10px;
+}
+.viewdetailscontainer .divFieldValue label.fieldValueLbl {
+	color:#000;
+}
+#idworkflowHistory_wrapper {
+	padding:0px;
+}
+.viewdetailscontainer  .divRow {
+    align-items: start;
+}
+.viewdetailscontainer .divRow .layout-column:nth-child(even){
+	border-left:1px solid #CCC;
+}
+
+.radioApproval {
+    padding-left: -44px;
+    margin-left: 98px;
+}
+
+md-radio-group {
+    text-align: left;
+    padding-left: 67px;
+}
+
+p#idApprovalRequest {    
+    font-size: 20px;
+    text-align: left;
+	padding-left: 10px;
+}
+
+th.sorting {
+    text-align: left;   
+    border-left: 1px solid #dddddd;
+}

@@ -1,0 +1,24 @@
+﻿ md-input-container.width-90.select.md-input-has-value {
+    margin-top: 5px;
+}
+md-input-container._md-datepicker-floating-label._md-datepicker-has-calendar-icon {
+    margin-top: 30px;
+}
+
+  md-input-container.category {
+    margin-top: 37px !important;
+  }
+  md-input-container.width-90.searchBtn {
+    text-align: right;
+  }
+  table#searchTable {
+    border: 0px;
+    border-right: 1px solid #dddddd !important;
+
+  }
+  th.sorting {
+    border-left: 1px solid #dddddd;
+  }
+  td {
+    border-left: 1px solid #dddddd;
+  }

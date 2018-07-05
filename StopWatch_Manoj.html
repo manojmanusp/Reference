@@ -1,0 +1,197 @@
+<div class="wrapper">
+    <h1>Stopwatch</h1>
+
+    <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
+    <button id="button-start">Start</button>
+    <button id="button-stop">Stop</button>
+    <button id="button-reset">Reset</button>
+</div>
+<style>
+    /* Variabes */
+    $orange: #ffa600; $grey:#f3f3f3; $white: #fff; $base-color:$orange;
+    /* Mixin's */
+    @mixin transition {
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    /* @mixin corners ($radius) {
+        -moz-border-radius: $radius;
+        -webkit-border-radius: $radius;
+        border-radius: $radius;
+        -khtml-border-radius: $radius;
+    }*/
+    body {
+        background: white;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        height: 100%;
+    }
+
+    .wrapper {
+        width: 800px;
+        margin: 30px auto;
+        color: $white;
+        text-align: center;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        font-size: 2.6em;
+        text-transform: uppercase;
+    }
+
+    #seconds, #tens {
+        font-size: 2em;
+    }
+
+    button {
+        /*@include corners (5px);*/
+        background: yellow;
+        color: black;
+        border: solid 1px $white;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1.2em;
+        padding: 18px 10px;
+        width: 180px;
+        margin: 10px;
+        outline: none;
+        /* hover{
+       @include transition;
+        background: $white;
+        border: solid 1px $white;
+        color: white;*/
+    }
+</style>
+<script type="text/javascript">
+    var appendHours = "";
+    var appendMinutes = "";
+    var appendSecond = "";
+    var hours = 00;
+    var minutes = 00;
+    var seconds = 00;
+    var firstCall = "true";
+    var totalCount = 0;
+
+    window.onload = function () {
+        appendHours = document.getElementById("hours")
+        appendMinutes = document.getElementById("minutes")
+        appendSeconds = document.getElementById("seconds")
+        var buttonStart = document.getElementById('button-start');
+        var buttonStop = document.getElementById('button-stop');
+        var buttonReset = document.getElementById('button-reset');
+        var Interval;
+        buttonStart.onclick = function () {
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 1000);
+        }
+        buttonStop.onclick = function () {
+            clearInterval(Interval);
+        }
+        buttonReset.onclick = function () {
+            clearInterval(Interval);
+            hours = "00";
+            minutes = "00";
+            seconds = "00";
+            appendHours.innerHTML = hours;
+            appendMinutes.innerHTML = minutes;
+            appendSeconds.innerHTML = seconds;
+        }
+    }
+    function startTimer() {
+        //if (firstCall == "true") {
+
+
+        if (seconds == 00) {
+
+            setTimeout(CallMinutes, 59000);
+            console.log("minutes called");
+            
+            
+        }
+        //}
+        seconds++;
+        console.log("seconds");
+        if (seconds <= 9) {
+            appendSeconds.innerHTML = "0" + seconds;
+        }
+        if (seconds > 9 && seconds <= 59) {
+            appendSeconds.innerHTML = seconds;
+            //if (seconds == 59) {
+            //    seconds = 00;
+            //}
+        }
+        if (seconds == 60) {
+            totalCount += seconds;
+            seconds = 00;
+            appendSeconds.innerHTML = "0" + seconds;
+            
+        }
+        //if (seconds == 60) {
+
+
+        //}
+        //if (seconds > 60) {
+        //
+        //}
+        firstCall = "false"
+    }
+    function CallMinutes() {
+        //seconds = "00";
+        //appendSeconds.innerHTML = seconds;
+        //setInterval(startTimer, 1000);
+        //if (minutes == "00") { setInterval(CallHours, 3600000); }
+        if (minutes == 00) {
+            //setTimeout(CallHours, 3540000);
+            setTimeout(CallHours, 3599000);
+            console.log("hours called");
+        }
+        appendMinutes.innerHTML = minutes;
+        minutes++;
+        console.log("minutes");
+        if (minutes <= 9) {
+            appendMinutes.innerHTML = "0" + minutes;
+        }
+        if (minutes > 9 && minutes <= 59) {
+            appendMinutes.innerHTML = minutes;
+            if (minutes == 59) {
+                minutes = 00;
+            }
+        }
+        if (minutes == 60) {
+            minutes = 00;
+            appendMinutes.innerHTML = "0" + minutes;
+            
+
+        }
+        //if (minutes > 60) {
+
+        //}
+    }
+    function CallHours() {
+        //minutes = "00";
+        //appendMinutes.innerHTML = minutes;
+        //setTimeout(CallMinutes, 60000);
+        //appendMinutes.innerHTML = minutes;
+        //setInterval(startTimer, 1000);
+        hours++;
+        console.log("hours");
+        if (hours <= 9) {
+            appendHours.innerHTML = "0" + hours;
+        }
+        if (hours > 9 && hours <= 23) {
+            appendHours.innerHTML = hours;
+        }
+        if (hours == 24) {
+
+            hours = 00;
+            minutes = 00;
+            seconds = 00;
+            appendHours.innerHTML = "00";
+            appendMinutes.innerHTML = "00";
+            appendSeconds.innerHTML = "00";
+
+        }
+    }
+</script>

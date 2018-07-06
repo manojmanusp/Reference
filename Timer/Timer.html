@@ -48,6 +48,41 @@
         letter-spacing: 2px;
         margin: 200px 0 0;
     }
+    text {
+        font-size: 46px;
+        letter-spacing: 2px;
+        margin: 200px 0 0;
+    }
+
+    /*For circle animation */
+    .item {
+        position: relative;
+        text-align: right;
+        padding-right: 33%;
+        margin-bottom: 25px;
+    }
+
+        .item h2 {
+            text-align: center;
+            position: absolute;
+            line-height: 125px;
+            width: 100%;
+
+        }
+
+    svg {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .circle_animation {
+        stroke-dasharray: 440; /* this value is the pixel circumference of the circle */
+        stroke-dashoffset: 440;
+        transition: all 1s linear;
+    }
+    .btnDiv{
+        padding-top:100px;
+    }
 </style>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -56,54 +91,182 @@
     <title></title>
 </head>
 <body>
-    <h2><time>00:00:00</time></h2>
-    <button id="start">START</button>
-    <button id="stop">STOP</button>
-    <button id="clear">RESET</button>
+    <h2 id="timer">00 : 00</h2>
+    <div class="item html">
+        
+        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <title>Layer 1</title>
+                <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="5" stroke="#6fdb6f" fill="none" />
+                <text x="50%" y="50%" text-anchor="middle" fill="white" dy=".3em"></text>
+            </g>
+        </svg>
+    </div>
+    <div class="btnDiv">
+        <input type="button" id="start" value="Punch-In" />
+        <input type="button" id="stop" value="Punch-Out" />
+        
+    </div>
+
 </body>
 </html>
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
 <script type="text/javascript">
-    var h1 = document.getElementsByTagName('h2')[0],
-        start = document.getElementById('start'),
+    //var h1 = document.getElementsById('time'),
+    var start = document.getElementById('start'),
         stop = document.getElementById('stop'),
         clear = document.getElementById('clear'),
-        seconds = 0, minutes = 0, hours = 0,
-        t;
+        sec = 0, min = 0, hour = 0,
+        clockTime, circle;
+    var time = 60;
+    var initialOffset = '440';
+    var i = 1;
+    var totalCount = 0;
+    var totalTime = 0;
+    var punch_in_date = "";
+    var punch_in_time = "";
+    var punch_out_date = "";
+    var punch_out_time = "";
 
     function add() {
-        seconds++;
-        if (seconds >= 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes >= 60) {
-                minutes = 0;
-                hours++;
-            }
+        if (sec == 2) {
+            $('.circle_animation').css('stroke-dashoffset', initialOffset - (1 * (initialOffset / time)));
         }
-
-        h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
-
-        timer();
+       
+       
+        sec++;        
+        
+        $('.circle_animation').css('stroke-dashoffset', initialOffset - ((sec + 1) * (initialOffset / time)));
+        if (sec == 60) {
+            totalCount += sec;
+            sec = 0; min = min + 1;
+        }
+        else {
+            min = min;
+        }
+        if (min == 60) {
+            min = 0; hour += 1;
+        }
+        if (sec <= 9) {
+            sec = "0" + sec;
+        }
+        //h1.textContent = ((hour <= 9) ? "0" + hour : hour) + " : " + ((min <= 9) ? "0" + min : min);
+        $('h2#timer').text(((hour <= 9) ? "0" + hour : hour) + " : " + ((min <= 9) ? "0" + min : min));
+        //+ " : " + sec
+        if (sec == 0) {
+            $('text').text("00");
+        }
+        else {
+            $('text').text(sec);
+        }
+        //timer();
     }
     function timer() {
-        t = setTimeout(add, 1000);
+        clockTime = setInterval(add, 1000);
+
     }
     //timer();
 
 
     /* Start button */
-    start.onclick = timer;
+    start.onclick = function () {   
+        var punchInDate = new Date();
+        var newFormattedDate = FormatDate(punchInDate);
+        punch_in_time = newFormattedDate[1];
+        
+        punch_in_date = newFormattedDate[0];
+        console.log("Punch in time : "+punch_in_time);
+
+        console.log("Punch in Date : " +punch_in_date);
+        
+        timer();
+    }
 
     /* Stop button */
     stop.onclick = function () {
-        clearTimeout(t);
+        console.log("Total Count in seconds : "+totalCount);
+        totalTime = SecondsToHoursMinutes(totalCount);
+        console.log("Punched total time : "+totalTime);
+        var punchOutDate = new Date();
+        var newFormattedDate = FormatDate(punchOutDate);
+        punch_out_time = newFormattedDate[1];
+
+        punch_out_date = newFormattedDate[0];
+        console.log("Punch out time : " +punch_out_time);
+
+        console.log("Punch Out Date : " + punch_out_date);
+        clearInterval(clockTime);
+        $('h2#timer').text("00 : 00");
+        $('text').text("00");
+        sec = 0; min = 0; hour = 0;
+        $('.circle_animation').css('stroke-dashoffset', '');
+        //$('.circle_animation').css('stroke-dasharray', '');
+       
+       // clearInterval(clockTime);        
     }
 
     /* Clear button */
-    clear.onclick = function () {
-        h1.textContent = "00:00:00";
-        seconds = 0; minutes = 0; hours = 0;
+    //clear.onclick = function () {
+        
+    //    $('h2#timer').text("00 : 00");
+    //    $('text').text("00");
+    //    $('.circle_animation').css('stroke-dashoffset', '');
+        
+        
+    //   // sec = 0; min = 0; hour = 0;
+    //}
+
+
+    function FormatDate(dateVariable) {
+
+        var month = dateVariable.getMonth() + 1;
+        var date = dateVariable.getDate();
+        var fullYear = dateVariable.getFullYear();
+        var hours = dateVariable.getHours();
+        var minutes = dateVariable.getMinutes();
+        var date_value = month + "/" + date + "/" + fullYear + " " + hours + ":" + minutes;
+        var months = new Array(12);
+        months[0] = "Jan";
+        months[1] = "Feb";
+        months[2] = "Mar";
+        months[3] = "Apr";
+        months[4] = "May";
+        months[5] = "Jun";
+        months[6] = "Jul";
+        months[7] = "Aug";
+        months[8] = "Sep";
+        months[9] = "Oct";
+        months[10] = "Nov";
+        months[11] = "Dec";
+        var current_date = new Date(date_value);
+        month_value = current_date.getMonth();
+        day_value = current_date.getDate();
+        if (day_value < 10) {
+            day_value = '0' + day_value;
+        }
+
+        var twoDigitsCurrentYear = parseInt(new Date().getFullYear().toString().substr(2, 2));
+        var time = current_date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
+        return [formattedDate = months[month_value] + " " + day_value + " " + twoDigitsCurrentYear, time];
     }
 
+    function SecondsToHoursMinutes(totalCount) {
+
+        var hours = Math.floor(totalCount / 3600);
+        time -= hours * 3600;
+
+        var minutes = Math.floor(totalCount / 60);
+        time -= minutes * 60;
+
+        var seconds = parseInt(totalCount % 60, 10);
+
+        var changedTime = hours + ':' + (minutes < 10 ? '0' + minutes : minutes);
+
+        
+        return changedTime;
+
+        //console.log(hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+    }
 </script>
